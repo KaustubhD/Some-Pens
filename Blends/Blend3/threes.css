@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: space-between;
+  background-color: #d9ece5;
+  flex-direction: column;
+}
+.container h2 {
+  text-align: center;
+  font-family: Roboto Condensed, Verdana, sans-serif;
+  color: #323232;
+}
+.container .wrapper {
+  position: relative;
+  height: 450px;
+  width: 450px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.2), 0 5px 15px 3px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 200ms ease-in-out;
+}
+.container .wrapper .main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(421H.jpg);
+  background-position: center 30%;
+  background-size: 250%;
+  background-blend-mode: screen;
+  mix-blend-mode: darken;
+  transition: 200ms ease-in-out;
+}
+.container .wrapper .--r {
+  background-color: red;
+  transform: translate(-3px, -3px);
+}
+.container .wrapper .--b {
+  background-color: blue;
+  transform: translate(0px, -3px);
+}
+.container .wrapper .--g {
+  background-color: green;
+  transform: translate(3px, 3px);
+}
+.container .wrapper:hover {
+  box-shadow: 0 0px 5px 0px rgba(0, 0, 0, 0.8), 0 5px 10px 1px rgba(0, 0, 0, 0.35);
+}
+.container .wrapper:hover .main {
+  transform: translate(0px);
+}
+
+/*# sourceMappingURL=threes.css.map */

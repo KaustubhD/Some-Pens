@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:800')
+
+*
+  box-sizing: border-box
+  font-family: Montserrat
+
+body
+  margin: 0
+
+.container
+  position: relative
+  height: 100vh
+  width: 100vw
+  text-align: center
+
+  .wrapper
+    position: relative
+    display: inline-block
+    height: 100%
+    width: 80%
+    // text-align: center
+    
+    .img-container
+      position: relative
+      height: 100%
+      width: 100%
+      overflow: hidden
+
+      .img
+        position: absolute
+        top: 0
+        left: 0
+        height: 135%
+        width: 135%
+        // background:
+        //   image: url(../includes/pexels-photo-189532.jpeg)
+        //   position:
+        //     x: 70%
+        //     y: top
+        //   size: cover
+    
+    .text-container
+      position: absolute
+      top: 0
+      left: 0
+      font-size: 7em
+      color: rgba(225, 30, 80, 0.5)
+      mask: url('#mask1')

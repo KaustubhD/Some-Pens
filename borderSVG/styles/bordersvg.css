@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@font-face {
+  font-family: "fontt";
+  src: url(../fonts/fontt.otf) format("opentype");
+  font-weight: 400;
+}
+html, body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 19px;
+  color: #e74c3c;
+  background-color: #3F51B5;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+.container h1 {
+  margin-bottom: 0;
+  font-family: Cabin;
+  font-size: 40px;
+  color: #bdc3c7;
+  letter-spacing: 2px;
+}
+.container .wraps {
+  position: relative;
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+.container .wraps .box-wrap {
+  position: relative;
+  height: 350px;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 3px #3F51B5;
+  transition: background-color 500ms ease;
+}
+.container .wraps .box-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container .wraps .box-wrap svg line {
+  fill: none;
+  stroke-width: 3;
+  stroke: #fff;
+  transition: all 800ms ease-in-out;
+}
+.container .wraps .box-wrap svg line.top {
+  stroke-dasharray: 400 400;
+}
+.container .wraps .box-wrap svg line.right {
+  stroke-dasharray: 400 300;
+}
+.container .wraps .box-wrap svg line.left {
+  stroke-dasharray: 400 400;
+}
+.container .wraps .box-wrap svg line.bottom {
+  stroke-dasharray: 400 350;
+}
+.container .wraps .box-wrap .main-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: fontt;
+  font-size: 100px;
+  color: #3F51B5;
+  line-height: 2;
+  transition: color 500ms ease;
+}
+.container .wraps .box-wrap .sub-text {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  color: #3F51B5;
+  text-align: center;
+  transition: color 800ms ease 200ms;
+}
+.container .wraps .box-wrap:hover {
+  background-color: #3F51B5;
+}
+.container .wraps .box-wrap:hover .main-text, .container .wraps .box-wrap:hover .sub-text {
+  color: #fff;
+}
+.container .wraps .box-wrap:hover .top {
+  transform: translateX(-800px);
+}
+.container .wraps .box-wrap:hover .right {
+  transform: translateY(-750px);
+}
+.container .wraps .box-wrap:hover .left {
+  transform: translateY(750px);
+}
+.container .wraps .box-wrap:hover .bottom {
+  transform: translateX(800px);
+}
+.container .w2 .box-wrap {
+  position: relative;
+  height: 350px;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: inset 0 0 0 3px #3F51B5;
+  transition: background-color 300ms ease;
+}
+.container .w2 .box-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container .w2 .box-wrap svg line {
+  fill: none;
+  stroke-width: 3;
+  stroke: #fff;
+  transition: all 800ms ease-in-out 150ms;
+}
+.container .w2 .box-wrap svg line.top {
+  stroke-dasharray: 400 400;
+}
+.container .w2 .box-wrap svg line.right {
+  stroke-dasharray: 400 300;
+}
+.container .w2 .box-wrap svg line.left {
+  stroke-dasharray: 400 400;
+}
+.container .w2 .box-wrap svg line.bottom {
+  stroke-dasharray: 400 350;
+}
+.container .w2 .box-wrap .main-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: fontt;
+  font-size: 100px;
+  color: #3F51B5;
+  line-height: 2;
+  transition: color 500ms ease;
+}
+.container .w2 .box-wrap .sub-text {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  color: #3F51B5;
+  text-align: center;
+  transition: all 800ms ease 200ms;
+}
+.container .w2 .box-wrap:hover {
+  background-color: #3F51B5;
+}
+.container .w2 .box-wrap:hover .main-text, .container .w2 .box-wrap:hover .sub-text {
+  color: #D4E157;
+}
+.container .w2 .box-wrap:hover .sub-text {
+  transform: scale(1.2);
+}
+.container .w2 .box-wrap:hover line {
+  stroke-width: 10;
+  stroke: #D4E157;
+}
+.container .w2 .box-wrap:hover .top {
+  transform: translateX(-800px);
+}
+.container .w2 .box-wrap:hover .right {
+  transform: translateY(-750px);
+}
+.container .w2 .box-wrap:hover .left {
+  transform: translateY(750px);
+}
+.container .w2 .box-wrap:hover .bottom {
+  transform: translateX(800px);
+}
+.container .w3 .box-wrap {
+  background-color: #3F51B5;
+}
+.container .w3 .box-wrap .main-text, .container .w3 .box-wrap .sub-text {
+  color: #fff;
+}
+.container .w3 .box-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container .w3 .box-wrap svg line {
+  stroke-width: 13;
+  transition: all 500ms ease-in-out 150ms;
+}
+.container .w3 .box-wrap svg line.top {
+  stroke-dasharray: 250 200;
+}
+.container .w3 .box-wrap svg line.right {
+  stroke-dasharray: 350 300;
+}
+.container .w3 .box-wrap svg line.left {
+  stroke-dasharray: 350 300;
+}
+.container .w3 .box-wrap svg line.bottom {
+  stroke-dasharray: 250 200;
+}
+.container .w3 .box-wrap:hover {
+  background-color: #283593;
+}
+.container .w3 .box-wrap:hover .main-text, .container .w3 .box-wrap:hover .sub-text {
+  color: #D4E157;
+}
+.container .w3 .box-wrap:hover line {
+  stroke-width: 10;
+  stroke: #fff;
+}
+.container .w3 .box-wrap:hover .top {
+  transform: translateX(-225px);
+}
+.container .w3 .box-wrap:hover .right {
+  transform: translateY(-325px);
+}
+.container .w3 .box-wrap:hover .left {
+  transform: translateY(325px);
+}
+.container .w3 .box-wrap:hover .bottom {
+  transform: translateX(225px);
+}
+.container .w4 .box-wrap {
+  background-color: #283593;
+}
+.container .w4 .box-wrap .main-text, .container .w4 .box-wrap .sub-text {
+  color: #fff;
+  transition: transform 400ms ease-in-out;
+}
+.container .w4 .box-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.container .w4 .box-wrap svg line {
+  stroke-width: 25;
+  transition: all 400ms ease-in-out 0ms;
+}
+.container .w4 .box-wrap svg line.top {
+  stroke-dasharray: 250 200;
+}
+.container .w4 .box-wrap svg line.right {
+  stroke-dasharray: 350 300;
+}
+.container .w4 .box-wrap svg line.left {
+  stroke-dasharray: 350 300;
+}
+.container .w4 .box-wrap svg line.bottom {
+  stroke-dasharray: 250 200;
+}
+.container .w4 .box-wrap:hover {
+  background-color: #283593;
+}
+.container .w4 .box-wrap:hover .main-text {
+  transform: scale(1.25) translateY(7px);
+}
+.container .w4 .box-wrap:hover .sub-text {
+  transform: scale(1.25) translateY(-3px);
+}
+.container .w4 .box-wrap:hover line {
+  stroke: #fff;
+}
+.container .w4 .box-wrap:hover line.top, .container .w4 .box-wrap:hover line.left, .container .w4 .box-wrap:hover line.right, .container .w4 .box-wrap:hover line.bottom {
+  transform: none;
+  stroke-width: 3;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=bordersvg.css.map */

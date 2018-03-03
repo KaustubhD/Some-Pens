@@ -1,0 +1,203 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #333;
+}
+.container h1 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  color: #777;
+  font-size: 2.5em;
+  letter-spacing: 5px;
+}
+.container .wrapper {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  height: 70vh;
+  width: 70vw;
+}
+.container .wrapper .time-bin-wrap {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .wrapper .time-bin-wrap .h-wrap, .container .wrapper .time-bin-wrap .m-wrap, .container .wrapper .time-bin-wrap .s-wrap {
+  height: 25%;
+  width: 90%;
+  margin: 10px 0;
+}
+.container .wrapper .time-bin-wrap .h-wrap div, .container .wrapper .time-bin-wrap .m-wrap div, .container .wrapper .time-bin-wrap .s-wrap div {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  justify-content: space-around;
+  align-content: center;
+}
+.container .wrapper .time-bin-wrap .h-wrap div span, .container .wrapper .time-bin-wrap .m-wrap div span, .container .wrapper .time-bin-wrap .s-wrap div span {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+}
+.container .wrapper .time-bin-wrap .h-wrap .h-bin-notes span {
+  display: inline-block;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #c51162;
+  line-height: 3;
+}
+.container .wrapper .time-bin-wrap .h-wrap .h-bin-fills span {
+  border-radius: 50%;
+  border: 1px solid #c51162;
+}
+.container .wrapper .time-bin-wrap .h-wrap .h-bin-fills span p {
+  background-color: #c51162;
+}
+.container .wrapper .time-bin-wrap .m-wrap .m-bin-notes span {
+  display: inline-block;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #c0ca33;
+  line-height: 3;
+}
+.container .wrapper .time-bin-wrap .m-wrap .m-bin-fills span {
+  border-radius: 50%;
+  border: 1px solid #c0ca33;
+}
+.container .wrapper .time-bin-wrap .m-wrap .m-bin-fills span p {
+  background-color: #c0ca33;
+}
+.container .wrapper .time-bin-wrap .s-wrap .s-bin-notes span {
+  display: inline-block;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #448aff;
+  line-height: 3;
+}
+.container .wrapper .time-bin-wrap .s-wrap .s-bin-fills span {
+  border-radius: 50%;
+  border: 1px solid #448aff;
+}
+.container .wrapper .time-bin-wrap .s-wrap .s-bin-fills span p {
+  background-color: #448aff;
+}
+.container .wrapper .time-bin-wrap .show p {
+  left: 0;
+  transform: rotate(0deg);
+}
+.container .wrapper .time-bin-wrap .fills-divs span {
+  overflow: hidden;
+}
+.container .wrapper .time-bin-wrap .for-fills {
+  position: relative;
+  top: -5px;
+  left: -10px;
+  height: 120%;
+  width: 120%;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  transform-origin: right center;
+  transform: rotate(180deg);
+  transition: all 400ms ease-in-out;
+}
+.container .wrapper .time-dec-wrap {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  justify-content: center;
+  align-content: space-evenly;
+  flex-wrap: wrap;
+}
+.container .wrapper .time-dec-wrap .time-dec {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+}
+.container .wrapper .time-dec-wrap .time-dec span {
+  height: 50px;
+  width: 55px;
+  font-size: 25px;
+  text-align: center;
+  line-height: 2;
+}
+.container .wrapper .time-dec-wrap .time-dec span:nth-child(1) {
+  color: #c51162;
+}
+.container .wrapper .time-dec-wrap .time-dec span:nth-child(2) {
+  color: #c0ca33;
+}
+.container .wrapper .time-dec-wrap .time-dec span:nth-child(3) {
+  color: #448aff;
+}
+.container .wrapper .time-dec-wrap .calender {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.container .wrapper .time-dec-wrap .calender span {
+  font-size: 25px;
+  line-height: 2;
+  height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.container .wrapper .time-dec-wrap .calender .date {
+  color: #c51162;
+}
+.container .wrapper .time-dec-wrap .calender .month-year {
+  color: #c0ca33;
+  width: 100%;
+}
+.container .wrapper .time-dec-wrap .calender .day {
+  color: #448aff;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(155, 155, 155, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(155, 155, 155, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=binclock.css.map */

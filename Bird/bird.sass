@@ -1,0 +1,235 @@
+@keyframes spin
+  to
+    transform: rotate(360deg)
+
+@keyframes flap-l
+
+  0%, 100%
+    transform: rotateY(20deg)
+  50%
+    transform: rotateY(-20deg)
+
+@keyframes flap-l-l
+
+  0%, 100%
+    transform: rotateY(30deg)
+  50%
+    transform: rotateY(-30deg)
+
+@keyframes flap-r
+
+  0%, 100%
+    transform: rotateY(-20deg)
+  50%
+    transform: rotateY(20deg)
+
+@keyframes flap-r-r
+
+  0%, 100%
+    transform: rotateY(-30deg)
+  50%
+    transform: rotateY(30deg)
+
+@keyframes flap-b
+
+  0%, 100%
+    transform: rotateX(-10deg)
+  50%
+    transform: rotateX(10deg)
+
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+
+body
+  height: 100vh
+  width: 100vw
+
+.container
+  display: flex
+  position: absolute
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  justify-content: center
+  align-items: center
+  background-color: rgb(170, 170, 255)
+  perspective: 1000px
+  // animation: spin 800ms linear infinite
+  // transform: rotateX(60deg)
+  // transform-style: preserve-3d
+
+  .wrapper
+    position: relative
+    height: 50vh
+    width: 50vh
+    // background-color: rgba(100, 100, 255, 1)
+    // border: 2px solid blue
+    transform: rotateX(60deg)
+    // animation: spin 800ms linear infinite
+    // transform-origin: center center
+    // padding: 20px
+    transform-style: preserve-3d
+    // perspective: 2000px
+    z-index: 1
+
+    .another-wrapper
+      position: absolute
+      height: 100%
+      width: 100%
+      transform-style: preserve-3d
+      animation: spin 10s linear infinite
+      z-index: 5
+
+      .floor
+        position: absolute
+        height: calc(100%)
+        width: calc(100%)
+        // background-color: rgba(70, 255, 70, 0.4)
+        // border: 1px solid purple
+
+        .elevated
+          display: flex
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+          margin: auto
+          height: 25vh
+          width: 25vh
+          padding: 7vh 10vh
+          // background-color: rgba(0,0,0,0.2)
+          transform: translateZ(100px)
+          transform-style: preserve-3d
+
+          .stomach
+            position: absolute
+            top: 11vh
+            // // margin: auto
+            height: 7vh
+            width: 5vh
+            background-color: lighten(red, 25)
+
+          .beak
+            position: absolute
+            top: calc(100% - 7vh)
+            // height: 4.5vh
+            width: 5vh
+            // background-color: red
+            border-top: 4.5vh solid lighten(red, 15)
+            border-left: 2.5vh solid transparent
+            border-right: 2.6vh solid transparent
+            transform: rotateX(-20deg)
+            transform-origin: top center
+            transform-style: preserve-3d
+          
+          .tail
+            position: absolute
+            // top: 
+            height: 4vh
+            width: 5vh
+            background-color: lighten(red, 1)
+            animation: flap-b 2500ms ease-in-out infinite
+            transform-origin: bottom center
+          
+          .left-base-wing
+            position: absolute
+            top: calc(7vh + 4vh)
+            left: calc(10vh - 3.5vh)
+            height: 7vh
+            // width: 3.5vh
+            border-right: 3.5vh solid lighten(red, 20)
+            border-bottom: 2vh solid transparent
+            // background-color: orange
+            transform-style: preserve-3d
+            transform-origin: right center
+            animation: flap-l 2000ms linear infinite
+          
+          .right-base-wing
+            position: absolute
+            top: calc(7vh + 4vh)
+            right: calc(10vh - 3.5vh)
+            height: 7vh
+            // width: 3.5vh
+            border-left: 3.5vh solid lighten(red, 20)
+            border-bottom: 2vh solid transparent
+            transform-style: preserve-3d
+            // background-color: orange
+            transform-origin: left center
+            animation: flap-r 2000ms ease-in-out infinite
+
+          .left-wing
+            position: absolute
+            // top: calc(7vh + 4vh)
+            // left: calc(10vh - 7vh)
+            left: -3.5vh
+            height: 5vh
+            // width: 
+            border-right: 3.5vh solid lighten(red, 10)
+            border-bottom: 3vh solid transparent
+            transform-style: preserve-3d
+            transform-origin: right center
+            animation: flap-l-l 2000ms linear infinite
+
+          .right-wing
+            position: absolute
+            // top: calc(7vh + 4vh)
+            // left: calc(10vh - 7vh)
+            right: -3.4vh
+            height: 5vh
+            // width: 
+            transform-style: preserve-3d
+            border-left: 3.5vh solid lighten(red, 10) 
+            border-bottom: 3vh solid transparent
+            transform-origin: left center
+            animation: flap-r-r 2000ms linear infinite
+
+
+          
+
+
+
+
+      .bottom-left
+        position: absolute
+        height: calc(100%)
+        width: 15vh
+        // background-color: rgba(255, 70, 70, 0.5)
+        transform: rotateY(-135deg)
+        transform-origin: left center
+        transform-style: preserve-3d
+      
+      .bottom-right
+        position: absolute
+        right: 0
+        height: calc(100%)
+        width: 15vh
+        // background-color: rgba(255, 70, 70, 0.5)
+        transform: rotateY(135deg)
+        transform-origin: right center
+        transform-style: preserve-3d
+
+      .left
+        position: absolute
+        left: calc(-0.70721 * 15vh)
+        height: 100%
+        width: 30vh
+        // background-color: rgba(255, 70, 70, 0.8)
+        transform: translateZ(calc(0.70721 * 15vh)) rotateY(-90deg)
+        transform-origin: left center
+      
+      .right
+        position: absolute
+        right: calc(-0.70721 * 15vh)
+        height: 100%
+        width: 30vh
+        // background-color: rgba(255, 70, 70, 0.8)
+        transform: translateZ(calc(0.70721 * 15vh)) rotateY(90deg)
+        transform-origin: right center
+        

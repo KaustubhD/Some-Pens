@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tic Tac Toe</title>
+  <link href="styles/titato.css" rel="stylesheet"/>
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/titato.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="choose-overlay">
+        <center><h2>Choose your symbol</h2></center>
+        <div class="symbols-wrap">
+          <button class="o" value="O">O</button>
+          <button class="x" value="X">X</button>
+        </div>
+      </div>
+
+      <div class="game-wrapper">
+        <!-- <h1>YOYO</h1> -->
+        <div class="dividers-wrap">
+          <div class="divider"></div>
+          <div class="divider"></div>
+          <div class="divider"></div>
+          <div class="divider"></div>
+        </div>
+
+        <div class="play-area"> <!-- Blur will be added here -->
+          <div class="play-block empty 0"></div>
+          <div class="play-block empty 1"></div>
+          <div class="play-block empty 2"></div>
+          <div class="play-block empty 3"></div>
+          <div class="play-block empty 4"></div>
+          <div class="play-block empty 5"></div>
+          <div class="play-block empty 6"></div>
+          <div class="play-block empty 7"></div>
+          <div class="play-block empty 8"></div>
+        </div>
+
+        <div class="message-wrap">
+          <h3>Nobody Won</h3>
+          <!-- <button>Restart ?</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

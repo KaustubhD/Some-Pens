@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  min-height: fit-content;
+  height: 100vh;
+  width: 100vw;
+  background-color: #B4734C;
+}
+.container .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  width: 500px;
+  background-color: #EFCFB5;
+  box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.2), 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+}
+.container .wrapper h1 {
+  margin: 0;
+  color: #342B24;
+}
+.container .wrapper form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30px;
+}
+.container .wrapper form .fields-wrap {
+  display: flex;
+  width: 100%;
+  margin: 10px 0;
+}
+.container .wrapper form .fields-wrap input[type="text"], .container .wrapper form .fields-wrap input[type="number"], .container .wrapper form .fields-wrap input[type="email"] {
+  height: 30px;
+  width: 150px;
+}
+.container .wrapper form .fields-wrap > label {
+  display: inline-block;
+  color: #342B24;
+  width: calc(50% - 5px);
+  margin-right: 5px;
+  text-align: right;
+}
+.container .wrapper form .fields-wrap span:nth-child(2) {
+  display: inline-block;
+  width: calc(50% - 5px);
+  margin-left: 5px;
+}
+.container .wrapper form .fields-wrap input:nth-child(2), .container .wrapper form .fields-wrap select:nth-child(2), .container .wrapper form .fields-wrap textarea:nth-child(2) {
+  margin-left: 5px;
+}
+.container .wrapper form .fields-wrap span label {
+  display: block;
+  margin: 5px 0;
+}
+.container .wrapper form button {
+  background-color: #342B24;
+  color: #EFCFB5;
+  height: 40px;
+  width: 80px;
+  border: 0;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+/*# sourceMappingURL=survey.css.map */

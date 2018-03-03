@@ -1,0 +1,717 @@
+$width-of-3: 400px
+
+%for-sub-cube
+  div
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: auto
+    height: 50px
+    width: 50px
+    perspective: 1000px
+    transform-style: preserve-3d
+    backface-visibility: visible
+    opacity: 0.1
+    border: 1px solid #fff6bc
+    background-color: #1d1e35
+
+    &:nth-child(2)
+      transform: rotateY(-90deg)
+      // transition: transform 500ms ease-in-out
+      transform-origin: center left
+
+    &:nth-child(3)
+      transform: rotateY(90deg)
+      // transition: transform 500ms ease-in-out
+      transform-origin: center right
+
+    &:nth-child(4)
+      transform: rotateX(90deg)
+      // transition: transform 500ms ease-in-out
+      transform-origin: center top
+
+    &:nth-child(5)
+      // background-color: #1d1e35
+      transform: rotateX(-90deg)
+      // transition: transform 500ms ease-in-out
+      transform-origin: center bottom
+
+    &:nth-child(6)
+      // background-color: #1d1e35
+      transform: translateZ(50px)
+      // transition: transform 500ms ease-in-out
+      transform-origin: center top
+
+%for-sub-cube-2
+  div
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: auto
+    height: 50px
+    width: 50px
+    perspective: 1000px
+    transform-style: preserve-3d
+    backface-visibility: visible
+    opacity: 0.4
+    border: 1px solid red
+    background-color: #1d1e35
+
+    &:nth-child(2)
+      transform: rotateY(-90deg) translateZ(50px)
+      transition: transform 500ms ease-in-out
+      transform-origin: center left
+
+    &:nth-child(3)
+      transform: rotateY(90deg) translateZ(50px)
+      transition: transform 500ms ease-in-out
+      transform-origin: center right
+
+    &:nth-child(4)
+      transform: rotateX(90deg) translateZ(50px)
+      transition: transform 500ms ease-in-out
+      transform-origin: center top
+
+    &:nth-child(5)
+      // background-color: #1d1e35
+      transform: rotateX(-90deg) translateZ(50px)
+      transition: transform 500ms ease-in-out
+      transform-origin: center bottom
+
+    &:nth-child(6)
+      // background-color: #1d1e35
+      transform: translateZ(100px)
+      transition: transform 500ms ease-in-out
+      transform-origin: center top
+
+
+
+@keyframes turn1
+  0%
+    transform: rotate3d(0,0,0,0)
+
+  100%
+    transform: rotate3d(10, 10, 10, -360deg)
+@keyframes turn1-2
+  0%
+    transform: rotate3d(0,0,0,0) translateZ(50px)
+
+  100%
+    transform: rotate3d(10, 10, 10, -360deg) translateZ(50px)
+@keyframes turn1-3
+  0%
+    transform: rotate3d(0,0,0,0) translateZ(100px)
+
+  100%
+    transform: rotate3d(10, 10, 10, -360deg) translateZ(100px)
+
+
+@keyframes turn2
+  0%
+    transform: rotate3d(0,0,0,0) scale3d(1, 1, 1)
+  33%
+    transform: rotate3d(-10, 10, 10, 360deg) scale3d(1, 1, 1)
+  66%
+    transform: rotate3d(0,0,0,0) scale3d(2, 2, 2)
+  100%
+    transform: rotate3d(10, 10, 10, 360deg) scale3d(1, 1, 1)
+
+@keyframes turn3
+  0%
+    transform: rotate3d(0,0,0,0)
+  33%
+    transform: rotate3d(10, 10, 10, -360deg)
+  66%
+    transform: rotate3d(0,0,0,0)
+  100%
+    transform: rotate3d(10, 10, 10, -360deg)
+
+@keyframes go-around
+  0%
+    transform: rotateX(90deg) rotateZ(0) translateX($width-of-3 / 3)
+  100%
+    transform: rotateX(90deg) rotateZ(360deg) translateX($width-of-3 / 3)
+
+@keyframes for-2-1
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(-10px, -5px, 0)
+@keyframes for-2-2
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(0, -10px, 0)
+@keyframes for-2-3
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(10px, -5px, 0)
+@keyframes for-2-4
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  500%
+    transform: translate3d(-15px, 5px, 0)
+@keyframes for-2-5
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  500%
+    transform: translate3d(0, 0, 20px)
+@keyframes for-2-6
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  500%
+    transform: translate3d(15px, 5px, 0)
+@keyframes for-2-7
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(-15px, 5px, 0)
+@keyframes for-2-8
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(0, 15px, 0)
+@keyframes for-2-9
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(15px, 5px, 0)
+@keyframes for-3-1
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(-6px, 6px, 10px)
+@keyframes for-3-2
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(0, 10px, 10px)
+@keyframes for-3-3
+  0%, 37.5%, 100%
+    transform: translate3d(0,0,0)
+  68.75%
+    transform: translate3d(6px, 6px, 10px)
+@keyframes for-3-4
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  50%
+    transform: translate3d(-6px, 6px, 10px)
+@keyframes for-3-5
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  50%
+    transform: translate3d(0, 10px, 10px)
+@keyframes for-3-6
+  0%, 18.75%, 81.25%, 100%
+    transform: translate3d(0,0,0)
+  50%
+    transform: translate3d(6px, 6px, 10px)
+@keyframes for-3-7
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(-6px, 6px, 10px)
+@keyframes for-3-8
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(0, 10px, 10px)
+@keyframes for-3-9
+  0%, 62.5%, 100%
+    transform: translate3d(0,0,0)
+  31.25%
+    transform: translate3d(6px, 6px, 10px)
+@keyframes shadow
+  0%, 87.5%, 100%
+    box-shadow: 0 0 5px 5px  #A5FFE0, 0 0 10px 10px  #A5FFE0,0 0 15px 15px  #A5FFE0, 0 0 20px 20px  #A5FFE0,0 0 25px 25px  #A5FFE0
+  43.75%
+    box-shadow: 0 0 5px 5px  #A5FFE0, 0 0 10px 10px  #A5FFE0,0 0 15px 15px  #A5FFE0,0 0 16px 16px  #A5FFE0,0 0 17px 17px  #A5FFE0,0 0 18px 18px  #A5FFE0,0 0 19px 19px  #A5FFE0, 0 0 20px 20px  #A5FFE0,0 0 25px 25px  #A5FFE0, 0 0 30px 30px  #A5FFE0, 0 0 30px 30px  #A5FFE0, 0 0 35px 35px  #A5FFE0, 0 0 40px 40px  #A5FFE0, 0 0 43px 43px  #A5FFE0,0 0 45px 45px  #A5FFE0, 0 0 47px 47px  #A5FFE0
+
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700')
+@import url('https://fonts.googleapis.com/css?family=Ubuntu')
+*
+  box-sizing: border-box
+  font-family: Merriweather
+
+html, body
+  margin: 0
+  padding: 0
+
+body
+  // position: fixed
+  // background-color: #FAEBD7
+  background: linear-gradient(-45deg, #ffb329 , #ffe9c1)
+
+  .links
+    position: fixed
+    display: flex
+    flex-wrap: nowrap
+    right: 50px
+    width: 50px
+    height: 100vh
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    align-content: space-around
+    z-index: 10
+
+    a
+      &:active, &:visited, &:link
+        display: block
+        height: 40px
+        width: 40px
+        border-radius: 50%
+        background-color: #2b2b2b
+        text-decoration: none
+        cursor: pointer
+        color: #FAEBD7
+        text-align: center
+        font-size: 15px
+        line-height: 2.1
+        margin: 5px
+        text-shadow: 0px 5px 10px rgba(0,0,0,1)
+        &:nth-child(1)
+          font-size: 13px
+          line-height: 3
+
+.container
+  position: relative
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  margin: 0
+  padding: 0
+  padding-top: 30px
+  // background-color: #FAEBD7
+  // transform: translateY(50vh)
+
+
+  center
+    h1
+      font-family: Merriweather, sans-serif
+      color: #000
+      margin: 0
+      font-size: 2rem
+      color: #2b2b2b
+      font-weight: 700
+      text-shadow: 0px 2px 5px rgba(0,0,0,0.6)
+
+  .parts.p1, .parts.p2, .parts.p3
+    position: relative
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100vw
+    margin: 0
+    padding: 0
+
+    .wrapper
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      height: 60vh
+      width: 55vw
+      margin: auto
+      overflow: hidden
+      border: 1px solid #000
+      background-color: #4a4a4a
+      // background-color: #000
+      perspective: 1000px
+      // transform: translateY(150vh)
+
+      .cube
+        position: absolute
+        // background-color: #fff
+        height: 250px
+        width: 250px
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        margin: auto
+        // transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg)
+        transform-style: preserve-3d
+        // transform-origin: center 50px
+        -webkit-transform-origin: center center 100px
+        backface-visibility: visible
+        // animation: turn1 1.5s ease-in-out infinite
+
+        div
+          position: absolute
+          top: 0
+          left: 0
+          bottom: 0
+          right: 0
+          margin: auto
+          height: 100px
+          width: 100px
+          transform-style: preserve-3d
+          opacity: 0.7
+          border: 1px solid #fff
+          background-color: #1d1e35
+
+          &:nth-child(2)
+            transform: rotateY(-90deg)
+            transition: transform 500ms ease-in-out
+            transform-origin: center left
+
+          &:nth-child(3)
+            transform: rotateY(90deg)
+            transition: transform 500ms ease-in-out
+            transform-origin: center right
+
+          &:nth-child(4)
+            transform: rotateX(90deg)
+            transition: transform 500ms ease-in-out
+            transform-origin: center top
+
+          &:nth-child(5)
+            // background-color: #1d1e35
+            transform: rotateX(-90deg)
+            transition: transform 500ms ease-in-out
+            transform-origin: center bottom
+
+          &:nth-child(6)
+            // background-color: #1d1e35
+            transform: translateZ(100px)
+            transition: transform 500ms ease-in-out
+            transform-origin: center top
+    center
+      position: absolute
+      bottom: 50px
+      width: 100vw
+      button
+        height: 30px
+        width: 100px
+        border: 0
+        border-radius: 3px
+        font-family: verdana, sans-serif
+        font-size: 1.07em
+        font-weight: 200
+        background-color: #1d1e35
+        color: #fff
+        margin: 0 10px
+        box-shadow: 0px 4px 10px 2px rgba(0,0,0,0.4)
+        transition: background-color 300ms ease
+        &:hover
+          background-color: lighten(#1d1e35, 20)
+          transition: background-color 300ms ease
+        &:focus
+          outline: none
+          border: none
+
+    &.p1
+      .wrapper
+        .cube
+          // animation: turn2 4.5s ease-in-out infinite
+          -webkit-transform-origin: center center -100px
+          &.animate
+            animation: turn1 1.5s ease-in-out infinite
+
+    &.p2
+      .wrapper
+        .cube
+          // animation: turn2 4.5s ease-in-out infinite
+          -webkit-transform-origin: center center -100px
+
+          div
+            background-color: #213624
+          &.animate
+            animation: turn2 4.5s ease-in-out infinite
+
+    &.p3
+      .wrapper
+        // overflow: visible
+        // transform: rotateX(90deg)
+        .cube
+          top: 25%
+          left: 25%
+          height: 400px
+          width: $width-of-3
+          // animation: turn3 4s ease-in-out infinite
+          // transform: rotateY(360deg)
+          -webkit-transform-origin: center center -100px
+          // animation: go-around 1.5s ease-in-out
+          // animation: go-around2 1s ease-in-out
+          // animation: none
+
+          div
+            // animation: turn2 4.5s ease-in-out
+            margin: 0
+            background-color: #432841
+          &.animate
+            animation: turn3 4s ease-in-out infinite
+
+  .parts.p4
+    position: relative
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100vw
+    margin: 0
+    padding: 0
+
+    .wrapper
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      height: 60vh
+      width: 55vw
+      margin: auto
+      // overflow: hidden
+      border: 2px solid #999
+      // background-color: #4a4a4a
+      background-color: #000
+      perspective: 1000px
+
+
+
+      .cube
+        position: absolute
+        // background-color: #fff
+        height: 150px
+        width: 150px
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        margin: auto
+        // transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg)
+        transform-style: preserve-3d
+        // transform-origin: center 50px
+        -webkit-transform-origin: center center
+        backface-visibility: visible
+        // transform: rotateY(40deg) rotateZ(40deg) rotateX(40deg)
+        // animation: turn1 3s ease-in-out
+
+        .sub-cube
+
+          &:nth-child(1)
+            position: absolute
+            top: 0
+            left: 0
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+            // animation: turn1 2s ease-in-out
+
+          &:nth-child(2)
+            position: absolute
+            top: 0
+            left: 50px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(3)
+            position: absolute
+            top: 0
+            left: 100px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(4)
+            position: absolute
+            top: 50px
+            left: 0px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(5)
+            position: absolute
+            top: 50px
+            left: 50px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(6)
+            position: absolute
+            top: 50px
+            left: 100px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(7)
+            position: absolute
+            top: 100px
+            left: 0px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(8)
+            position: absolute
+            top: 100px
+            left: 50px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+          &:nth-child(9)
+            position: absolute
+            top: 100px
+            left: 100px
+            height: 50px
+            width: 50px
+            background-color: rgba(0,0,0,0.5)
+            border: 1px solid #000
+            @extend %for-sub-cube
+
+        &:nth-child(1)
+          .sub-cube
+            transform-style: preserve-3d
+        &:nth-child(2)
+          transform: translateZ(50px)
+          .sub-cube
+            transform-style: preserve-3d
+            &:nth-child(5)
+              animation: none
+              div
+                box-shadow: 0 0 5px 5px  #A5FFE0, 0 0 10px 10px  #A5FFE0,0 0 15px 15px  #A5FFE0, 0 0 20px 20px  #A5FFE0,0 0 25px 25px  #A5FFE0
+
+        &:nth-child(3)
+          transform: translateZ(100px)
+          .sub-cube
+            transform-style: preserve-3d
+
+        &:nth-child(1)
+      .cube.animate
+        &:nth-child(1)
+          .sub-cube
+            transform-style: preserve-3d
+            &:nth-child(1)
+              animation: for-2-1 800ms ease-in-out
+            &:nth-child(2)
+              animation: for-2-2 800ms ease-in-out
+            &:nth-child(3)
+              animation: for-2-3 800ms ease-in-out
+            &:nth-child(4)
+              animation: for-2-4 800ms ease-in-out
+            &:nth-child(5)
+              animation: for-2-5 800ms ease-in-out
+            &:nth-child(6)
+              animation: for-2-6 800ms ease-in-out
+            &:nth-child(7)
+              animation: for-2-7 800ms ease-in-out
+            &:nth-child(8)
+              animation: for-2-8 800ms ease-in-out
+            &:nth-child(9)
+              animation: for-2-9 800ms ease-in-out
+
+        &:nth-child(2)
+          transform: translateZ(50px)
+          .sub-cube
+            transform-style: preserve-3d
+            &:nth-child(1)
+              animation: for-2-1 800ms ease-in-out
+            &:nth-child(2)
+              animation: for-2-2 800ms ease-in-out
+            &:nth-child(3)
+              animation: for-2-3 800ms ease-in-out
+            &:nth-child(4)
+              animation: for-2-4 800ms ease-in-out
+            &:nth-child(5)
+              animation: none
+              div
+                box-shadow: 0 0 5px 5px  #A5FFE0, 0 0 10px 10px  #A5FFE0,0 0 15px 15px  #A5FFE0, 0 0 20px 20px  #A5FFE0,0 0 25px 25px  #A5FFE0
+                animation: shadow 800ms ease-in-out
+            &:nth-child(6)
+              animation: for-2-6 800ms ease-in-out
+            &:nth-child(7)
+              animation: for-2-7 800ms ease-in-out
+            &:nth-child(8)
+              animation: for-2-8 800ms ease-in-out
+            &:nth-child(9)
+              animation: for-2-9 800ms ease-in-out
+
+        &:nth-child(3)
+          transform: translateZ(100px)
+          .sub-cube
+            transform-style: preserve-3d
+            &:nth-child(1)
+              animation: for-3-1 800ms ease-in-out
+            &:nth-child(2)
+              animation: for-3-2 800ms ease-in-out
+            &:nth-child(3)
+              animation: for-3-3 800ms ease-in-out
+            &:nth-child(4)
+              animation: for-3-4 800ms ease-in-out
+            &:nth-child(5)
+              animation: for-3-5 800ms ease-in-out
+            &:nth-child(6)
+              animation: for-3-6 800ms ease-in-out
+            &:nth-child(7)
+              animation: for-3-7 800ms ease-in-out
+            &:nth-child(8)
+              animation: for-3-8 800ms ease-in-out
+            &:nth-child(9)
+              animation: for-3-9 800ms ease-in-out
+
+    center
+      position: absolute
+      bottom: 50px
+      width: 100vw
+      button
+        height: 30px
+        width: 100px
+        border: 0
+        border-radius: 3px
+        font-family: verdana, sans-serif
+        font-size: 1.07em
+        font-weight: 200
+        background-color: #1d1e35
+        color: #fff
+        &:hover
+          background-color: lighten(#1d1e35, 20)
+          transition: all 300ms ease
+        &:focus
+          outline: none
+          border: none
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(0,0,0,0.4)
+    font-family: Ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(0,0,0,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px

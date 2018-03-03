@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:700)
+
+html, body
+  margin: 0
+  padding: 0
+
+.container
+  display: block
+  height: 100vh
+  width: 100vw
+  margin: 0
+  padding: 0
+  background-color: #31764B
+
+  .wrapper
+    position: absolute
+    display: flex
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: auto
+    height: 1.5em
+    width: 10em
+    font-size: 7em
+    background-color: rgba(0, 0, 0, 0)
+    justify-content: space-around
+    align-items: center
+
+    p
+      display: block
+      position: relative
+      margin: 0
+      padding: 0
+      color: #fff
+      z-index: 1
+      font-family: Ubuntu
+      perspective: 1000px
+      font-weight: 800
+      transition: all 350ms ease-in-out
+
+      &::before, &::after
+        position: absolute
+        top: 0
+        left: 0
+        content: attr(data-text)
+
+      &::before
+        color: #31764B
+        z-index: 3
+        left: -1px
+        text-shadow: -1px 0 0.2px rgba(0,0,0,0.65), 1px 0 0.5px #31764B
+        transform-origin: top left
+        transform: rotateY(-45deg)
+        transition: all 350ms ease-in-out
+
+      &::after
+        color: rgba(0,0,0,0.3)
+        z-index: 2
+        left: 1px
+        transform-origin: top left
+        transform: skew(0deg, 20deg) scale(1.1, 1)
+        transition: all 350ms ease-in-out
+
+      &:hover
+
+        &::before
+          /*transform: rotateY(-45deg) */
+          /*transition: all 350ms ease-in-out */
+          transform: rotateY(-10deg)
+          transition: all 350ms ease-in-out
+
+        &::after
+          // transform: skew(0deg, 20deg) scale(1.1, 1)
+          // transition: all 350ms ease-in-out
+          transform: skew(0deg, 2deg) scale(1.05, 1)
+          transition: all 350ms ease-in-out
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(0,0,0,0.4)
+    font-family: ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(0,0,0,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px

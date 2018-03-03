@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100");
+@keyframes move1 {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  20% {
+    transform: translateX(100vw) translateY(100vh);
+  }
+  50% {
+    transform: translateX(-100vw) translateY(-100vh);
+  }
+  80% {
+    transform: translateX(100vw) translateY(-100vh);
+  }
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  font-family: Roboto;
+  overflow: hidden;
+  background-color: #ccc;
+}
+.container .back {
+  position: absolute;
+  top: -100vh;
+  left: -100vw;
+  height: 300vh;
+  width: 300vw;
+  animation: move1 18s ease-in-out infinite;
+  background: linear-gradient(40deg, #2843CC, #f01ea8, #32e9ee, #f0881e, #1a68ee);
+}
+.container .fore {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.container .fore #text-main {
+  font-size: 14em;
+  text-transform: uppercase;
+}
+.container .fore #text-sub {
+  font-size: 8em;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=tmask3.css.map */

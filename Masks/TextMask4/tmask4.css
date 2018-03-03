@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,700");
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: "Oswald";
+  font-weight: 700;
+}
+
+.container {
+  position: relative;
+  height: 200vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+.container .back {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-image: url(438H.jpg);
+  background-size: 100%;
+  background-position: center;
+  z-index: 3;
+}
+.container .fore {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+.container .fore svg {
+  height: 100%;
+  width: 100%;
+}
+.container .fore text {
+  text-transform: uppercase;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+  z-index: 10;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  z-index: 10;
+}
+
+/*# sourceMappingURL=tmask4.css.map */

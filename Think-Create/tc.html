@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Think . . Create</title>
+  <link href="tc.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <svg height="100" width="100" viewBox="0 0 100 100">
+      <mask id="mask1">
+        <circle cx="18%" cy="48%" r="16" fill="#fff" />
+      </mask>
+      <mask id="mask2">
+        <circle cx="77%" cy="50%" r="20" fill="#fff" />
+      </mask>
+      <text x="3%" y="50%" font-family="sans-serif" fill="#E1E7E8" font-size="10px">THINK</text>
+      <text x="57%" y="50%" font-family="sans-serif" fill="#E1E7E8" font-size="10px">CREATE</text>
+      <path id="bezier-bottom" d="M20 55 C20 90, 80 90, 80 55" fill="none"/>
+      <path id="bezier-top" d="M20 38 C20 0, 80 0, 80 38" fill="none"/>
+      <text x="3%" y="50%" font-family="sans-serif" font-size="10px" id="dark-1" mask="url(#mask1)">THINK</text>
+      <text x="57%" y="50%" font-family="sans-serif" font-size="10px" id="dark-2" mask="url(#mask2)">CREATE</text>
+      <circle id="ball-bottom" cx="" cy="" r="2" fill="#000" />
+      <circle id="ball-top" cx="" cy="" r="2" fill="#000" />
+        <!-- <animateMotion dur="3s" repeatCount="indefinite">
+          <mpath xlink:href="#bezier-bottom" />
+        </animateMotion> -->
+      <!-- </circle> -->
+    </svg>
+    <footer>
+      <span>Made by</span>
+      KD 2017
+    </footer>
+  </div>
+</body>
+</html>

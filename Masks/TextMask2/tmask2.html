@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Third mask</title>
+    <link href="tmask2.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="back-here"></div>
+      <footer>
+        <span>Made by</span>
+        KD 2017
+      </footer>
+    </div>
+    <div class="for-svg">
+      <svg>
+        <defs>
+          <radialGradient id="lg1" cx="50%" cy="50%" fx="65%" fy="80%" r="100%">
+            <stop offset="0%" stop-color="#fff"></stop>
+            <stop offset="50%" stop-color="#555"></stop>
+            <!-- <stop offset="90%" stop-color="#000"></stop> -->
+            <stop offset="100%" stop-color="#000" stop-opacity="0"></stop>
+          </radialGradient>
+        </defs>
+        <defs>
+          <mask id="mask" height="100%" width="100%" x="0" y="0">
+            <rect id="alpha" x="0" y="0" height="100%" width="100%" fill="url(#lg1)"/>
+            <text id="word" x="65%" y="0" dy="1.3em" text-anchor="middle">You know</text>
+          </mask>
+        </defs>
+        <rect id="base" x="0" y="0" height="100%" width="100%" fill="rgba(0,0,0,0.4)" mask="url(#mask)" />
+      </svg>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+$color-1: #c51162
+$color-2: #c0ca33
+$color-3: #448aff
+
+
+//Hide the overflow of the fills span and design the <p> for-fill with
+//transform-origin to right center
+
+
+*
+  box-sizing: border-box
+  font-family: sans-serif
+
+// div
+//   border-radius: 5px
+
+html, body
+  margin: 0
+  padding: 0
+  
+body
+  height: 100vh
+  width: 100vw
+  
+.container
+  position: relative
+  height: 100%
+  width: 100%
+  top: 0
+  left: 0
+  background-color: #333
+
+  h1
+    position: absolute
+    width: 100%
+    text-align: center
+    font-family: sans-serif
+    color: #777
+    font-size: 2.5em
+    letter-spacing: 5px
+  
+  .wrapper
+    position: absolute
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 10px
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: auto
+    height: 70vh
+    width: 70vw
+    // background-color: #555
+
+    .time-bin-wrap
+      display: flex
+      grid-column: 1
+      grid-row: 1
+      // background-color: #666
+      flex-direction: column
+      justify-content: center
+      align-items: center
+
+      .h-wrap, .m-wrap, .s-wrap
+        height: 25%
+        width: 90%
+        // background-color: #777
+        margin: 10px 0
+        // overflow: hidden
+
+        div
+          display: flex
+          height: 50%
+          width: 100%
+          justify-content: space-around
+          align-content: center
+
+          span
+            position: relative
+            height: 60px
+            width: 60px
+            text-align: center
+            // margin: 0 5px
+            // background-color: #999
+      
+      .h-wrap
+        .h-bin-notes
+          // padding: 5px
+          span
+            // margin: 0 7px
+            display: inline-block
+            font-size: 24px
+            font-family: sans-serif
+            color: $color-1
+            line-height: 3
+            // padding-left: 19px
+            // width: 13%
+            // background-color: #999
+            
+        
+        .h-bin-fills
+          span
+            border-radius: 50%
+            // box-shadow: 0 20px 5px 2px #333, 0 15px 5px 2px darken(#333, 10), 0 10px 4px 3px darken(#333, 20)
+            border: 1px solid $color-1
+            // box-shadow: 0 0 10px 5px #bbb, inset 0 0 10px 5px #444
+            // overflow: hidden
+
+            p
+              background-color: $color-1
+
+            // &.show
+              // background-color: $color-1
+
+            // &:hover
+              // p
+                // transform: rotate(0deg)
+                // transition: all 700ms ease-in-out
+
+      .m-wrap
+        .m-bin-notes
+          // padding: 5px
+          span
+            display: inline-block
+            font-size: 24px
+            font-family: sans-serif
+            color: $color-2
+            line-height: 3
+            // padding-left: 19px
+            // width: 13%
+            
+        
+        .m-bin-fills
+          span
+            border-radius: 50%
+            border: 1px solid $color-2
+            // box-shadow: 0 0 10px 5px #bbb, inset 0 0 10px 5px #444
+            // overflow: hidden
+
+            p
+              background-color: $color-2
+
+            // &.show
+              // background-color: $color-2
+
+            // &:hover
+              // p
+                // transform: rotate(0deg)
+                // transition: all 700ms ease-in-out
+          
+      .s-wrap
+        .s-bin-notes
+          // padding: 5px
+          span
+            display: inline-block
+            font-size: 24px
+            font-family: sans-serif
+            color: $color-3
+            line-height: 3
+            // padding-left: 19px
+            // width: 13%
+            
+        
+        .s-bin-fills
+          span
+            border-radius: 50%
+            border: 1px solid $color-3
+            // overflow: hidden
+
+            p
+              background-color: $color-3
+
+            // &.show
+              // background-color: $color-3
+            // border: 1px solid 
+            // box-shadow: 0 0 10px 5px #bbb, inset 0 0 10px 5px #444
+
+            // &:hover
+              // p
+                // transform: rotate(0deg)
+                // transition: all 500ms ease-in-out
+
+      .show
+        p
+          left: 0
+          transform: rotate(0deg)
+
+      .fills-divs
+        span
+          overflow: hidden
+
+      .for-fills
+        position: relative
+        top: -5px
+        left: -10px
+        height: 120%
+        width: 120%
+        border-radius: 50%
+        margin: 0
+        padding: 0
+        // background-color: orangered
+        transform-origin: right center
+        transform: rotate(180deg)
+        transition: all 400ms ease-in-out
+
+
+    .time-dec-wrap
+      display: flex
+      grid-column: 2
+      grid-row: 1
+      // background-color: #666
+      justify-content: center
+      align-content: space-evenly
+      flex-wrap: wrap
+
+      .time-dec
+        // background-color: #222
+        width: 90%
+        display: flex
+        justify-content: space-around
+
+        span
+          height: 50px
+          width: 55px
+          // background-color: #444
+          font-size: 25px
+          text-align: center
+          line-height: 2
+          // border-radius: 4px
+          // color: #aaa
+
+          &:nth-child(1)
+            color: $color-1
+          &:nth-child(2)
+            color: $color-2
+          &:nth-child(3)
+            color: $color-3
+
+      .calender
+        // background-color: #444
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+
+        span
+          font-size: 25px
+          line-height: 2
+          height: 50px
+          // background-color: #999
+          text-align: center
+          text-transform: capitalize
+
+        .date
+          color: $color-1
+
+        .month-year
+          color: $color-2
+          width: 100%
+
+        .day
+          color: $color-3
+
+
+
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(155,155,155,0.4)
+    font-family: Ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(155,155,155,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px
+        
+
+
+
+

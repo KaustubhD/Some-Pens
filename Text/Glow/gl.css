@@ -1,0 +1,144 @@
+@font-face {
+  font-family: "Escafina-Medium";
+  src: url("Escafina-Medium.otf");
+  font-size: normal;
+  font-weight: normal;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+}
+.container .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 40vw;
+  margin: auto;
+}
+.container .wrapper .text-contain {
+  padding: 7vh 0 7vh 0;
+  margin: 0;
+  text-align: center;
+}
+.container .wrapper .text-contain span {
+  font-family: Escafina-Medium;
+  font-size: 3em;
+  color: #fff;
+  transition: all 400ms ease-in-out;
+}
+.container .wrapper .text-contain span:hover {
+  cursor: pointer;
+}
+.container .wrapper .text-contain:nth-child(1) span {
+  font-size: 6em;
+  color: #4C0C9F;
+}
+.container .wrapper .text-contain:nth-child(1) span:hover {
+  color: #fff;
+  animation: glow1 500ms ease-in-out infinite alternate;
+}
+.container .wrapper .text-contain:nth-child(2) span {
+  font-size: 5em;
+  color: #31b16b;
+}
+.container .wrapper .text-contain:nth-child(2) span:hover {
+  color: #fff;
+  animation: glow2 500ms ease-in-out infinite alternate;
+}
+.container .wrapper .text-contain:nth-child(3) span {
+  font-size: 4em;
+  color: #cf0000;
+}
+.container .wrapper .text-contain:nth-child(3) span:hover {
+  color: #fff;
+  animation: glow3 500ms ease-in-out infinite alternate;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+@keyframes glow2 {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #31b16b, 0 0 40px #31b16b, 0 0 50px #31b16b, 0 0 80px #31b16b, 0 0 100px #31b16b, 0 0 120px #31b16b;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #31b16b, 0 0 50px #31b16b, 0 0 60px #31b16b, 0 0 90px #31b16b, 0 0 120px #31b16b, 0 0 140px #31b16b;
+  }
+  55% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #31b16b, 0 0 50px #31b16b, 0 0 60px #31b16b, 0 0 90px #31b16b, 0 0 120px #31b16b, 0 0 140px #31b16b;
+  }
+  70%, 100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #31b16b, 0 0 40px #31b16b, 0 0 50px #31b16b, 0 0 80px #31b16b, 0 0 100px #31b16b, 0 0 120px #31b16b;
+  }
+}
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0084ef, 0 0 40px #0084ef, 0 0 50px #0084ef, 0 0 80px #0084ef, 0 0 100px #0084ef, 0 0 120px #0084ef;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0084ef, 0 0 50px #0084ef, 0 0 60px #0084ef, 0 0 90px #0084ef, 0 0 120px #0084ef, 0 0 140px #0084ef;
+  }
+  55% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #0084ef, 0 0 50px #0084ef, 0 0 60px #0084ef, 0 0 90px #0084ef, 0 0 120px #0084ef, 0 0 140px #0084ef;
+  }
+  70%, 100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0084ef, 0 0 40px #0084ef, 0 0 50px #0084ef, 0 0 80px #0084ef, 0 0 100px #0084ef, 0 0 120px #0084ef;
+  }
+}
+@keyframes glow3 {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cf0000, 0 0 40px #cf0000, 0 0 50px #cf0000, 0 0 80px #cf0000, 0 0 100px #cf0000, 0 0 120px #cf0000;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #cf0000, 0 0 50px #cf0000, 0 0 60px #cf0000, 0 0 90px #cf0000, 0 0 120px #cf0000, 0 0 140px #cf0000;
+  }
+  55% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #cf0000, 0 0 50px #cf0000, 0 0 60px #cf0000, 0 0 90px #cf0000, 0 0 120px #cf0000, 0 0 140px #cf0000;
+  }
+  70%, 100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #cf0000, 0 0 40px #cf0000, 0 0 50px #cf0000, 0 0 80px #cf0000, 0 0 100px #cf0000, 0 0 120px #cf0000;
+  }
+}
+@keyframes glow1 {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4C0C9F, 0 0 40px #4C0C9F, 0 0 50px #4C0C9F, 0 0 80px #4C0C9F, 0 0 100px #4C0C9F, 0 0 120px #4C0C9F;
+  }
+  40% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4C0C9F, 0 0 50px #4C0C9F, 0 0 60px #4C0C9F, 0 0 90px #4C0C9F, 0 0 120px #4C0C9F, 0 0 140px #4C0C9F;
+  }
+  55% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #4C0C9F, 0 0 50px #4C0C9F, 0 0 60px #4C0C9F, 0 0 90px #4C0C9F, 0 0 120px #4C0C9F, 0 0 140px #4C0C9F;
+  }
+  70%, 100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #4C0C9F, 0 0 40px #4C0C9F, 0 0 50px #4C0C9F, 0 0 80px #4C0C9F, 0 0 100px #4C0C9F, 0 0 120px #4C0C9F;
+  }
+}
+
+/*# sourceMappingURL=gl.css.map */

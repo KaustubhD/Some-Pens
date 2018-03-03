@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Duotone Filter</title>
+  <link href="styles/duo.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+    <filter id="1">
+        <feColorMatrix type="matrix" 
+          values="0.3 0.5 0.0 0.0 0
+                  0   0.3 0.8 0.2 0
+                  0.7 0   1.0 0.3 0
+                  0.0 0   0   1.0 0" />
+    </filter>
+    <!-- <filter id="1">
+        <feColorMatrix type="matrix" 
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" />
+      </filter> -->
+    <filter id="2">
+        <feColorMatrix type="matrix" 
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.7 0" />
+      </filter>
+      <filter id="3">
+      <feColorMatrix type="matrix" 
+      values="0.3 0 0 0 0
+              0 0 0 0 0
+              0 0 0 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="4">
+        <feColorMatrix type="matrix" 
+        values="0 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" />
+    </filter>
+    <filter id="5">
+        <feColorMatrix type="matrix" 
+        values="0 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 0.7 0" />
+    </filter>
+    <filter id="6">
+        <feColorMatrix type="matrix" 
+        values="0 0 0 0 0
+                0 0.3 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" />
+      </filter>
+      <filter id="7">
+      <feColorMatrix type="matrix" 
+      values="0 0 0 0 0
+              0 0 0 0 0
+              0 0 1 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="8"><!--Blue less Op -->
+        <feColorMatrix type="matrix" 
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 0.7 0" />
+    </filter>
+    <filter id="9"><!--Blue less blue -->
+        <feColorMatrix type="matrix" 
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0.3 0 0
+                0 0 0 1 0" />
+    </filter>
+    <filter id="10"><!--Yellow -->
+        <feColorMatrix type="matrix" 
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" />
+      </filter>
+      <filter id="11"><!-- Cyan -->
+      <feColorMatrix type="matrix" 
+      values="0 0 0 0 0
+              0 1 0 0 0
+              0 0 1 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="12"><!-- Magenta -->
+        <feColorMatrix type="matrix" 
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0" />
+    </filter>
+    <filter id="13"><!-- Hard Yellow -->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 0 0
+              0 1 0 1 0
+              0 0 0 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="14"><!-- Hard Orange -->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 1 0
+              0 1 0 0 0
+              0 0 0 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="15"><!-- Hard Cyan -->
+      <feColorMatrix type="matrix" 
+      values="0 0 0 0 0
+              0 1 0 0 0
+              0 0 1 1 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="16"><!-- Hard Cyan Blue -->
+      <feColorMatrix type="matrix" 
+      values="0 0 0 0 0
+              0 1 0 1 0
+              0 0 1 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="17"><!-- Magenta h red-->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 0.6 0
+              0 0 0 0 0
+              0 0 1 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="18"><!-- Magenta h blue-->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 0 0
+              0 0 0 0 0
+              0 0 1 1 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="19"><!-- Yellow -->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 1 0
+              0 1 0 1 0
+              0 0 1 0 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="20"><!-- Coral -->
+      <feColorMatrix type="matrix" 
+      values="1 0 0 0 0
+              0 0.5 0 0 0
+              0 0 0 0.4 0
+              0 0 0 1 0" />
+    </filter>
+    <filter id="21"><!-- Duo Magenta Gold -->
+      <!-- <feColorMatrix type="matrix" 
+      values="1 0 0 0 0
+              0 0 0 0 0
+              0 0 1 0 0
+              0 0 0 1 0" /> -->
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+        <feFuncR type="table" tableValues="0.4509803922 1"></feFuncR>
+        <feFuncG type="table" tableValues="0 0.8431372549"></feFuncG>
+        <feFuncB type="table" tableValues="0.4509803922 0"></feFuncB>
+        <feFuncA type="table" tableValues="0 1"></feFuncA>
+      </feComponentTransfer>
+    </filter>
+
+    <filter id="22"><!-- Reverse of 21 -->
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+        <feFuncR type="table" tableValues="1 0.4509803922"></feFuncR>
+        <feFuncG type="table" tableValues="0.8431372549 0"></feFuncG>
+        <feFuncB type="table" tableValues="0 0.4509803922"></feFuncB>
+        <feFuncA type="table" tableValues="0 1"></feFuncA>
+      </feComponentTransfer>
+    </filter>
+
+    <filter id="23"><!--  -->
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+          <feFuncR type="table" tableValues="0.5176470588 0.1137254902"></feFuncR>
+          <feFuncG type="table" tableValues="0.3254901961 0.9176470588"></feFuncG>
+          <feFuncB type="table" tableValues="0.1294117647 0.8549019608"></feFuncB>
+          <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="24"><!-- Reverse of 23-->
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+          <feFuncR type="table" tableValues="0.1137254902 0.5176470588"></feFuncR>
+          <feFuncG type="table" tableValues="0.9176470588 0.3254901961"></feFuncG>
+          <feFuncB type="table" tableValues="0.8549019608 0.1294117647"></feFuncB>
+          <feFuncA type="table" tableValues="0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+
+    <filter id="25"><!-- Magenta -->
+      <!-- <feColorMatrix type="matrix" 
+      values="0.5176470588 1 0.1137254902 0.5 0
+              0.3254901961 0.3254901961 0.9176470588 0.3 0
+              0.1294117647 0.1294117647 0.8549019608 1 0
+              0 0 0 1 0" /> -->
+      <feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+          <feFuncR type="table" tableValues="0.5176470588 1 0.1137254902"></feFuncR>
+          <feFuncG type="table" tableValues="0.3254901961 0.3254901961 0.9176470588"></feFuncG>
+          <feFuncB type="table" tableValues="0.1294117647 0.1294117647 0.8549019608"></feFuncB>
+          <feFuncA type="table" tableValues="0 0 1"></feFuncA>
+        </feComponentTransfer>
+    </filter>
+    
+
+
+  </svg>
+  <div class="wrapper">
+      <center><h3>Only Red channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red channel with less opacity</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red channel with less red</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Only Green channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Green channel with less opacity</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Green channel with less green</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Only Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Blue channel with less opacity</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Blue channel with less blue</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red and Green channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Green and Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red and Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red and hard Green channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Hard Red and Green channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Green and hard Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Hard Green and Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Hard red and Blue channel</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Red and hard Blue opacity</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Yellow</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Coral</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Duotone Magenta, Gold</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Duotone Gold, Magenta</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Duotone</h3></center>
+      <img height="100%" width="100%" />
+
+      <center><h3>Duotone</h3></center>
+      <img height="100%" width="100%" />
+      
+      <center><h3>Triotone</h3></center>
+      <img height="100%" width="100%" />
+
+
+  </div>
+  <script>
+    var imgs = document.querySelectorAll('img');
+    for(var i = 0; i < imgs.length; i++){
+      imgs[i].setAttribute('src', '390H.jpg');
+    }
+  </script>
+</body>
+</html>

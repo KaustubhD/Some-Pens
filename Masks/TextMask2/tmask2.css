@@ -1,0 +1,55 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+.container .back-here {
+  height: 100%;
+  width: 100%;
+  background-image: url(301H.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.for-svg {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  height: 15em;
+  width: 100vw;
+}
+.for-svg svg {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.for-svg svg #word {
+  text-transform: uppercase;
+  font-size: 8em;
+  font-family: Ubuntu;
+  font-weight: 900;
+}
+
+/*# sourceMappingURL=tmask2.css.map */

@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu')
+
+@keyframes rotate
+  0%, 40%
+    transform: rotate(0deg)
+  60%, 100%
+    transform: rotate(360deg)
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+
+body
+  position: relative
+  height: 100vh
+  width: 100vw
+  background-color: #ddd
+
+.container
+  display: flex
+  position: relative
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+  justify-content: center
+  align-items: center
+  perspective: 2000px
+  -webkit-perspective: 2000px
+  transform-style: preserve-3d
+  // border: 1px solid brown
+
+  .wrapper
+    position: relative
+    height: 152px
+    width: 152px
+    // border: 1px solid green
+    transform: rotateX(55deg) rotateZ(20deg)
+    transform-style: preserve-3d
+
+    .for-box
+      position: absolute
+      // top: 0
+      // left: 0
+      // right: 0
+      // bottom: 0
+      // margin: auto
+      height: 150px
+      width: 150px
+      // border: 2px solid #fff
+      transform-style: preserve-3d
+
+      .another-wrapper
+        position: relative
+        height: 100%
+        width: 100%
+        background-color: black
+        // border: 1px solid #fff
+        transform-style: preserve-3d
+
+        .front
+          position: absolute
+          top: 130px
+          left: 0
+          height: 20px
+          width: 150px
+          transform: rotateX(-90deg)
+          transform-origin: bottom center
+          // background-color: rgba(200, 88, 105, 0.5)
+          transform-style: preserve-3d
+        .back
+          position: absolute
+          top: -20px
+          left: 0
+          height: 20px
+          width: 150px
+          transform: rotateX(-90deg)
+          transform-origin: bottom center
+          // background-color: rgba(100, 255, 105, 0.5)
+          transform-style: preserve-3d
+        .top
+          position: absolute
+          top: 0
+          left: 0
+          height: 150px
+          width: 150px
+          transform: translateZ(20px)
+          transform-origin: center center
+          // background-color: rgba(100, 88, 15, 0.3)
+          transform-style: preserve-3d
+        .bottom
+          position: absolute
+          top: 0
+          left: 0
+          height: 150px
+          width: 150px
+          // background-color: rgba(100, 88, 105, 0.5)
+          transform-style: preserve-3d
+        .left
+          position: absolute
+          top: 0
+          left: 0
+          height: 150px
+          width: 20px
+          transform: rotateY(-90deg)
+          transform-origin: left center
+          // background-color: rgba(0, 88, 205, 0.3)
+          transform-style: preserve-3d
+        .right
+          position: absolute
+          top: 0
+          left: 130px
+          height: 150px
+          width: 20px
+          transform: rotateY(90deg)
+          transform-origin: right center
+          // background-color: rgba(100, 200, 255, 0.3)
+          transform-style: preserve-3d
+
+      &:nth-child(1)
+        animation: rotate 4s ease-in-out infinite
+        .another-wrapper
+          div
+            background-color: lighten(blue, 20)
+      &:nth-child(2)
+        animation: rotate 4s 200ms ease-in-out infinite
+        .another-wrapper
+          transform: translateZ(20px)
+          div
+            background-color: lighten(green, 20)
+      &:nth-child(3)
+        animation: rotate 4s 400ms ease-in-out infinite
+        .another-wrapper
+          transform: translateZ(40px)
+          div
+            background-color: lighten(yellow, 20)
+      &:nth-child(4)
+        animation: rotate 4s 600ms ease-in-out infinite
+        .another-wrapper
+          transform: translateZ(60px)
+          div
+            background-color: lighten(orange, 20)
+      &:nth-child(5)
+        animation: rotate 4s 800ms ease-in-out infinite
+        .another-wrapper
+          transform: translateZ(80px)
+          div
+            background-color: lighten(red, 20)
+  
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(0,0,0,0.4)
+    font-family: Ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(0,0,0,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px
+
+

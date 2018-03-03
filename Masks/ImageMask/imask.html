@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Second mask, i think</title>
+    <link href="imask.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="441H.jpg" height="100%" width="100%"/>
+      <footer>
+        <span>Made by</span>
+        KD 2017
+      </footer>
+    </div>
+
+    <svg>
+      <mask id="mask">
+        <image xlink:href="shape.png" width="700px" height="700px" preserveAspectRatio="none" filter="url(#filter)" />
+      </mask>
+      <filter id="filter">
+        <feFlood flood-color="white" />
+        <feComposite in2="SourceAlpha" operator="in" />
+      </filter>
+    </svg>
+  </body>
+</html>

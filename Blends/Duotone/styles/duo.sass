@@ -1,0 +1,27 @@
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+  width: 100%
+  font-family: Open Sans, sans-serif
+  color: #333
+
+.wrapper
+  position: relative
+  width: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  padding: 5px
+  
+  img
+    border-radius: 4px
+    @for $i from 1 through 25
+      &:nth-child(#{$i*2})
+        filter: url('##{$i}')
+    // &:nth-child(2)
+    //   filter: url('#1')
+    // &:nth-child(4)
+    //   filter: url('#2')

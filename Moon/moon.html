@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancy moon</title>
+  <link href="styles/moon.css" type="text/css" rel="stylesheet" />
+  <script>
+    window.addEventListener('load', function(e){
+      // console.log('loaded');
+      let sky = document.querySelector('.sky');
+      let h = sky.clientHeight - 10;
+      let w = sky.clientWidth - 10;
+      for(let i = 0; i < 20; i++){
+        sky.innerHTML += "<div class=\"stars\" style=\"top:" + (Math.floor(Math.random() * h)) + "px;left:" + (Math.floor(Math.random() * w)) + "px;\"></div>";
+      }
+    });
+  
+  
+  
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper"><!-- with border -->
+      <div class="sky">
+        <div class="moon">
+          <div class="rough"></div>
+          <div class="rough"></div>
+          <div class="rough"></div>
+        </div>
+      </div>
+      
+    </div>
+    <footer>
+      <span>Made by</span>
+      KD 2017
+    </footer>
+  </div>
+</body>
+</html>

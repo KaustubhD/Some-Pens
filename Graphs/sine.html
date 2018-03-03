@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sine wave</title>
+</head>
+<style>
+  canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #dedede;
+  }
+  h2{
+    margin-bottom: 0;
+  }
+  h5{
+    margin: 0.5em;
+  }
+
+</style>
+<body>
+  <center><h2>Sine Graph</h2><h5>(and Cosine as well)</h5></center>
+  <canvas id="canvas" height="500" width="600"></canvas>
+</body>
+<script>
+  let canvas = document.getElementById('canvas');
+  let ctx = canvas.getContext('2d');
+  let h = canvas.height, w = canvas.width;
+  ctx.moveTo(20, Math.floor(h/2));
+  ctx.strokeStyle = '#0b9';
+
+  // ctx.beginPath();
+  // for(let i = 0; i < 500; i+=0.1){
+  //   ctx.lineTo(i + 20, h/2 + (50 * Math.sin(i/40)));
+  // }
+  // ctx.stroke();
+
+  // ctx.beginPath();
+  // for(let i = 0; i < 500; i+=0.1){
+  //   ctx.fillRect(i + 20, h/2 + (50 * Math.sin(i/40)), 1, 1);
+  // }
+  // ctx.stroke();
+
+  // ctx.beginPath();
+    // let i = 0;
+    // function draw(){
+    //   if(i < 500){
+    //     console.log(`${i}`);
+    //     ctx.fillRect(i + 20, h/2 + (50 * Math.sin(i/40)), 1, 1);
+    //     ctx.stroke();
+    //     i+=2;
+    //   }
+    // }
+    // setInterval(draw, 30);
+
+  let j = 0;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.moveTo(100, h/2);
+    drawAxes();
+    drawCircle();
+    drawRefCircle();
+    drawSine();
+  }
+
+  function drawAxes(){
+    ctx.beginPath();
+    ctx.moveTo(100, 0);
+    ctx.lineTo(100, 500);
+    ctx.stroke();
+    ctx.moveTo(0, h/2);
+    ctx.lineTo(600, h/2);
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  function drawCircle(){
+    ctx.beginPath();
+    // ctx.moveTo(100, h/2);
+    ctx.arc(100, h/2, 50, 0, 2* Math.PI);
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  function drawRefCircle(){
+    ctx.beginPath();
+    ctx.arc(100 + 50*(Math.sin(3.14*j - Math.PI/2)), h/2 + 50*(-Math.cos(3.14*j - Math.PI/2)), 2, 0, 2 * Math.PI);
+    ctx.lineTo(100, h/2 + 50*(-Math.cos(3.14*j - Math.PI/2)));
+    ctx.stroke();
+    ctx.closePath();
+  }
+
+  function drawSine(){
+    // console.log('Draw called');
+    
+    // ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(100, h/2 + 50 * (Math.sin(-Math.PI * j)), 2, 0, 2 * Math.PI);
+    for(let i = 0; i < 500; i+=0.1){
+      ctx.lineTo(i + 100, h/2 + (50 * Math.sin(   -(Math.PI *j) + (i/40)   ) ) );
+    }
+    ctx.stroke();
+    j+= 0.02;
+    ctx.closePath();
+  }
+  setInterval(draw, 30);
+
+
+</script>
+</html>

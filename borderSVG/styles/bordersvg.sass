@@ -1,0 +1,284 @@
+@font-face
+  font-family: 'fontt'
+  src: url(../fonts/fontt.otf) format('opentype')
+  font-weight: 400
+
+@import url('https://fonts.googleapis.com/css?family=Cabin')
+
+$back: #3F51B5
+$color-2: #D4E157
+$back-3-dark: #283593
+
+html, body
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+  font-family: Lato
+  font-weight: 400
+  font-size: 19px
+  color: #e74c3c
+  background-color: $back
+
+.container
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+
+  h1
+    margin-bottom: 0
+    font-family: Cabin
+    font-size: 40px
+    color: #bdc3c7
+    letter-spacing: 2px
+
+  .wraps
+    position: relative
+    display: flex
+    height: 90vh
+    width: 100vw
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-around
+
+    .box-wrap
+      position: relative
+      height: 350px
+      width: 250px
+      background-color: #fff
+      // border: 3px solid #fff
+      box-shadow: inset 0 0 0 3px $back
+      transition: background-color 500ms ease
+
+      svg
+        position: absolute
+        top: 0
+        left: 0
+
+        line
+          fill: none
+          stroke-width: 3
+          stroke: #fff
+          transition: all 800ms ease-in-out
+
+          &.top
+            stroke-dasharray: 400 400
+          &.right
+            stroke-dasharray: 400 300
+          &.left
+            stroke-dasharray: 400 400
+          &.bottom
+            stroke-dasharray: 400 350
+
+      .main-text
+        position: absolute
+        width: 100%
+        text-align: center
+        font-family: fontt
+        font-size: 100px
+        color: $back
+        line-height: 2
+        transition: color 500ms ease
+
+      .sub-text
+        position: absolute
+        width: 100%
+        bottom: 10%
+        color: $back
+        text-align: center
+        transition: color 800ms ease 200ms
+
+      &:hover
+        background-color: $back
+
+        .main-text, .sub-text
+          color: #fff
+
+        .top
+          transform: translateX(-800px)
+
+        .right
+          transform: translateY(-750px)
+
+        .left
+          transform: translateY(750px)
+
+        .bottom
+          transform: translateX(800px)
+
+  .w2
+    .box-wrap
+      position: relative
+      height: 350px
+      width: 250px
+      background-color: #fff
+      // border: 3px solid #fff
+      box-shadow: inset 0 0 0 3px $back
+      transition: background-color 300ms ease
+
+      svg
+        position: absolute
+        top: 0
+        left: 0
+
+        line
+          fill: none
+          stroke-width: 3
+          stroke: #fff
+          transition: all 800ms ease-in-out 150ms
+
+          &.top
+            stroke-dasharray: 400 400
+          &.right
+            stroke-dasharray: 400 300
+          &.left
+            stroke-dasharray: 400 400
+          &.bottom
+            stroke-dasharray: 400 350
+
+      .main-text
+        position: absolute
+        width: 100%
+        text-align: center
+        font-family: fontt
+        font-size: 100px
+        color: $back
+        line-height: 2
+        transition: color 500ms ease
+
+      .sub-text
+        position: absolute
+        width: 100%
+        bottom: 10%
+        color: $back
+        text-align: center
+        transition: all 800ms ease 200ms
+
+      &:hover
+        background-color: $back
+
+        .main-text, .sub-text
+          color: $color-2
+        .sub-text
+          transform: scale(1.2)
+
+        line
+          stroke-width: 10
+          stroke: $color-2
+
+        .top
+          transform: translateX(-800px)
+
+        .right
+          transform: translateY(-750px)
+
+        .left
+          transform: translateY(750px)
+
+        .bottom
+          transform: translateX(800px)
+
+  .w3
+    .box-wrap
+      background-color: $back
+
+      .main-text, .sub-text
+        color: #fff
+
+      svg
+        position: absolute
+        top: 0
+        left: 0
+        line
+          stroke-width: 13
+          transition: all 500ms ease-in-out 150ms
+
+          &.top
+            stroke-dasharray: 250 200
+          &.right
+            stroke-dasharray: 350 300
+          &.left
+            stroke-dasharray: 350 300
+          &.bottom
+            stroke-dasharray: 250 200
+
+      &:hover
+        background-color: $back-3-dark
+
+        .main-text, .sub-text
+          color: $color-2
+
+        line
+          stroke-width: 10
+          stroke: #fff
+
+        .top
+          transform: translateX(-225px)
+
+        .right
+          transform: translateY(-325px)
+
+        .left
+          transform: translateY(325px)
+
+        .bottom
+          transform: translateX(225px)
+
+  .w4
+    .box-wrap
+      background-color: $back-3-dark
+
+      .main-text, .sub-text
+        color: #fff
+        transition: transform 400ms ease-in-out
+
+      svg
+        position: absolute
+        top: 0
+        left: 0
+        line
+          stroke-width: 25
+          transition: all 400ms ease-in-out 0ms
+
+          &.top
+            stroke-dasharray: 250 200
+          &.right
+            stroke-dasharray: 350 300
+          &.left
+            stroke-dasharray: 350 300
+          &.bottom
+            stroke-dasharray: 250 200
+
+      &:hover
+        background-color: $back-3-dark
+
+        .main-text
+          transform: scale(1.25) translateY(7px)
+
+        .sub-text
+          transform: scale(1.25) translateY(-3px)
+
+        line
+          // stroke-width: 10
+          stroke: #fff
+          &.top, &.left, &.right, &.bottom
+            transform: none
+            stroke-width: 3
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(255,255,255,0.4)
+    font-family: Ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(255,255,255,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px

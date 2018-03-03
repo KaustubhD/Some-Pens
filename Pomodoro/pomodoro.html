@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pomodoro Clock</title>
+  <link href="styles/pomodoro.css" type="text/css" rel="stylesheet" />
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/pomodoro.js"></script>
+</head>
+<body>
+  <audio>
+    <source src="https://notificationsounds.com/soundfiles/dd458505749b2941217ddd59394240e8/file-sounds-1111-to-the-point.mp3"></source>
+  </audio>
+  <div class="container">
+    <div class="wrapper">
+      <h1>Pomodoro Clock</h1>
+      <div class="timers-wrap">
+        <div class="session-wrap">
+          <h4>Session time</h4>
+          <svg height="0" width="0" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="-252"></circle>
+          </svg>
+          <button class="decrease-but">-</button>
+          <div class="session-set-display">0</div>
+          <button class="increase-but">+</button>
+        </div>
+
+        <div class="break-wrap">
+            <h4>Break time</h4>
+            <svg height="0" width="0" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="-252"></circle>
+            </svg>
+            <button class="decrease-but">-</button>
+            <div class="break-set-display">0</div>
+            <button class="increase-but">+</button>
+        </div>
+        <button class="begin-timer">Begin</button>
+      </div>
+
+      <div class="overlay-wrap">
+        <button class="close-but">X</button>
+        <div class="real-timer">
+          <svg height="0" width="0" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="-283"></circle>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="#f99" stroke-width="2" stroke-linecap="round" stroke-dasharray="252" stroke-dashoffset="-252"></circle>
+          </svg>
+          <div class="real-timer-display"> 0 </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+@font-face
+  font-family: 'AlexBrush'
+  src: url(../fonts/AlexBrush-Regular.ttf) format('truetype')
+  font-weight: 600
+@font-face
+  font-family: 'AmaticSC'
+  src: url(../fonts/AmaticSC-Bold.ttf) format('truetype')
+  font-weight: 600
+@font-face
+  font-family: 'Morrison'
+  src: url(../fonts/MoristonPersonal-Regular.otf)
+  font-style: normal
+  font-weight: normal
+
+*
+  box-sizing: border-box
+.container
+  height: 100vh
+  width: 100vw
+  position: absolute
+  top: 0
+  left: 0
+  background-image: url(../279H.jpg)
+  background-size: cover
+  background-position: center
+  background-color: #000
+  z-index: 1
+
+  h1
+    font-family: AmaticSC, sans-serif
+    font-size: 50px
+    color: #fff
+    letter-spacing: 0.5px
+    word-spacing: 1.5px
+    z-index: 5
+
+  .menu-wrapper
+    position: relative
+    height: 60%
+    width: 30%
+    perspective: 1000px
+
+    ul
+      display: inline-block
+      -webkit-margin-before: 0
+      -webkit-margin-after: 0
+      -webkit-margin-end: 0
+      -webkit-margin-start: 0
+      margin: 20% 0 0 20%
+
+      li
+        display: flex
+        list-style: none
+        text-align: center
+        width: fit-content
+        filter: blur(3px)
+        padding: 5% 0 5% 0
+        transition: 300ms ease-in-out
+
+        &:hover
+          filter: blur(0)
+          transition: 300ms ease-in-out
+
+          a
+            transform: scale(2) translateX(25%)
+            transition: 300ms ease-in-out
+
+        a
+          font-family: Morrison, sans-serif
+          text-decoration: none
+          color: #fff
+          font-size: 23px
+          letter-spacing: 0.25px
+          transform: scale(1)
+          transition: 300ms ease-in-out
+          margin: 0
+          //height: 30px
+          //width: 100px
+
+        //a
+          text-decoration: none
+          color: transparent
+          font-size: 20px
+          text-shadow: 0 0 5px rgba(255,255,255,0.6)
+          transition: 200ms ease-in-out
+
+          //&:hover
+            text-shadow: 0 0 1px rgba(255,255,255,0.6)
+            transition: 200ms ease-in-out

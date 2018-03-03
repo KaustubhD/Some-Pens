@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Always wanted to make that</title>
+    <link href="tmask5.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="afterlife">
+        <!-- <div class="shadow">.</div> -->
+        <div class="see-this">
+          <span>Ever seen </span>
+          <span>ashes burn </span>
+          <span>?</span>
+        </div>
+        <div class="overlay">
+          <canvas class="ashes" id="c" height="100%" width="100%"></canvas> 
+          <div class="end">Here they do</div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <svg height="100%" width="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <mask id="mask" height="100%" width="100%" x="0" y="0">
+              <polygon points="25,0 100,0 100,100 70,100" fill="#fff"/>
+            </mask>
+          </defs>
+          <polygon points="25,0 100,0 100,100 70,100" fill="#000"/>
+          <text id="one" x="50%" y="55%" font-size="0.84em" fill="#000" text-anchor="middle">Come closer</text>
+          <text id="two" x="50%" y="55%" font-size="0.84em" fill="#fff" mask="url(#mask)" text-anchor="middle">Come closer</text>
+        </svg>
+      </div>
+      <footer>
+        <span>Made by</span>
+        KD 2017
+      </footer>
+    </div>
+  </body>
+  <script>
+    var x = document.querySelector('div.wrapper');
+    var y = document.querySelector('div.see-this');
+    window.setTimeout((e) =>{
+      x.classList.add('none');
+    }, 5000);
+    window.setTimeout((e) =>{
+      y.classList.add('none');
+    }, 10000);
+  
+	window.setTimeout((e) => {
+	var c = document.getElementById("c"),
+			ctx = c.getContext("2d");
+	
+	c.width = innerWidth;
+	c.height = innerHeight;
+	
+	var lines = [],
+			maxSpeed = 2,
+			spacing = 20,
+			xSpacing = 0,
+			n = innerWidth / spacing,
+			colors = ["#607B8B", "#7f95a2", "#afbdc5"],
+			i;
+	
+	for (i = 0; i < n; i++){
+		xSpacing += spacing;
+		lines.push({
+			x: xSpacing,
+			y: Math.round(Math.random()*c.height),
+			width: 2,
+			height: Math.round(Math.random()*(5)),
+			speed: Math.random()*maxSpeed + 1,
+			color: colors[Math.floor(Math.random() * colors.length)]
+		});
+	}
+	
+	
+	function draw(){
+		var i;
+		ctx.clearRect(0,0,c.width,c.height);
+		
+		for (i = 0; i < n; i++){
+			ctx.fillStyle = lines[i].color;
+			ctx.fillRect(lines[i].x, lines[i].y, lines[i].width, lines[i].height);
+			lines[i].y += lines[i].speed;
+			
+			if (lines[i].y > c.height)
+				lines[i].y = 0 - lines[i].height;
+		}
+		
+		requestAnimationFrame(draw);
+		
+	}
+	
+	draw();
+	
+}, 16000);
+
+  </script>
+</html>

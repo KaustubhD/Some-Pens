@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:900')
+
+$mix-col: rgba(0,0,0,0)
+$mix-am: 50
+
+@function strin($r, $g, $b, $back, $len)
+  $tot: $len
+  $str: 1px 1px transparent
+  @while $len > 0
+    $mix-col: mix(rgb($r, $g, $b), $back, 100- ($len * $tot) / 100)
+    // $mix-col: mix(rgb($r, $g, $b), $back, 0)
+
+    $str: $len+px $len+px $mix-col, $str
+    $len: $len - 0.5
+  @return $str
+
+@mixin shad($r, $g, $b, $back, $len)
+  text-shadow: strin($r, $g, $b, $back, $len)
+
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+
+.container
+  position: relative
+  height: 100vh
+  width: 100vw
+  background-color: #4169E1
+  // background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7))
+
+  main
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    height: 30em
+    width: 45em
+    // border: 1px solid #000
+    // overflow: hidden
+
+    .parts
+      text-align: center
+      font-family: Titillium Web, sans-serif
+      font-size: 6em
+      color: #fff
+      text-transform: uppercase
+      // font-weight: 900
+      line-height: 1.3em
+      letter-spacing: .1em
+
+      &.p1
+        @include shad(0, 255, 128, #4169E1, 100)
+      &.p2
+        @include shad(64, 0, 128, #4169E1, 100)
+      &.p3
+        @include shad(220, 220, 0, #4169E1, 100)
+      &.p4
+        @include shad(137, 33, 43, #4169E1, 100)
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    margin: 0 0 5px 0
+    color: rgba(255,255,255,0.4)
+    font-family: Ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: rgba(255,255,255,0.2)
+      text-transform: uppercase
+      margin-bottom: 3px

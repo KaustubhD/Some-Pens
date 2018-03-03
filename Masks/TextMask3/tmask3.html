@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gradient with mask</title>
+    <link href="tmask3.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="back"></div>
+      <div class="fore">
+        <svg height="100%" width="100%">
+          <defs>
+            <mask id="mask" height="100%" width="100%" x="0" y="0">
+              <rect id="base" x="0" y="0" height="100%" width="100%" fill="#fff" />
+              <text id="text-main" x="50%" y="50%" dy="0em" text-anchor="middle" letter-spacing="-2">Drink Up</text>
+              <text id="text-sub" x="50%" y="50%" dy="1.2em" text-anchor="middle" letter-spacing="-1">Me hearties</text>
+            </mask>
+          </defs>
+          <rect id="rect" x="0" y="0" height="100%" width="100%" fill="#fff" mask="url(#mask)" />
+        </svg>
+      </div>
+      <footer>
+        <span>Made by</span>
+        KD 2017
+      </footer>
+    </div>
+  </body>
+</html>
+      

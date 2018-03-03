@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simon Game</title>
+  <link href="styles/simon.css" type="text/css" rel="stylesheet" />
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src="js/simon.js"></script>
+</head>
+<body>
+  <audio>
+    <source src="audio/simonSound1.mp3" />
+  </audio>
+  <audio>
+    <source src="audio/simonSound2.mp3" />
+  </audio>
+  <audio>
+    <source src="audio/simonSound3.mp3" />
+  </audio>
+  <audio>
+    <source src="audio/simonSound4.mp3" />
+  </audio>
+  <div class="container">
+    <div class="wrapper">
+      <svg xmlns="https://w3.org/200/svg" viewBox="0 0 100 100">
+        <!-- <path id="paths" d="M50 50 L40 30 L60 30 Z"/> -->
+        <path d="M1 48 A47 47 0 0 1 48 1 L48 20 A30 30 0 0 0 20 48 Z" />
+        <path d="M99 48 A47 47 0 0 0 52 1 L52 20 A30 30 0 0 1 80 48 Z" />
+        <path d="M1 52 A47 47 0 0 0 48 99 L48 80 A30 30 0 0 1 20 52 Z" />
+        <path d="M99 52 A47 47 0 0 1 52 99 L52 80 A30 30 0 0 0 80 52 Z" />
+        <text x="23" y="23" font-size="7px" opacity="0.3" fill="#fff" text-anchor="middle">Q</text>
+        <text x="73" y="23" font-size="7px" opacity="0.3" fill="#fff" text-anchor="middle">W</text>
+        <text x="23" y="77" font-size="7px" opacity="0.3" fill="#fff" text-anchor="middle">A</text>
+        <text x="75" y="77" font-size="7px" opacity="0.3" fill="#fff" text-anchor="middle">S</text>
+
+      </svg>
+      <div class="inner-circle">
+        <div class="screen">
+          <span class="score-on-screen">00</span>
+        </div>
+        <div class="options-wrap">
+          <div class="power-option-wrap">
+            <span>Power</span>
+            <input id="power" type="checkbox">
+            <label for="power"></label>
+          </div>
+
+          <div class="mode-option-wrap">
+            <span>Strict</span>
+            <input id="mode" type="checkbox">
+            <label for="mode"></label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

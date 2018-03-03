@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@keyframes rotate {
+  0%, 40% {
+    transform: rotate(0deg);
+  }
+  60%, 100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ddd;
+}
+
+.container {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  -webkit-perspective: 2000px;
+  transform-style: preserve-3d;
+}
+.container .wrapper {
+  position: relative;
+  height: 152px;
+  width: 152px;
+  transform: rotateX(55deg) rotateZ(20deg);
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .front {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  height: 20px;
+  width: 150px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .back {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  height: 20px;
+  width: 150px;
+  transform: rotateX(-90deg);
+  transform-origin: bottom center;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 150px;
+  transform: translateZ(20px);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .bottom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 150px;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px;
+  width: 20px;
+  transform: rotateY(-90deg);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box .another-wrapper .right {
+  position: absolute;
+  top: 0;
+  left: 130px;
+  height: 150px;
+  width: 20px;
+  transform: rotateY(90deg);
+  transform-origin: right center;
+  transform-style: preserve-3d;
+}
+.container .wrapper .for-box:nth-child(1) {
+  animation: rotate 4s ease-in-out infinite;
+}
+.container .wrapper .for-box:nth-child(1) .another-wrapper div {
+  background-color: #6666ff;
+}
+.container .wrapper .for-box:nth-child(2) {
+  animation: rotate 4s 200ms ease-in-out infinite;
+}
+.container .wrapper .for-box:nth-child(2) .another-wrapper {
+  transform: translateZ(20px);
+}
+.container .wrapper .for-box:nth-child(2) .another-wrapper div {
+  background-color: #00e600;
+}
+.container .wrapper .for-box:nth-child(3) {
+  animation: rotate 4s 400ms ease-in-out infinite;
+}
+.container .wrapper .for-box:nth-child(3) .another-wrapper {
+  transform: translateZ(40px);
+}
+.container .wrapper .for-box:nth-child(3) .another-wrapper div {
+  background-color: #ffff66;
+}
+.container .wrapper .for-box:nth-child(4) {
+  animation: rotate 4s 600ms ease-in-out infinite;
+}
+.container .wrapper .for-box:nth-child(4) .another-wrapper {
+  transform: translateZ(60px);
+}
+.container .wrapper .for-box:nth-child(4) .another-wrapper div {
+  background-color: #ffc966;
+}
+.container .wrapper .for-box:nth-child(5) {
+  animation: rotate 4s 800ms ease-in-out infinite;
+}
+.container .wrapper .for-box:nth-child(5) .another-wrapper {
+  transform: translateZ(80px);
+}
+.container .wrapper .for-box:nth-child(5) .another-wrapper div {
+  background-color: #ff6666;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(0, 0, 0, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=cube2.css.map */

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gooey Effect</title>
+  <link href="gooey.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div id="blob1" class="blob">4</div>
+    <div id="blob2" class="blob">3</div>
+    <div id="blob3" class="blob">2</div>
+    <div id="blob4" class="blob">1</div>
+
+    <svg xmlns="https://www.w3.org/2000/svg" version="1.1">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+          <feColorMatrix in="blur" mode="matrix" 
+          values="1 0   0 0   0
+                  0 1   0 0   0
+                  0 0   1 0   0
+                  0 0   0 18 -6.5" result="gooey"></feColorMatrix>
+          <feBlend in="SourceGraphic" in2="gooey" ></feBlend>
+        </filter>
+        <!-- <circle -->
+      </defs>
+    </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:900");
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+}
+.container .wrapper {
+  position: absolute;
+  height: 30em;
+  width: 25em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.container .wrapper .letters {
+  position: absolute;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12em;
+  line-height: 1.1em;
+  text-shadow: 0 0 70px #000;
+}
+.container .wrapper .ch1 {
+  top: 0;
+  left: 10px;
+  z-index: 10;
+}
+.container .wrapper .ch2 {
+  top: 30px;
+  left: 90px;
+  z-index: 7;
+}
+.container .wrapper .ch3 {
+  top: -10px;
+  left: 190px;
+  z-index: 10;
+}
+.container .wrapper .ch4 {
+  top: 40px;
+  left: 260px;
+  z-index: 15;
+}
+.container .wrapper .ch5 {
+  top: 140px;
+  left: 20px;
+  z-index: 5;
+}
+.container .wrapper .ch6 {
+  top: 145px;
+  left: 110px;
+  z-index: 13;
+}
+.container .wrapper .ch7 {
+  top: 150px;
+  left: 250px;
+  z-index: 17;
+}
+.container .wrapper .ch8 {
+  top: 260px;
+  left: 15px;
+  z-index: 15;
+}
+.container .wrapper .ch9 {
+  top: 250px;
+  left: 130px;
+  z-index: 12;
+}
+.container .wrapper .ch10 {
+  top: 255px;
+  left: 230px;
+  z-index: 11;
+}
+.container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+}
+.container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+/*# sourceMappingURL=lett.css.map */

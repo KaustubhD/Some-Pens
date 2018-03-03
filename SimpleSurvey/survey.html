@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simple Survey Form</title>
+  <link href="styles/survey.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <center><h1>Survey form</h1></center>
+      <form>
+        <div class="fields-wrap">
+          <label for="name">*Name:</label>
+          <input id="name" type="text" required placeholder="Name here"/>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="email">*Email:</label>
+          <input id="email" type="email" required placeholder="Email here"/>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="age">*Age:</label>
+          <input id="age" type="number" max="100" min="1" required placeholder="Age here"/>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="role">What would you say your current role is ?</label>
+          <select id="role">
+            <option disabled>Select an option</option>
+            <option value="Student">Student</option>
+            <option value="Working">Working</option>
+            <option value="Beginning FCC">Beginning FCC</option>
+            <option value="Not Sure">Not Sure</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="recommend">Would you recommend our product to a friend or enemy ?</label>
+          <span>
+            <label for="yes-recom"><input type="radio" id="yes-recom" name="recom">Yes</label>
+            <label for="no-recom"><input type="radio" id="no-recom" name="recom">No</label>
+          </span>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="improve">What all would you improve in our product ?</label>
+          <span>
+            <label for="fe"><input type="checkbox" id="fe" name="improve">Front End</label>
+            <label for="be"><input type="checkbox" id="be" name="improve">Back End</label>
+            <label for="no"><input type="checkbox" id="no" name="improve">Notifications</label>
+            <label for="sz"><input type="checkbox" id="sz" name="improve">Size</label>
+            <label for="lg"><input type="checkbox" id="lg" name="improve">Logo</label>
+            <label for="sp"><input type="checkbox" id="sp" name="improve">Speed</label>
+          </span>
+        </div>
+
+        <div class="fields-wrap">
+          <label for="comm">Any more comments :</label>
+          <textarea id="comm" placeholder="Name here">
+          </textarea>
+        </div>
+        
+        <div class="fields-wrap">
+          <button type="submit" value="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  min-height: 600px;
+  min-width: 600px;
+  background-color: #f47;
+}
+.container .wrapper {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  background-color: #aa002e;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 0 30px;
+}
+.container .wrapper h1 {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.container .wrapper .timers-wrap {
+  padding: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  transition: all 400ms ease-out;
+}
+.container .wrapper .timers-wrap.inactive {
+  opacity: 0.3;
+}
+.container .wrapper .timers-wrap .session-wrap, .container .wrapper .timers-wrap .break-wrap {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+}
+.container .wrapper .timers-wrap .session-wrap *, .container .wrapper .timers-wrap .break-wrap * {
+  z-index: 2;
+}
+.container .wrapper .timers-wrap .session-wrap h4, .container .wrapper .timers-wrap .break-wrap h4 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: #ffdde6;
+  margin-top: 0.8em;
+}
+.container .wrapper .timers-wrap .session-wrap svg, .container .wrapper .timers-wrap .break-wrap svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  z-index: 0;
+  opacity: 0.6;
+  transform: rotate(-90deg);
+}
+.container .wrapper .timers-wrap .session-wrap button, .container .wrapper .timers-wrap .break-wrap button {
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.container .wrapper .timers-wrap .session-wrap div, .container .wrapper .timers-wrap .break-wrap div {
+  font-size: 30px;
+}
+.container .wrapper .timers-wrap .begin-timer {
+  position: absolute;
+  display: block;
+  height: 50px;
+  width: 100px;
+  top: 50%;
+  border: none;
+  border-radius: 4px;
+  font-size: 25px;
+  color: #c40035;
+}
+.container .wrapper .overlay-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 15px;
+  opacity: 0;
+  transition: all 400ms ease-out;
+}
+.container .wrapper .overlay-wrap.active {
+  display: block;
+  opacity: 1;
+  z-index: 10;
+  height: 300px;
+  width: 350px;
+  border-radius: 4px;
+  background-color: #f47;
+  box-shadow: 0 5px 30px 1px rgba(0, 0, 0, 0.6), 0 0 10px 0px rgba(0, 0, 0, 0.8);
+}
+.container .wrapper .overlay-wrap.active button {
+  position: absolute;
+  right: 15px;
+  display: inline-block;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #fff;
+}
+.container .wrapper .overlay-wrap.active .real-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.container .wrapper .overlay-wrap.active .real-timer svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  height: 250px;
+  width: 250px;
+  z-index: 0;
+  transform: rotate(-90deg);
+}
+.container .wrapper .overlay-wrap.active .real-timer .real-timer-display {
+  font-size: 35px;
+  z-index: 2;
+  text-align: center;
+}
+
+/*# sourceMappingURL=pomodoro.css.map */

@@ -1,0 +1,62 @@
+@font-face
+  font-family: 'Lavenderia'
+  src: url('Lavanderia Sturdy.otf')
+  font-size: normal
+  font-weight: normal
+
+html, body
+  margin: 0
+  padding: 0
+
+.container
+  position: absolute
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  background: url(pigeons_feeding_hand.jpg)
+  background-size: cover
+  // background-blend-mode: multiply
+
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background: linear-gradient(180deg, rgba(229,231,0,1) 20%, transparent)
+    mix-blend-mode: overlay
+
+  .wrapper
+    height: 6em
+    overflow: hidden
+    mix-blend-mode: difference
+    padding: 1em
+
+    h1
+      font-family: Lavenderia
+      font-size: 5em
+      letter-spacing: 0.06em
+      color: #fff
+      margin: 0
+      padding: 0
+
+  footer
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    mix-blend-mode: difference
+    margin: 0 0 5px 0
+    color: #fff
+    font-family: ubuntu
+    font-size: 0.7em
+
+    span
+      display: block
+      font-size: 0.5em
+      color: #fff
+      text-transform: uppercase
+      margin-bottom: 3px

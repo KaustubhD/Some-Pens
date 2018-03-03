@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto:100')
+$back-nav: rgb(244,244,244)
+$back: rgb(238,238,238) //#eeeeee
+*
+  box-sizing: border-box
+body
+  margin: 0
+  color: #353839
+  font-family: Lato
+  // min-width: 400px
+.container
+  width: 100vw
+  nav
+    display: flex
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 60px
+    justify-content: space-between
+    align-items: center
+    background-color: $back-nav
+    padding: 0 20px
+    box-shadow: 0 5px 20px 0px rgba(0,0,0,0.2)
+    img
+      height: 40px
+      width: 40px
+    .options
+      a, a:link, a:active, a:visited
+        text-decoration: none
+        color: #673D35
+        margin: 0 10px
+        &:hover
+          text-decoration: underline
+
+  .intro-wrap
+    height: calc(100vh - 60px)
+    width: 100vw
+    margin-top: 60px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background-color: $back
+    img
+      width: 300px
+    h1
+      font-family: Roboto
+      margin: 0
+      letter-spacing: 2px
+  .notify-wrap
+    // height:
+    width: 100vw
+    background-color: #ddd
+    padding: 100px 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    h4
+      color: #353839
+      letter-spacing: 1px
+      margin: 0
+      margin-bottom: 20px
+    form
+      text-align: center
+      input
+        display: block
+      input[type="email"]
+        -webkit-appearance: none
+        height: 30px
+        width: 200px
+        border: 2px solid #673D35
+        border-radius: 3px
+        padding-left: 10px
+        margin-bottom: 20px
+        &:focus
+          border: 2px solid #353839
+          outline: none
+      button[type="submit"]
+        padding: 8px 13px
+        font-size: 14px
+        background-color: #353839
+        border: 0
+        border-radius: 2px
+        color: #eee
+        &:hover
+          background-color: #673D35
+          cursor: pointer
+        &:focus
+          outline: none
+  .features-wrap
+    width: 100vw
+    background-color: #eee
+    padding: 150px 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    .feature
+      display: flex
+      // background-color: #ccc
+      margin-bottom: 20px
+      .feat-img
+        height: 50px
+        width: 50px
+        margin-right: 20px
+        // background-color: #fff
+      .feat-words
+        h3
+          margin: 0
+          color: #353839
+        h5
+          margin: 0.6em 0
+          color: #673D35
+  .video-wrap
+    width: 100vw
+    background-color: #ddd
+    padding: 100px 20px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    iframe
+      overflow: hidden
+      border-radius: 5px
+  .pricing-wrap
+    width: 100vw
+    background-color: #eee
+    padding: 100px 20px
+    display: flex
+    flex-wrap: wrap
+    // flex-direction: column
+    justify-content: space-evenly
+    align-items: center
+    .price
+      height: 300px
+      width: 220px
+      background-color: #dfdfdf
+      border: 1px solid #673D35
+      border-radius: 3px
+      padding: 10px
+      margin: 20px
+      text-align: center
+      color: #353839
+      h4
+        // color: #353839
+      ul
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li
+          margin: 20px 0
+      .buy-this
+        padding: 8px 13px
+        font-size: 14px
+        background-color: #353839
+        border: 0
+        border-radius: 2px
+        color: #eee
+        transition: all 300ms ease-out
+        &:hover
+          background-color: #673D35
+          cursor: pointer
+        &:focus
+          outline: none
+  footer
+    position: relative
+    width: 100%
+    // height: 80px
+    padding: 10px 0
+    background-color: #ddd
+    h4
+      position: relative
+      color: #353839
+      text-align: center
+      bottom: 0
+      // margin: 0
+
+
+    
+@media (max-width: 475px)
+  .container
+    .features-wrap
+      .feature
+        display: block
+@media (max-width: 575px)
+  .container
+    .video-wrap
+      iframe
+        width: 90%
+        height: 300px

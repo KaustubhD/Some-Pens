@@ -1,0 +1,57 @@
+@for $i from 1 through 550
+  $red: random(255)
+  $green: random(255)
+  $blue: random(255)
+
+  .wrapper div:nth-child(#{$i})
+    background-color: rgb($red, $green, $blue)
+
+@mixin big($c)
+  grid-column-end: span $c
+  grid-row-end: span $c
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+
+.container
+  width: 100vw
+
+  .wrapper
+    // height: 100%
+    padding:
+      top: 1vw
+      right: 0
+      bottom: 0
+      left: 1vw
+    width: 100%
+    display: grid
+    grid-template-columns: repeat(8, 1fr)
+
+    div
+      min-height: 12.5vw
+      border:
+        top: 0
+        right: 1vw solid #fff
+        bottom: 1vw solid #fff
+        left: 0
+      text-align: center
+      font-size: 25px
+      font-family: sans-serif
+      color: #fff
+      font-weight: 700
+      line-height: 12.5vw
+      
+      &:not(:empty)
+        position: sticky
+        top: 0
+        &.last-big
+          top: 12.5vw
+      &.big
+        @include big(2)
+        font-size: 30px
+        line-height: 25vw       
+

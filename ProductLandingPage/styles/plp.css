@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto:100");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #353839;
+  font-family: Lato;
+}
+
+.container {
+  width: 100vw;
+}
+.container nav {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 0 20px;
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.2);
+}
+.container nav img {
+  height: 40px;
+  width: 40px;
+}
+.container nav .options a, .container nav .options a:link, .container nav .options a:active, .container nav .options a:visited {
+  text-decoration: none;
+  color: #673D35;
+  margin: 0 10px;
+}
+.container nav .options a:hover, .container nav .options a:link:hover, .container nav .options a:active:hover, .container nav .options a:visited:hover {
+  text-decoration: underline;
+}
+.container .intro-wrap {
+  height: calc(100vh - 60px);
+  width: 100vw;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+}
+.container .intro-wrap img {
+  width: 300px;
+}
+.container .intro-wrap h1 {
+  font-family: Roboto;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.container .notify-wrap {
+  width: 100vw;
+  background-color: #ddd;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .notify-wrap h4 {
+  color: #353839;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+.container .notify-wrap form {
+  text-align: center;
+}
+.container .notify-wrap form input {
+  display: block;
+}
+.container .notify-wrap form input[type="email"] {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 200px;
+  border: 2px solid #673D35;
+  border-radius: 3px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+.container .notify-wrap form input[type="email"]:focus {
+  border: 2px solid #353839;
+  outline: none;
+}
+.container .notify-wrap form button[type="submit"] {
+  padding: 8px 13px;
+  font-size: 14px;
+  background-color: #353839;
+  border: 0;
+  border-radius: 2px;
+  color: #eee;
+}
+.container .notify-wrap form button[type="submit"]:hover {
+  background-color: #673D35;
+  cursor: pointer;
+}
+.container .notify-wrap form button[type="submit"]:focus {
+  outline: none;
+}
+.container .features-wrap {
+  width: 100vw;
+  background-color: #eee;
+  padding: 150px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .features-wrap .feature {
+  display: flex;
+  margin-bottom: 20px;
+}
+.container .features-wrap .feature .feat-img {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+}
+.container .features-wrap .feature .feat-words h3 {
+  margin: 0;
+  color: #353839;
+}
+.container .features-wrap .feature .feat-words h5 {
+  margin: 0.6em 0;
+  color: #673D35;
+}
+.container .video-wrap {
+  width: 100vw;
+  background-color: #ddd;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .video-wrap iframe {
+  overflow: hidden;
+  border-radius: 5px;
+}
+.container .pricing-wrap {
+  width: 100vw;
+  background-color: #eee;
+  padding: 100px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container .pricing-wrap .price {
+  height: 300px;
+  width: 220px;
+  background-color: #dfdfdf;
+  border: 1px solid #673D35;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 20px;
+  text-align: center;
+  color: #353839;
+}
+.container .pricing-wrap .price ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.container .pricing-wrap .price ul li {
+  margin: 20px 0;
+}
+.container .pricing-wrap .price .buy-this {
+  padding: 8px 13px;
+  font-size: 14px;
+  background-color: #353839;
+  border: 0;
+  border-radius: 2px;
+  color: #eee;
+  transition: all 300ms ease-out;
+}
+.container .pricing-wrap .price .buy-this:hover {
+  background-color: #673D35;
+  cursor: pointer;
+}
+.container .pricing-wrap .price .buy-this:focus {
+  outline: none;
+}
+.container footer {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+.container footer h4 {
+  position: relative;
+  color: #353839;
+  text-align: center;
+  bottom: 0;
+}
+
+@media (max-width: 475px) {
+  .container .features-wrap .feature {
+    display: block;
+  }
+}
+@media (max-width: 575px) {
+  .container .video-wrap iframe {
+    width: 90%;
+    height: 300px;
+  }
+}
+
+/*# sourceMappingURL=plp.css.map */

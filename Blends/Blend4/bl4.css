@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+body .container {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #C1F4EB;
+}
+body .container .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url(379H.jpg), linear-gradient(120deg, #a28074 50%, red);
+  background-blend-mode: color-burn;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body .container .foreground {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70vh;
+  width: 60vw;
+  margin: auto;
+  background: linear-gradient(rgba(150, 150, 150, 0.6) 60%, transparent);
+  flex-direction: column;
+  padding: 10px 20px;
+  justify-content: space-between;
+  mix-blend-mode: difference;
+  border-radius: 4px;
+}
+body .container .foreground .heading {
+  height: 30%;
+  width: 100%;
+  color: #888;
+  font-size: 3.6em;
+  text-align: center;
+  opacity: 0.77;
+}
+body .container .foreground .content {
+  height: 60%;
+  width: 100%;
+  color: aqua;
+  font-size: 3.5em;
+  text-align: center;
+  mix-blend-mode: difference;
+  line-height: 2;
+}
+body .container footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5px 0;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: Ubuntu;
+  font-size: 0.7em;
+  mix-blend-mode: screen;
+}
+body .container footer span {
+  display: block;
+  font-size: 0.5em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  mix-blend-mode: screen;
+}
+
+/*# sourceMappingURL=bl4.css.map */
