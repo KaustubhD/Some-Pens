@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Technical Documentation (CSS)</title>
+  <link href="styles/techdoc.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+  <main class="container">
+    <nav class="before">
+      <header>
+        <h1>Introduction to CSS</h1>
+      </header>
+      <ul>
+        <li><a href="#Introduction">Introduction</a></li>
+        <hr />
+        <li><a href="#Prerequisites">Prerequisites</a></li>
+        <hr />
+        <li><a href="#A_Quick_Example">A quick example</a></li>
+        <hr />
+        <li><a href="#How_does_CSS_actually_work_?">How does CSS actually work ?</a></li>
+        <hr />
+        <li><a href="#How_to_apply_your_CSS_to_your_HTML">How to apply your CSS to your HTML</a></li>
+        <hr />
+        <li><a href="#A_touch_of_vocabulary">A touch of vocabulary</a></li>
+        <hr />
+        <li><a href="#Make_CSS_readable">Make CSS readable</a></li>
+        <hr />
+        <li><a href="#Selectors">Selectors</a></li>
+        <hr />
+        <li><a href="#Different_types_of_selectors">Different types of selectors</a></li>
+        <hr />
+        <li><a href="#CSS_values_and_Units">CSS values and Units</a></li>
+        <hr />
+        <li><a href="#Numeric_Values">Numeric values</a></li>
+        <hr />
+        <li><a href="#Reference">Reference</a></li>
+      </ul>
+    </nav>
+
+    <div class="after">
+      <section id="Introduction">
+        <header>
+          <h1>Introduction</h1>
+        </header>
+        <p>
+          CSS is used to style and lay out web pages — for example, 
+          to alter the font, colour, size and spacing of your content, 
+          split it into multiple columns, or add animations and other decorative features. 
+          This module gets you started on the path to CSS mastery with the 
+          basics of how it works, including selectors and properties, 
+          writing CSS rules, applying CSS to HTML, how to specify length, colour, 
+          and other units in CSS, cascade and inheritance, and debugging CSS.
+        </p>
+      </section>
+      <section id="Prerequisites">
+        <header>
+          <h1>Prerequisites</h1>
+        </header>
+        <p>
+          Before starting this module, you should have:
+          <br />
+          Basic familiarity with using computers, and using the Web passively (i.e. just looking at it, consuming the content.)
+          <br />
+          A basic work environment set up as detailed in Installing basic software, and an understanding of how to create and manage files, as detailed in Dealing with files.
+          <br />
+          Basic familiarity with HTML, as discussed in the Introduction to HTML module.
+        </p>
+      </section>
+      <section id="A_Quick_Example">
+        <header>
+          <h1 class="black">A quick example</h1>
+        </header>
+        <code class="quick-example html">
+            <span class="tag comment">!DOCTYPE html</span>
+            <span class="tag">html</span>
+              <span class="tag">head</span>
+                <span class="tag">meta <span class="att">charset</span>="<span class="att-value">utf-8</span>"</span>
+                <span class="tag">title</span>My CSS experiment<span class="tag">/title</span>
+                <span class="tag">link <span class="att">rel</span>="<span class="att-value">stylesheet</span>" <span class="att">href</span>="<span class="att-value"><u>style.css</u></span>"</span>
+              <span class="tag">/head</span>
+            <span class="tag">/body</span>
+              <span class="tag">h1</span>Hello World!<span class="tag">/head</span>
+              <span class="tag">p</span>This is my first CSS example<span class="tag">/p</span>
+              <span class="tag">/body</span>
+              <span class="tag">/html</span>
+        </code>
+        <code>
+          <span class="selector">h1</span> {
+            <br />
+              <span class="prop">color</span>: <span class="value">blue</span>;
+              <br />
+              <span class="prop">background-color</span>: <span class="value">yellow</span>;
+              <br />
+              <span class="prop">border</span>: <span class="value">1px solid black</span>;
+              <br />
+            }
+            <br />
+            <br />
+            <span class="selector">p</span> {
+              <br />
+              <span class="prop">color</span>: <span class="value">red</span>;
+              <br />
+            }
+        </code>
+      </section>
+
+      <section id="How_does_CSS_actually_work_?">
+        <header>
+          <h1>How does CSS actually work ?</h1>
+        </header>
+        <p>
+          When a browser displays a document, it must combine the document's content with its style information. It processes the document in two stages:
+          <br />
+          <ol>
+            <li>The browser converts HTML and CSS into the DOM (Document Object Model). The DOM represents the document in the computer's memory. It combines the document's content with its style.</li>
+            <li>The browser displays the contents of the DOM.</li>
+          </ol>
+        </p>
+      </section>
+      <section id="How_to_apply_your_CSS_to_your_HTML">
+      <header>
+      <h1>How to apply your CSS to your HTML</h1>
+      </header>
+        <h2 class="black">External Stylesheet</h2>
+        <p>
+          You've already seen external stylesheets in this article, 
+          but not by that name. An external stylesheet is when you have your 
+          CSS written in a separate file with a .css extension, and you reference 
+          it from an HTML <span class="tag">link</span> element.
+        </p>
+
+      <h2 class="black">Internal Stylesheet</h2>
+        <p>
+          An internal stylesheet is where you don't have an external CSS file, 
+          but instead place your CSS inside a <span class="tag">style</span> element, 
+          contained inside the HTML head.
+        </p>
+      </section>
+      <section id="A_touch_of_vocabulary">
+        <header>
+          <h1>A touch of vocabulary</h1>
+        </header>
+        <p>
+            At its most basic level, CSS consists of two building blocks:
+        </p>
+          <ul>
+            <li>
+              <strong>Properties:</strong> Human-readable identifiers that indicate which stylistic features 
+              (e.g. font, width, background color) you want to change.
+            </li>
+            <li>
+              <strong>Values:</strong> Each specified property is given a value, which indicates how you want 
+              to change those stylistic features (e.g. what you want to change the font, width or background color to.)
+            </li>
+          </ul>
+        <p>    
+            A property paired with a value is called a CSS declaration. CSS declarations are put within 
+            CSS Declaration Blocks. And finally, CSS declaration blocks are paired with selectors to 
+            produce CSS Rulesets
+        </p>
+      </section>
+      <section id="Make_CSS_readable">
+      <header>
+          <h1>Make CSS readable</h1>
+        </header>
+
+        <h2 class="black">White space</h2>
+        <p>
+            White space means actual spaces, tabs and new lines. You can add white space to make your style sheets more readable.
+            <br />
+            In the same manner as HTML, the browser tends to ignore much of the whitespace inside your CSS; 
+            a lot of the whitespace is just there to aid readability.
+        </p>
+
+        <h2 class="black">Comments</h2>
+        <p>
+            Comments are also useful for temporarily commenting out certain parts of the code for testing purposes, for example if you are trying to find which part of your code is causing an error.
+            <br />
+            Comments in CSS begin with /* and end with */
+        </p>
+        </section>
+        <section id="Selectors">
+        <header>
+          <h1>Selectors</h1>
+        </header>
+        <p>
+            In CSS, selectors are used to target the HTML elements on our web pages that we want 
+            to style. There are a wide variety of CSS selectors available, allowing for fine 
+            grained precision when selecting elements to style. In the next few articles we'll 
+            run through the different types in great detail, seeing how they work.
+        </p>
+        </section>
+        <section id="Different_types_of_selectors">
+          <header>
+            <h2 class="black">Different types of selectors</h2>
+          </header>
+        <p>
+            Selectors can be divided into the following categories:
+            <br />
+            <ul>
+              <li>
+                  <strong>Simple selectors:</strong> Match one or more elements based on element type, class, or id.
+                  <code>
+                      <span class="comment">/* All p elements are red */</span>
+                      <br />
+                      <span class="selector">p</span> {
+                      <br />
+                        <span class="prop">color</span>: <span class="value">red</span>;
+                        <br />
+                      }
+                      <br />
+                      <br />
+                      <span class="comment">/* All div elements are blue */</span>
+                      <br />
+                      <span class="selector">div</span> {
+                        <br />
+                        <span class="prop">color</span>: <span class="value">blue</span>;
+                        <br />
+                      }
+                      <br />
+                  </code>
+              </li>
+              <li>
+                  <strong>Attribute selectors:</strong> Match one or more elements based on their 
+                  attributes/attribute values.
+                  <code>
+                      <span class="comment">/* All elements with the attribute "data-vegetable"
+                        with the exact value "liquid" are given a golden background color */</span>
+                      <br />
+                      <span class="selector">[data-vegetable="liquid"]</span> {
+                        <br />
+                        <span class="prop">background-color</span>: <span class="value">goldenrod</span>;
+                        <br />
+                      }
+                      <br />
+                  </code>
+              </li>
+              <li>
+                  <strong>Pseudo-classes:</strong> Match one or more elements that exist in a certain 
+                  state, such as an element that is being hovered over by the mouse pointer, or a 
+                  checkbox that is currently disabled or checked, or an element that is the first 
+                  child of its parent in the DOM tree.
+                  <code>
+                      <span class="comment">/* We want visited links to be the same color
+                      as non visited links */</span>
+                      <br />
+                      <span class="selector">a:visited</span> {
+                        <br />
+                        <span class="prop">color</span>: <span class="value">blue</span>;
+                        <br />
+                      }
+                      <br />
+                  </code>
+              </li>
+              <li>
+                  <strong>Pseudo-elements:</strong> Match one or more parts of content that are 
+                  in a certain position in relation to an element, for example the first word of 
+                  each paragraph, or generated content appearing just before an element.
+                  <code>
+                    <span class="comment">/* All elements with an attribute "href", which values
+                    start with "http", will be added an arrow after its
+                    content (to indicate it's an external link) */</span>
+                    <br />
+                    <span class="selector">[href^=http]::after</span> {
+                      <br />
+                     <span class="prop">content</span>: <span class="value">'⤴'</span>;
+                     <br />
+                   }
+                   <br />
+                  </code>
+              </li>
+              <li>
+                  <strong>Combinators:</strong> These are not exactly selectors themselves, but ways 
+                  of combining two or more selectors in useful ways for very specific selections. 
+                  So for example, you could select only paragraphs that are direct descendants of 
+                  divs, or paragraphs that come directly after headings.
+                  <code>
+                    <span class="comment">/* All ths within theads that are within tables */</span>
+                    <br />
+                      <span class="selector">table thead th</span> {
+                        <br />
+                        <span class="prop">color</span>: <span class="value">white</span>;
+                        <br />
+                        <span class="prop">background</span>: <span class="value">black</span>;
+                      <br />
+                    }   
+                  </code>
+              </li>
+              <li>
+                  <strong>Multiple selectors:</strong> Again, these are not separate selectors; 
+                  the idea is that you can put multiple selectors on the same CSS rule, separated 
+                  by commas, to apply a single set of declarations to all the elements selected 
+                  by those selectors.
+                  <code>
+                    <span class="selector">h1, h2, h3, h4, h5, h6</span> {
+                      <br />
+                      <span class="prop">font-family</span>: <span class="value">helvetica, 'sans serif'</span>;
+                      <br />
+                    }
+                  </code>
+              </li>
+            </ul>
+        </p>
+        </section>
+        <section id="CSS_values_and_Units">
+        <header>
+          <h1>CSS values and Units</h1>
+        </header>
+        <p>
+            There are many value types in CSS, some of them very common and some of them that 
+            you'll rarely come across. We won't cover all of them exhaustively in this article; 
+            just the ones that you are likely to find most useful as you continue on your path 
+            towards mastering CSS. In this article we will cover the following CSS values:
+            <br />
+            <ul>
+              <li>
+                <strong>Numeric values:</strong> Length values for specifying e.g. element width, 
+                border thickness, or font size, and unitless integers for specifying e.g. 
+                relative line width or number of times to run an animation.
+              </li>
+              <li>
+                <strong>Percentages:</strong> Can also be used to specify size or length — 
+                relative to a parent container's width or height for example, or the 
+                default font-size.
+              </li>
+              <li>
+                <strong>Colors:</strong> For specifying background colors, text colors, etc.
+              </li>
+              <li>
+                <strong>Coordinate positions:</strong> e.g. for specifying the position 
+                of a positioned element relative to the top left of the screen.
+              </li>
+              <li>
+                <strong>Functions</strong>: For specifying e.g. background images or background image gradients.
+              </li>
+            </ul>
+        </p>
+        </section>
+        <section id="Numeric_Values">
+        <header>
+          <h1>Numeric Values</h1>
+        </header>
+        <p>
+            Pixels (px) are referred to as absolute units because they will always be the same 
+            size regardless of any other related settings. Other absolute units are as follows:
+            <br /><br />
+            <em>mm</em>, <em>cm</em>, <em>in</em>: Millimeters, centimeters, or inches.
+            <br /><br />
+            <em>pt</em>, <em>pc</em>: Points (1/72 of an inch) or picas (12 points.)
+            <br /><br />
+            There are also relative units, which are relative to the current element's font-size or viewport size:
+            <br />
+            <em>em</em>: 1em is the same as the font-size of the current element (more specifically, the 
+            width of a capital letter M.) The default base font-size given to web pages by web 
+            browsers before CSS styling is applied is 16 pixels, which means the computed value of 
+            1em is 16 pixels for an element by default. But beware — font sizes are inherited by 
+            elements from their parents, so if different font sizes have been set on parent elements, 
+            the pixel equivalent of an em can start to become complicated.
+            <br /><br />
+            <em>ex</em>, <em>ch</em>: Respectively these are the height of a lower case x, and the 
+            width of the number 0. These are not as commonly used or well-supported as ems.
+            <br /><br />
+            <em>rem</em>: The rem (root em) works in exactly the same way as the em, 
+            except that it will always equal the size of the default base font-size; 
+            inherited font sizes will have no effect, so this sounds like a much better 
+            option than ems, although rems don't work in older versions of Internet Explorer.
+            <br /><br />
+            <em>vw</em>, <em>vh</em>: Respectively these are 1/100th of the width of the viewport, 
+            and 1/100th of the height of the viewport. Again, these are not as widely supported as rems.
+        </p>
+        </section>
+        <section id="Reference">
+        <header>
+          <h1>Reference</h1>
+        </header>
+        <p>
+          All of the content has been taken from 
+          <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank">MDN</a>
+        </p>
+        </section>
+    </div>
+  </main>
+</body>
+</html>
