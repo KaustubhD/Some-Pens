@@ -1,6 +1,6 @@
 # Recaman number series
 
-Check out its [page](http://mathworld.wolfram.com/RecamansSequence.html)
+Check out its [reference](http://mathworld.wolfram.com/RecamansSequence.html)
 
 Implementation is in simple JS. Nothing fancy (browser heavy)
 
