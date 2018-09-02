@@ -7,6 +7,6 @@ Just clone the repo and check them out or
 find the .html file and add it to the link:
 
 ```
-https://kayd33.github.io/Some-Pens/path-to-html-file.html
+https://kaydee.github.io/Some-Pens/path-to-html-file.html
 
 ```
