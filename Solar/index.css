@@ -1,0 +1,43 @@
+html, body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  /* transform: scale(3); */
+  transition: all 0.5s ease-in-out;
+}
+.container{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+.center{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.sun{
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #fb1;
+}
+.orbit circle{
+  /* animation:  */
+}
+path{
+  transform: rotate(0deg);
+  transform-origin: center center;
+}
+
+/* @keyframes */
+
+@keyframes complete{
+  to{
+    stroke-dashoffset: 0
+  }
+}
