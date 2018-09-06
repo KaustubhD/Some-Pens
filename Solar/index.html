@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="index.css" rel="stylesheet" type="text/css" />
+  <title>Solar</title>
+  <style>
+    svg{
+      overflow: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sun center"></div>
+    <svg xmlns="https://www.w3.org/2000/svg" class="orbit one center"style="overflow: visible;"></svg>
+    <svg xmlns="https://www.w3.org/2000/svg" class="orbit two center"></svg>
+  </div>
+</body>
+<script>
+  document.body.style.transform = 'scale(3)'
+  const MAX = document.body.clientHeight < document.body.clientWidth ? document.body.clientHeight : document.body.clientWidth
+  // let midPoint = [document.body.clientWidth / 2, document.body.clientHeight / 2]
+  let baseRadius = (MAX * 0.3) / 2
+
+  let delayTime = 0
+  let animTimes = []
+  let currAnim = 0
+  let scaleValue = 1
+  let nextRad = 0
+  let flag = true
+  
+  let firstSVG = document.querySelector('.orbit.one')
+  firstSVG.setAttribute('height', (2 * baseRadius))
+  firstSVG.setAttribute('width', (2 * baseRadius))
+  let firstCirc = Math.ceil(2 * Math.PI * baseRadius)
+  firstSVG.innerHTML = `<circle cx="${baseRadius}" cy="${baseRadius}" r="${baseRadius}" stroke="#fb1" fill="none" stroke-width="2"/>`
+  firstOrbit = firstSVG.firstElementChild
+  firstOrbit.style.strokeDasharray = firstCirc
+  firstOrbit.style.strokeDashoffset = firstCirc
+
+  currAnim = 1.5
+  animTimes.push(currAnim)
+  firstOrbit.style.animation = `complete ${currAnim}s ${delayTime}s ease-in-out forwards`
+  delayTime += currAnim
+
+
+  let sq1 = getPath(baseRadius, 4)
+  let sq = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  sq.setAttributeNS(null, 'd', sq1[0] + "Z")
+  sq.setAttributeNS(null, 'id', 'venus-polygon')
+  makeStandard(sq, sq1[1])
+  currAnim = 1.5
+  animTimes.push(currAnim)
+  sq.style.animation = `complete ${currAnim}s ${delayTime}s ease-in-out forwards`
+  let leak = MAX - sq1[2]
+  console.log(getCurrentScale())
+  scaleValue = getCurrentScale() - (1 - (Math.abs(leak) / MAX))
+  console.log(`Leak / max = ${leak / MAX} and scale is ${scaleValue}`)
+  // console.log(`Scale is ${scaleValue.toFixed(2)}`)
+  document.body.style.transitionDuration = `${currAnim}s`
+  document.body.style.transitionDelay = `${delayTime}s`
+  document.body.offsetHeight
+  document.body.style.transform = `scale(${scaleValue})`
+  delayTime += currAnim
+  firstSVG.appendChild(sq)
+  // scaleValue = ((document.body.clientHeight / 2) - ())
+  // firstSVG.innerHTML += `<path d="${sq1[0]} Z" stroke="#fb1" fill="none" stroke-width="5"/>`
+  // firstSVG.innerHTML += `<path d="M"`
+
+
+  // let secondSVG = document.querySelector('.orbit.two')
+  // secondSVG.setAttribute('height', (2 * baseRadius))
+  // secondSVG.setAttribute('width', (2 * baseRadius))
+
+  let cir = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+  cir.setAttributeNS(null, 'cx', baseRadius)
+  cir.setAttributeNS(null, 'cy', baseRadius)
+  cir.setAttributeNS(null, 'r', nextRad)
+  makeStandard(cir, (2 * Math.PI * cir.getAttributeNS(null, 'r')).toFixed(2))
+  currAnim = 1.5
+  animTimes.push(currAnim)
+  cir.style.animation = `complete ${currAnim}s ${delayTime}s ease-in-out forwards`
+  sq.style.transition = `all ${currAnim}s ${delayTime}s ease-in-out`
+  sq.style.transform = `rotate(0deg)`
+  // sq.style.transitionDelay = `${delayTime}s`
+  delayTime += currAnim
+
+  firstSVG.appendChild(cir)
+  document.body.offsetHeight
+  sq.style.transform = `rotate(360deg)`
+  // sq.setAttributeNS(null, 'style', sq.getAttributeNS(null, 'style') + ` transform: rotate(180deg)`)
+
+
+  let dim = getPath(nextRad, 5)
+  console.log(dim[3])
+  let rad = nextRad
+  let newSq = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+sq.addEventListener('transitionend', function _listen(e){
+  if(flag){
+    flag = false
+    newSq.setAttributeNS(null, 'd', dim[0] + "Z")
+    newSq.setAttributeNS(null, 'id', 'earth-polygon')
+    makeStandard(newSq, dim[1])
+    currAnim = 1.5
+    animTimes.push(currAnim)
+    newSq.style.animation = `complete ${currAnim}s ease-in-out forwards`
+    sq.removeEventListener('transitionend', _listen)
+    leak = MAX - dim[2]
+    // scaleValue = leak < 0 ? getCurrentScale() - (1 - (Math.abs(leak) / MAX)) : scaleValue
+    scaleValue = getCurrentScale() - (1 - (Math.abs(leak) / MAX))
+    console.log(`Leak / max = ${leak / MAX} and scale is ${scaleValue}`)
+    // console.log(`Scale is ${scaleValue.toFixed(2)}`)
+    document.body.style.transitionDuration = `${currAnim}s`
+    document.body.style.transitionDelay = `0s`
+    document.body.parentElement.offsetHeight
+    document.body.style.transform = `scale(${scaleValue})`
+    delayTime += currAnim
+    // newSq.innerHTML = dim[4]
+    firstSVG.appendChild(newSq)
+    makeCircle(newSq, rad, 'earth')
+  }
+  else{
+    flag = true
+  }
+})
+let mars = true
+let dim2 = getPath(nextRad, 6)
+let rad2 = nextRad
+let newSq2 = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+newSq.addEventListener('transitionend', function _listen2(e){
+  if(mars){
+    mars = false
+    newSq2.setAttributeNS(null, 'd', dim2[0] + "Z")
+    newSq2.setAttributeNS(null, 'id', 'mars-polygon')
+    makeStandard(newSq2, dim2[1])
+    currAnim = 1.5
+    animTimes.push(currAnim)
+    newSq2.style.animation = `complete ${currAnim}s ease-in-out forwards`
+    newSq.removeEventListener('transitionend', _listen2)
+    leak = MAX - dim2[2]
+    scaleValue = leak < 0 ? getCurrentScale() - (1 - (Math.abs(leak) / MAX)) : getCurrentScale() - (Math.abs(leak) / MAX)
+    // scaleValue = (leak / MAX) > 0.5 ? 
+    console.log(`Leak / max = ${leak / MAX} and scale is ${scaleValue}`)
+    document.body.style.transitionDuration = `${currAnim}s`
+    document.body.style.transitionDelay = `0s`
+    document.body.parentElement.offsetHeight
+    document.body.style.transform = `scale(${scaleValue})`
+    delayTime += currAnim
+    firstSVG.appendChild(newSq2)
+    makeCircle(newSq2, rad2, 'mars')
+  }
+})
+// flag = true
+
+let jupiter = true
+let dim3 = getPath(nextRad, 3)
+let rad3 = nextRad
+let newSq3 = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+newSq2.addEventListener('transitionend', function _listen3(e){
+  if(jupiter){
+    jupiter = false
+    newSq3.setAttributeNS(null, 'd', dim3[0] + "Z")
+    newSq3.setAttributeNS(null, 'id', 'jupiter-polygon')
+    makeStandard(newSq3, dim3[1])
+    currAnim = 1.5
+    animTimes.push(currAnim)
+    newSq3.style.animation = `complete ${currAnim}s ease-in-out forwards`
+    newSq2.removeEventListener('transitionend', _listen3)
+    leak = MAX - dim3[2]
+    // scaleValue = 1 - (leak / MAX)
+    scaleValue = leak < 0 ? getCurrentScale() - (1 - (Math.abs(leak) / MAX)) : scaleValue
+    console.log(`Leak / max = ${leak / MAX} and scale is ${scaleValue}`)
+    document.body.style.transitionDuration = `${currAnim}s`
+    document.body.style.transitionDelay = `0s`
+    document.body.parentElement.offsetHeight
+    document.body.style.transform = `scale(${scaleValue})`
+    delayTime += currAnim
+    firstSVG.appendChild(newSq3)
+    makeCircle(newSq3, rad3, 'jupiter')
+  }
+})
+
+let saturn = true
+let dim4 = getPath(nextRad, 4)
+let rad4 = nextRad
+let newSq4 = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+newSq3.addEventListener('transitionend', function _listen4(e){
+  if(saturn){
+    saturn = false
+    newSq4.setAttributeNS(null, 'd', dim4[0] + "Z")
+    newSq4.setAttributeNS(null, 'id', 'saturn-polygon')
+    makeStandard(newSq4, dim4[1])
+    currAnim = 1.5
+    animTimes.push(currAnim)
+    newSq4.style.animation = `complete ${currAnim}s ease-in-out forwards`
+    newSq3.removeEventListener('transitionend', _listen4)
+    leak = MAX - dim4[2]
+    // scaleValue = 1 - (leak / MAX)
+    scaleValue = leak < 0 ? getCurrentScale() - (1 - (Math.abs(leak) / MAX)) : scaleValue
+    console.log(`Leak / max = ${leak / MAX} and scale is ${scaleValue}`)
+    document.body.style.transitionDuration = `${currAnim}s`
+    document.body.style.transitionDelay = `0s`
+    document.body.parentElement.offsetHeight
+    document.body.style.transform = `scale(${scaleValue})`
+    delayTime += currAnim
+    firstSVG.appendChild(newSq4)
+    makeCircle(newSq4, rad4, 'saturn')
+  }
+})
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  function makeCircle(el, rad, id){
+    let newCir = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
+    newCir.setAttributeNS(null, 'cx', baseRadius)
+    newCir.setAttributeNS(null, 'cy', baseRadius)
+    newCir.setAttributeNS(null, 'r', rad)
+    // newCir.setAttributeNS(null, 'id', id)
+    makeStandard(newCir, (2 * Math.PI * newCir.getAttributeNS(null, 'r')).toFixed(2))
+    currAnim = 1.5
+    animTimes.push(currAnim)
+    newCir.style.animation = `complete ${currAnim}s ${currAnim}s ease-in-out forwards`
+    el.style.transition = `all ${currAnim}s ${currAnim}s ease-in-out`
+    el.style.transform = `rotate(0deg)`
+    // sq.style.transitionDelay = `${delayTime}s`
+    delayTime += currAnim
+    // newCir.innerHTML = planet
+    // let planet = `<circle cx="${baseRadius + rad - 4}" cy="${baseRadius - 4}" r="${8}" fill="#fb1" stroke="#fb1"><animateMotion dur="1.6s" id=${id + '-anim'} repeatCount="1" fill="freeze"><mpath xlink:href=${'#' + id}></mpath></animateMotion></circle>`
+    let planet = `<circle r="${8}" fill="#fb1" stroke="#fb1"><animateMotion dur="1.6s" id=${id + '-anim'} repeatCount="1" fill="freeze"><mpath xlink:href=${'#' + id}></mpath></animateMotion></circle>`
+    // setTimeout(function(){
+    // }, 2 * currAnim)
+    firstSVG.appendChild(newCir)
+    let path = `<path id=${id} d="M ${(baseRadius - rad).toFixed(2)}, ${baseRadius} a ${baseRadius},${baseRadius} 0 1,0 ${rad * 2},0 a ${rad},${rad} 0 1,0 -${rad * 2},0" fill="none" stroke="none"/>`
+    firstSVG.innerHTML += path
+    firstSVG.innerHTML += planet
+    let anim = document.getElementById(id + '-anim')
+    anim.beginElement()
+    document.body.offsetHeight
+    el.style.transform = `rotate(360deg)`
+  }
+
+  function makeStandard(el, len){
+    el.setAttributeNS(null, 'stroke', '#fb1')
+    el.setAttributeNS(null, 'fill', 'none')
+    el.setAttributeNS(null, 'stroke-width', '2')
+    el.style.strokeDasharray = len
+    el.style.strokeDashoffset = len
+  }
+  function calcDist(pointA, pointB){
+    return Math.sqrt(Math.pow(pointA[0] - pointB[0], 2) + Math.pow(pointA[1] - pointB[1], 2))
+  }
+  function getCurrentScale(){
+    return Number(document.body.style.transform.slice(6, -1))
+  }
+  function getPath(radius, sides){
+    let internalA = (2 * Math.PI) / sides
+    // console.log('Internal is' + internalA)
+    let distCenter = radius / (Math.cos(internalA / 2)).toFixed(5)
+    nextRad = distCenter
+    // console.log('Distance from center is' + distCenter)
+    let dist = false
+    let cds = []
+    let pathString = ``
+    let planet = ``
+    for(let i = 0; i < sides; i++){
+      let a = (i * 2 * Math.PI) / sides
+      let temp = []
+      temp[0] = baseRadius + (distCenter * Math.cos(a).toFixed(5))
+      temp[1] = baseRadius + (distCenter * Math.sin(a).toFixed(5))
+      cds.push(temp)
+      pathString += i == 0 ? ` M${temp[0]} ${temp[1]} ` : ` L${temp[0]} ${temp[1]} `
+    }
+    let totalLen = sides * calcDist(cds[0], cds[1])
+    let highest = sides % 2 == 0 ? 2 * distCenter : distCenter + radius
+    highest += 2 * (MAX * 0.05)
+    // console.log(pathString)
+    return [pathString, totalLen, highest, radius]
+  }
+</script>
+</html>
