@@ -81,7 +81,9 @@
   // console.log(grid)
 
   start = grid[0][0]
-  end = grid[ROWS - 1][COLS - 1]
+  let endX = 15
+  let endY = 10
+  end = grid[endX][endY]
   openSet.push(start)
 
   function draw(){
