@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A* Path</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+<script>
+  let canvas = document.getElementById('canvas')
+  let ctx = canvas.getContext('2d')
+  canvas.width = 400
+  canvas.height = 400
+  canvas.style.backgroundColor = "#ddd"
+
+  const ROWS = 25
+  const COLS = 25
+  let columnWidth = canvas.width / COLS
+  let columnHeight = canvas.height / ROWS
+  // let grid = new Array(ROWS).fill(new Array(COLS))
+  let grid = new Array(ROWS).fill(0)
+  grid = grid.map(el => el = new Array(COLS).fill(0))
+  // console.log(grid)
+
+  let openSet = []
+  let closedSet = []
+  let start
+  let end
+  let path = []
+
+  class Spot{
+    constructor(i, j){
+      this.i = i
+      this.j = j
+      this.f = 0
+      this.g = 0
+      this.h = 0
+      this.neighbours = []
+      this.cameFrom = undefined // Sort of like a previous node
+    }
+    show(col){
+      ctx.beginPath()
+      ctx.fillStyle = col
+      ctx.fillRect(this.i * columnWidth, this.j * columnHeight, columnWidth - 1, columnHeight - 1)
+      ctx.stroke()
+    }
+    getNeighbours(grid){
+      // console.log(grid)
+      if(this.i < ROWS - 1){
+        this.neighbours.push(grid[this.i + 1][this.j])
+      }
+      if(this.i > 0){
+        this.neighbours.push(grid[this.i - 1][this.j])
+      }
+      if(this.j < COLS - 1){
+        this.neighbours.push(grid[this.i][this.j + 1])
+      }
+      if(this.j > 0){
+        this.neighbours.push(grid[this.i][this.j - 1])
+      }
+    }
+  }
+  function getDist(a, b){
+    return Math.abs(a.i - b.i) + Math.abs(a.j - b.j)
+  }
+
+  for(let i = 0; i < ROWS; i++){
+    for(let j = 0; j < COLS; j++){
+      grid[i][j] = new Spot(i, j)
+    }
+  }
+
+  for(let i = 0; i < ROWS; i++){
+    for(let j = 0; j < COLS; j++){
+      grid[i][j].getNeighbours(grid)
+    }
+  }
+  // console.log(grid)
+
+  start = grid[0][0]
+  end = grid[ROWS - 1][COLS - 1]
+  openSet.push(start)
+
+  function draw(){
+    let chosenSpot
+    console.log('A*')
+
+    if(openSet.length > 0){
+      
+      let chosenIndex = 0
+      for(let i = 0; i < openSet.length; i++){
+        if(openSet[i].f < openSet[chosenIndex].f){
+          chosenIndex = i
+        }
+      }
+      chosenSpot = openSet[chosenIndex]
+
+      if(chosenSpot === end){
+        console.log('Found it')
+        clearInterval(x)
+      }
+      openSet.splice(chosenIndex, 1)
+      closedSet.push(chosenSpot)
+
+      let chosenNeighbours = chosenSpot.neighbours
+      for(let i = 0; i < chosenNeighbours.length; i++){
+        let neigh = chosenNeighbours[i]
+        if(!closedSet.includes(neigh)){
+          let tempG = chosenSpot.g + 1 // Step can only go one unit distance
+
+          if(openSet.includes(neigh)){
+            if(tempG < neigh.g){
+              neigh.g = tempG
+            }
+          }
+          else{
+            neigh.g = tempG
+            openSet.push(neigh)
+          }
+          neigh.h = getDist(neigh, end) //Heuristic function
+          neigh.f = neigh.g + neigh.h
+          neigh.cameFrom = chosenSpot // Need to set from where we came to this neighbour node
+        }
+      }
+
+
+    }
+    else{
+      clearInterval(x)
+      console.log("No Solution")
+    }
+
+    for(let i = 0; i < ROWS; i++){
+      for(let j = 0; j < COLS; j++){
+        grid[i][j].show('rgb(50, 200, 200)')
+      }
+    }
+    for(let i = 0; i < openSet.length; i++){
+      openSet[i].show('#0f0')
+    }
+    for(let i = 0; i < closedSet.length; i++){
+      closedSet[i].show('#f00')
+    }
+    path = [] //Following is to show the path traced in blue
+    let temp = chosenSpot
+    path.push(temp)
+    while(temp.cameFrom){
+      path.push(temp.cameFrom)
+      temp = temp.cameFrom
+    }
+    for(let i = 0; i < path.length; i++){
+      path[i].show('#00f')
+    }
+    end.show('#00f')
+  }
+  let x = setInterval(function(){ requestAnimationFrame(draw) }, 60)
+
+</script>
+</html>
