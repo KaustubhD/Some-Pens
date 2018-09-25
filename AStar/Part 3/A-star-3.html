@@ -89,7 +89,8 @@
     }
   }
   function getDist(a, b){
-    return Math.abs(a.i - b.i) + Math.abs(a.j - b.j)
+    return Math.sqrt(Math.pow(a.i - b.i, 2) + Math.pow(a.j - b.j, 2))
+    //  return Math.abs(a.i - b.i) + Math.abs(a.j - b.j)
   }
 
   for(let i = 0; i < COLS; i++){
