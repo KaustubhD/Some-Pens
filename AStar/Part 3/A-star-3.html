@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>A* Path</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <h3 id="message"></h3>
+</body>
+<script>
+  let docH = document.body.clientHeight
+  let docW = document.body.clientHeight
+  let canvas = document.getElementById('canvas')
+  let message = document.getElementById('message')
+  let rowIn = document.getElementById('_rows')
+  let colIn = document.getElementById('_cols')
+  let xIn = document.getElementById('_endX')
+  let yIn = document.getElementById('_endY')
+  let ctx = canvas.getContext('2d')
+  canvas.width = 600
+  canvas.height = 600
+  canvas.style.backgroundColor = "#000"
+
+  const ROWS = 50
+  const COLS = 50
+  let columnWidth = canvas.width / COLS
+  let columnHeight = canvas.height / ROWS
+  // let grid = new Array(ROWS).fill(new Array(COLS))
+  let grid = new Array(COLS).fill(0)
+  grid = grid.map(el => el = new Array(ROWS).fill(0))
+  // console.log(grid)
+
+  let openSet = []
+  let closedSet = []
+  let start
+  let end
+  let path = []
+
+  class Spot{
+    constructor(i, j){
+      this.i = i
+      this.j = j
+      this.f = 0
+      this.g = 0
+      this.h = 0
+      this.neighbours = []
+      this.cameFrom = undefined // Sort of like a previous node
+      this.wall = Math.random() < 0.4 ? true : false
+      // if(Math.random() < 0.1)
+    }
+    show(col){
+      if(this.wall){
+        ctx.beginPath()
+        ctx.fillStyle = '#777'
+        // ctx.fillRect(this.i * columnWidth, this.j * columnHeight, columnWidth - 1, columnHeight - 1)
+        ctx.ellipse(this.i * columnWidth + (columnWidth / 2), this.j * columnHeight + (columnHeight / 2), columnWidth / 2.5, columnHeight / 2.5, 0, 0, 2 * Math.PI)
+        ctx.fill()
+      }
+    }
+    getNeighbours(grid){
+      // console.log(grid)
+      if(this.i < COLS - 1){
+        this.neighbours.push(grid[this.i + 1][this.j])
+      }
+      if(this.i > 0){
+        this.neighbours.push(grid[this.i - 1][this.j])
+      }
+      if(this.j < ROWS - 1){
+        this.neighbours.push(grid[this.i][this.j + 1])
+      }
+      if(this.j > 0){
+        this.neighbours.push(grid[this.i][this.j - 1])
+      }
+      if(this.i > 0 && this.j > 0){
+        this.neighbours.push(grid[this.i - 1][this.j - 1])
+      }
+      if(this.i > 0 && this.j < ROWS - 1){
+        this.neighbours.push(grid[this.i - 1][this.j + 1])
+      }
+      if(this.i < COLS - 1 && this.j > 0){
+        this.neighbours.push(grid[this.i + 1][this.j - 1])
+      }
+      if(this.i < COLS - 1 && this.j < ROWS - 1){
+        this.neighbours.push(grid[this.i + 1][this.j + 1])
+      }
+    }
+  }
+  function getDist(a, b){
+    return Math.abs(a.i - b.i) + Math.abs(a.j - b.j)
+  }
+
+  for(let i = 0; i < COLS; i++){
+    for(let j = 0; j < ROWS; j++){
+      grid[i][j] = new Spot(i, j)
+    }
+  }
+
+  for(let i = 0; i < COLS; i++){
+    for(let j = 0; j < ROWS; j++){
+      grid[i][j].getNeighbours(grid)
+    }
+  }
+  console.log(grid)
+
+  start = grid[0][0]
+  let endX = COLS - 1
+  let endY = ROWS - 1
+  end = grid[endX][endY]
+  start.wall = false
+  end.wall = false
+  openSet.push(start)
+
+  // rowIn.value = ROWS
+  // colIn.value = COLS
+  // xIn.value = endX
+  // yIn.value = endY
+  // Array.from(document.getElementsByTagName('input')).map(el => el.addEventListener('input', (ev) => {
+  //   clearInterval(x)
+  //   console.log(ev)
+  //   let val = ev.target.value
+  //   let id = ev.target.id
+  //   if(id == '_rows'){
+  //     if(val < endY + 1){
+  //       endY = val - 1
+  //       yIn.value = val - 1
+  //     }
+  //     ROWS = val
+  //   }
+  //   if(id == '_cols'){
+  //     if(val < endX + 1){
+  //       endX = val - 1
+  //       xIn.value = val - 1
+  //     }
+  //     COLS = val
+  //   }
+  //   if(id == '_endX'){
+  //     // else{
+  //       endX = val
+  //     // }
+  //   }
+  //   if(id == '_endY'){
+  //     // if(val < COLS){
+  //     //   endY = val
+  //     //   yIn.value = val
+  //     // }
+  //     // else{
+  //       endY = val
+  //     // }
+  //     // endY = val
+  //   }
+  //   init()
+  // }))
+  // document.getElementsByClassName('doit')[0].addEventListener('click', (ev) => {
+  //   x = setInterval(function(){ requestAnimationFrame(draw) }, 60)
+  // })
+
+
+  // function init(){
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  //   closedSet = []
+  //   openSet = [start]
+  //   grid = []
+  //   path = []
+
+  //   grid = new Array(COLS).fill(0)
+  //   grid = grid.map(el => el = new Array(ROWS).fill(0))
+
+  //   for(let i = 0; i < COLS; i++){
+  //     for(let j = 0; j < ROWS; j++){
+  //       grid[i][j] = new Spot(i, j)
+  //     }
+  //   }
+
+  //   for(let i = 0; i < COLS; i++){
+  //     for(let j = 0; j < ROWS; j++){
+  //       grid[i][j].getNeighbours(grid)
+  //     }
+  //   }
+  //   console.log(grid)
+
+  //   start = grid[0][0]
+  //   end = grid[endX][endY]
+  //   console.log(`${endX} and ${endY}`)
+  //   console.log(end)
+  //   console.log(`Rows: ${ROWS} and Cols: ${COLS}`)
+  //   end.show('#00f')
+  // }
+  function draw(){
+    let chosenSpot
+    console.log('A*')
+
+    if(openSet.length > 0){
+      
+      let chosenIndex = 0
+      for(let i = 0; i < openSet.length; i++){
+        if(openSet[i].f < openSet[chosenIndex].f){
+          chosenIndex = i
+        }
+      }
+      chosenSpot = openSet[chosenIndex]
+
+      if(chosenSpot === end){
+        message.innerHTML = 'Found optimal path'
+        console.log('Found it')
+        clearInterval(x)
+      }
+      openSet.splice(chosenIndex, 1)
+      closedSet.push(chosenSpot)
+
+      let chosenNeighbours = chosenSpot.neighbours
+      for(let i = 0; i < chosenNeighbours.length; i++){
+        let neigh = chosenNeighbours[i]
+        if(!closedSet.includes(neigh) && !neigh.wall){
+          let tempG = chosenSpot.g + 1 // Step can only go one unit distance
+          let needThisNeigh = false
+          if(openSet.includes(neigh)){
+            if(tempG < neigh.g){
+              neigh.g = tempG
+              needThisNeigh = true
+            }
+          }
+          else{
+            neigh.g = tempG
+            openSet.push(neigh)
+            needThisNeigh = true
+          }
+          if(needThisNeigh){
+            neigh.h = getDist(neigh, end) //Heuristic function
+            neigh.f = neigh.g + neigh.h
+            neigh.cameFrom = chosenSpot // Need to set from where we came to this neighbour node
+          }
+        }
+      }
+
+
+    }
+    else{
+      clearInterval(x)
+      console.log("No Solution")
+      message.innerHTML = 'No path possible'
+      return
+    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    for(let i = 0; i < COLS; i++){
+      for(let j = 0; j < ROWS; j++){
+        grid[i][j].show('rgb(50, 200, 200)')
+      }
+    }
+
+
+    // for(let i = 0; i < openSet.length; i++){
+    //   openSet[i].show('#0f0')
+    // }
+
+
+    // for(let i = 0; i < closedSet.length; i++){
+    //   closedSet[i].show('#f08')
+    // }
+
+
+    path = [] //Following is to show the path traced in blue
+    let temp = chosenSpot
+    path.push(temp)
+    while(temp.cameFrom){
+      path.push(temp.cameFrom)
+      temp = temp.cameFrom
+    }
+    // for(let i = 0; i < path.length; i++){
+    //   path[i].show('#06f')
+    // }
+    end.show('#ff0')
+
+    ctx.strokeStyle = '#f08'
+    ctx.strokeWidth = 2
+    // ctx.beginPath()
+    // ctx.moveTo(path[0].i * columnWidth + columnWidth / 2, path[0].j * columnHeight + columnHeight / 2)
+    // ctx.closePath()
+    for(let i = 1; i < path.length; i++){
+      ctx.beginPath()
+      ctx.moveTo(path[i - 1].i * columnWidth + columnWidth / 2, path[i - 1].j * columnHeight + columnHeight / 2)
+      ctx.lineTo(path[i].i * columnWidth + (columnWidth / 2), path[i].j * columnHeight + (columnHeight / 2))
+      ctx.stroke()
+      // ctx.beginPath()
+      // ctx.moveTo(path[i].i * columnWidth + (columnWidth / 2), path[i].j * columnHeight + (columnHeight / 2))
+    }
+  }
+  let x = setInterval(function(){ requestAnimationFrame(draw) }, 60)
+
+</script>
+</html>
