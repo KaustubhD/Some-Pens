@@ -1,6 +1,6 @@
 # Julia Set
 
-An implementation of the Julia set.
+An implementation of the Julia set. Read its [wiki](https://en.wikipedia.org/wiki/Julia_set)
 
 ## Directions
 
