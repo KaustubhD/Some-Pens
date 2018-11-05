@@ -10,4 +10,7 @@ An implementation of the Julia set. Read its [wiki](https://en.wikipedia.org/wik
     * Colored ```hslColor()```,
     * Black and green ```blackGreen()```
   
-  You will find the calls to respective functions in the code, if you need to change it.
+    You will find the calls to respective functions in the code, if you need to change it.
+
+
+Check out its live example and play around [here](https://codepen.io/KayD33/pen/aQOvdV)
