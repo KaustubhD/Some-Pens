@@ -34,6 +34,11 @@ function draw(){
     prevX = x
     prevY = y
     n = (i * 2) + 1
+    /**** Formula as seen on wiki
+    * 4 sin(nx)
+    * ----------
+    *    nPI
+    */
     r = 60 * (4 / (n * PI))
     x += r * Math.cos(n * t)
     y += r * Math.sin(n * t)
