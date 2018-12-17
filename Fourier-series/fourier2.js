@@ -41,6 +41,11 @@ const TR_Y2 = 150
 let wave = []
 let wave2 = []
 
+/****************
+*
+* What you're about to read might be the filthiest you've seen. But calm down, its just laziness.
+*
+****************/
 
 function draw(){
   ctx.setTransform(1, 0, 0, 1, 0, 0)
