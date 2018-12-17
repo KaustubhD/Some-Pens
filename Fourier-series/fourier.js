@@ -38,12 +38,14 @@ function draw(){
     x += r * Math.cos(n * t)
     y += r * Math.sin(n * t)
 
+    // The line that moves in circles
     ctx.beginPath()
     ctx.moveTo(prevX, prevY)
     ctx.strokeStyle = 'rgba(255,255,255,1)'
     ctx.lineTo(x, y)
     ctx.stroke()
 
+    // The small joints between circle lines
     ctx.beginPath()
     ctx.fillStyle = 'rgba(0,0,0,0)'
     ctx.strokeStyle = 'rgba(255,255,255, 0.3)'
@@ -51,7 +53,7 @@ function draw(){
     ctx.ellipse(prevX, prevY, r, r, 0, 0, TWOPI)
     ctx.stroke()
     
-
+    // The small joints that connect the lines
     ctx.beginPath()
     ctx.moveTo(x, y)
     ctx.fillStyle = 'rgba(255, 255, 255, 0.1)'
@@ -61,19 +63,18 @@ function draw(){
 
   }
   wave.unshift(y)
+  // The line that connects the last circle with the wave
   ctx.beginPath()
   ctx.moveTo(x, y)
   ctx.strokeStyle = 'rgba(255,255,255,0.3)'
   ctx.lineTo(150, wave[0])
   ctx.stroke()
 
+  // The actual moving wave
   ctx.strokeStyle = 'rgba(255, 255, 255, 1)'
   ctx.beginPath()
   for(let i = 0; i < wave.length; i++){    
-    // ctx.moveTo(x, y)
-    // ctx.fillRect(i, wave[i], 1, 1)
     ctx.lineTo(i + 150, wave[i])
-    // ctx.fill()
   }
   ctx.stroke()
   ctx.beginPath()
@@ -81,9 +82,7 @@ function draw(){
   t += 0.02
   if(wave.length > 250)
     wave.pop()
-  if(wave.length > 400)
-    wave.splice(0, 250)
-  // console.log(wave.length)
+
   z = requestAnimationFrame(draw)
   return
 }
