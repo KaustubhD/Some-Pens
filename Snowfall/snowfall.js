@@ -51,8 +51,8 @@ class Snow{
   }
 
   resize = () => {
-    this.height = window.innerHeight
-    this.width = window.innerWidth
+    this.height = Math.min(window.innerHeight, document.body.clientHeight)
+    this.width = Math.min(window.innerWidth, document.body.clientWidth)
 
     this.canvas.height = this.height
     this.canvas.width = this.width
