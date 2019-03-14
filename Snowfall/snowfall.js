@@ -36,16 +36,10 @@ class Snow{
 
     document.body.appendChild(this.canvas)
 
-    // this.setup()
     this.resize()
     window.addEventListener('resize', this.resize)
     this.createSnowflakes()
-    // console.log('In here')
     requestAnimationFrame(this.update)
-  }
-
-  setup = () => {
-
   }
 
   createSnowflakes(){
@@ -63,14 +57,13 @@ class Snow{
     this.canvas.height = this.height
     this.canvas.width = this.width
 
-    XMIN = -window.innerWidth / 4
-    XMAX = window.innerWidth + window.innerWidth / 4
-    YMIN = -window.innerHeight
+    XMIN = -this.width / 4
+    XMAX = this.width + this.width / 4
+    YMIN = -this.height
   }
 
   update = () => {
     this.ctx.clearRect(0, 0, this.width, this.height)
-    // console.log(this.snowFlakes)
     for(const flake of this.snowFlakes){
       flake.updateFlake()
 
