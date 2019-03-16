@@ -1,0 +1,117 @@
+:root{
+  --cube-size: 50px; 
+}
+*{
+  box-sizing: border-box;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(3 * var(--cube-size));
+  width: calc(3 * var(--cube-size));
+  background: orangered;
+  margin: auto;
+  transform: rotate3d(1, 1, 0, 60deg);
+  transform-style: preserve-3d;
+}
+
+.cubes{
+  position: absolute;
+  display: inline-block;
+  height: var(--cube-size);
+  width: var(--cube-size);
+  transform-style: preserve-3d;
+}
+.cubes.lev-1{
+}
+.cubes.lev-2{
+  /* top: 0; */
+  transform: translate3d(0, 0, var(--cube-size));
+}
+.cubes.lev-3{
+  transform: translate3d(0, 0, calc(2 * var(--cube-size)));
+}
+
+.subcube-1{
+  top: 0;
+  left: 0;
+}
+.subcube-2{
+  top: 0;
+  left: var(--cube-size);
+}
+.subcube-3{
+  top: 0;
+  left: calc(2 * var(--cube-size));
+}
+.subcube-4{
+  top: var(--cube-size);
+  left: 0;
+}
+.subcube-5{
+  top: var(--cube-size);
+  left: var(--cube-size);
+}
+.subcube-6{
+  top: var(--cube-size);
+  left: calc(2 * var(--cube-size));
+}
+.subcube-7{
+  top: calc(2 * var(--cube-size));
+  left: 0;
+}
+.subcube-8{
+  top: calc(2 * var(--cube-size));
+  left: var(--cube-size);
+}
+.subcube-9{
+  top: calc(2 * var(--cube-size));
+  left: calc(2 * var(--cube-size));
+}
+.wall{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--cube-size);
+  width: var(--cube-size);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  border: 1px solid #fff;
+}
+.w1{
+}
+.w2{
+  transform-origin: center top;
+  transform: rotateX(90deg);
+}
+.w3{
+  transform-origin: left center;
+  transform: rotateY(-90deg);
+}
+.w4{
+  transform-origin: right center;
+  transform: rotateY(90deg);
+}
+.w5{
+  transform-origin: center bottom;
+  transform: rotateX(-90deg);
+}
+.w6{
+  transform: translateZ(var(--cube-size));
+}
