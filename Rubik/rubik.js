@@ -232,9 +232,13 @@ let cubeMapping = {
     5: [5, 8]
   },
 }
-
+const CUBE = document.querySelector('.container')
 let stickers = Array.from(document.querySelectorAll('.cubes')).map(cube => cube.querySelectorAll('.sticker'))
-document.addEventListener('click', moveDown)
+// document.addEventListener('click', moveDown)
+document.addEventListener('mousemove', (ev) => {
+  // console.log(ev)
+  CUBE.style.transform = `rotateX(${ev.screenX / 5}deg) rotateY(${ev.screenY / 5}deg) rotateZ(${ev.screenX / 8}deg)`
+})
 
 
 function moveDown(){
@@ -255,3 +259,5 @@ function updateStickers(){
     }
   }
 }
+
+updateStickers()
