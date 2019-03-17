@@ -1,5 +1,5 @@
 :root{
-  --cube-size: 50px; 
+  --cube-size: 50px;
 }
 *{
   box-sizing: border-box;
@@ -25,7 +25,8 @@ html, body{
   width: calc(3 * var(--cube-size));
   background: orangered;
   margin: auto;
-  transform: rotate3d(1, 1, 0, 60deg);
+  transform: rotateX(65deg) rotateZ(35deg);
+  transform-origin: calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size));
   transform-style: preserve-3d;
 }
 
@@ -35,6 +36,12 @@ html, body{
   height: var(--cube-size);
   width: var(--cube-size);
   transform-style: preserve-3d;
+}
+.sticker{
+  position: relative;
+  height: 100%;
+  border-radius: 4px;
+  background-color: #dedede;
 }
 .cubes.lev-1{
 }
@@ -93,6 +100,7 @@ html, body{
   transform-style: preserve-3d;
   backface-visibility: visible;
   border: 1px solid #fff;
+  padding: 2px;
 }
 .w1{
 }
