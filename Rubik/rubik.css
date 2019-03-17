@@ -42,6 +42,7 @@ html, body{
   height: 100%;
   border-radius: 4px;
   background-color: #dedede;
+  /* outline: 1px solid transparent; */
 }
 .cubes.lev-1{
 }
@@ -95,11 +96,13 @@ html, body{
   left: 0;
   height: var(--cube-size);
   width: var(--cube-size);
-  background: rgba(0,0,0,0.5);
+  background: #fff;
+  /* background: rgba(0,0,0,0.5); */
   /* color: #fff; */
   transform-style: preserve-3d;
-  backface-visibility: visible;
+  backface-visibility: hidden;
   border: 1px solid #fff;
+  /* outline: 1px solid transparent; */
   padding: 2px;
 }
 .w1{

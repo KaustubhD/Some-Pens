@@ -130,28 +130,110 @@ let cubeMapping = {
   14: {
     0: null,
     1: null,
-    2: [3, 4],
-    3: null,
+    2: null,
+    3: [3, 4],
     4: null,
     5: null,
   },
   15: {
-
+    0: null,
+    1: null,
+    2: [2, 5],
+    3: null,
+    4: [4, 5],
+    5: null
   },
-  16: {},
-  17: {},
-  18: {},
-  19: {},
-  20: {},
-  21: {},
-  22: {},
-  23: {},
-  24: {},
-  25: {},
-  26: {},
+  16: {
+    0: null,
+    1: null,
+    2: null,
+    3: null,
+    4: [4, 4],
+    5: null
+  },
+  17: {
+    0: null,
+    1: null,
+    2: null,
+    3: [3, 3],
+    4: [4, 5],
+    5: null
+  },
+  18: {
+    0: null,
+    1: [1, 2],
+    2: [2, 0],
+    3: null,
+    4: null,
+    5: [5, 0]
+  },
+  19: {
+    0: null,
+    1: [1, 1],
+    2: null,
+    3: null,
+    4: null,
+    5: [5, 1]
+  },
+  20: {
+    0: null,
+    1: [1, 0],
+    2: null,
+    3: [3, 2],
+    4: null,
+    5: [5, 2]
+  },
+  21: {
+    0: null,
+    1: null,
+    2: [2, 1],
+    3: null,
+    4: null,
+    5: [5, 3]
+  },
+  22: {
+    0: null,
+    1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: [5, 4]
+  },
+  23: {
+    0: null,
+    1: null,
+    2: null,
+    3: [3, 1],
+    4: null,
+    5: [5, 5]
+  },
+  24: {
+    0: null,
+    1: null,
+    2: [2, 2],
+    3: null,
+    4: [4, 0],
+    5: [5, 6]
+  },
+  25: {
+    0: null,
+    1: null,
+    2: null,
+    3: null,
+    4: [4, 1],
+    5: [5, 7]
+  },
+  26: {
+    0: null,
+    1: null,
+    2: null,
+    3: [3, 0],
+    4: [4, 2],
+    5: [5, 8]
+  },
 }
 
-let cubes = Array.from(document.querySelectorAll('.cubes')).map(cube => cube.querySelectorAll('.sticker'))
+let stickers = Array.from(document.querySelectorAll('.cubes')).map(cube => cube.querySelectorAll('.sticker'))
 document.addEventListener('click', moveDown)
 
 
@@ -167,8 +249,8 @@ function updateStickers(){
     for(let j = 0; j < 6; j++){
       temp = cubeMapping[i][j]
       if(temp){
-        console.log(`%cGot this  ${COLOR_CODE[startState[temp[0]][temp[1]]]}  `, `background-color:${COLOR_CODE[startState[temp[0]][temp[1]]]}`)
-        cubes[i][j].style.backgroundColor = COLOR_CODE[startState[temp[0]][temp[1]]]
+        // console.log(`%cGot this  ${COLOR_CODE[startState[temp[0]][temp[1]]]}  `, `background-color:${COLOR_CODE[startState[temp[0]][temp[1]]]}`)
+        stickers[i][j].style.backgroundColor = COLOR_CODE[startState[temp[0]][temp[1]]]
       }
     }
   }
