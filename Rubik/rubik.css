@@ -23,7 +23,7 @@ html, body{
   bottom: 0;
   height: calc(3 * var(--cube-size));
   width: calc(3 * var(--cube-size));
-  background: orangered;
+  /* background: orangered; */
   margin: auto;
   transform: rotateX(65deg) rotateZ(35deg);
   transform-origin: calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size));
@@ -96,7 +96,7 @@ html, body{
   height: var(--cube-size);
   width: var(--cube-size);
   background: rgba(0,0,0,0.5);
-  color: #fff;
+  /* color: #fff; */
   transform-style: preserve-3d;
   backface-visibility: visible;
   border: 1px solid #fff;

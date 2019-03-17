@@ -7,12 +7,12 @@ const COLOR_CODE = {
   O: '#F87C45'
 }
 let startState = [
-  new Array(6).fill('B'),
-  new Array(6).fill('R'),
-  new Array(6).fill('W'),
-  new Array(6).fill('Y'),
-  new Array(6).fill('G'),
-  new Array(6).fill('O'),
+  new Array(9).fill('B'),
+  new Array(9).fill('R'),
+  new Array(9).fill('W'),
+  new Array(9).fill('Y'),
+  new Array(9).fill('G'),
+  new Array(9).fill('O'),
 ]
 
 let cubeMapping = {
@@ -73,6 +73,22 @@ let cubeMapping = {
     5: null
   },
   7: {
+    0: [0, 7],
+    1: null,
+    2: null,
+    3: null,
+    4: [4, 7],
+    5: null
+  },
+  8: {
+    0: [0, 6],
+    1: null,
+    2: null,
+    3: [3, 6],
+    4: [4, 8],
+    5: null
+  },
+  9: {
     0: null,
     1: [1, 5],
     2: [2, 3],
@@ -80,7 +96,7 @@ let cubeMapping = {
     4: null,
     5: null
   },
-  8: {
+  10: {
     0: null,
     1: [1, 4],
     2: null,
@@ -88,7 +104,7 @@ let cubeMapping = {
     4: null,
     5: null
   },
-  9: {
+  11: {
     0: null,
     1: [1, 3],
     2: null,
@@ -96,18 +112,64 @@ let cubeMapping = {
     4: null,
     5: null
   },
-  10: {
-    0: 
-  }
+  12: {
+    0: null,
+    1: null,
+    2: [2, 4],
+    3: null,
+    4: null,
+    5: null
+  },
+  13: {
+    1: null,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+  },
+  14: {
+    0: null,
+    1: null,
+    2: [3, 4],
+    3: null,
+    4: null,
+    5: null,
+  },
+  15: {
+
+  },
+  16: {},
+  17: {},
+  18: {},
+  19: {},
+  20: {},
+  21: {},
+  22: {},
+  23: {},
+  24: {},
+  25: {},
+  26: {},
 }
 
+let cubes = Array.from(document.querySelectorAll('.cubes')).map(cube => cube.querySelectorAll('.sticker'))
 document.addEventListener('click', moveDown)
 
 
 function moveDown(){
 
+
+  updateStickers()
 }
 
-updateStickers(){
-
+let temp
+function updateStickers(){
+  for(let i = 0; i < 27; i++){
+    for(let j = 0; j < 6; j++){
+      temp = cubeMapping[i][j]
+      if(temp){
+        console.log(`%cGot this  ${COLOR_CODE[startState[temp[0]][temp[1]]]}  `, `background-color:${COLOR_CODE[startState[temp[0]][temp[1]]]}`)
+        cubes[i][j].style.backgroundColor = COLOR_CODE[startState[temp[0]][temp[1]]]
+      }
+    }
+  }
 }
