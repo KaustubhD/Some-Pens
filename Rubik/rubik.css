@@ -28,6 +28,7 @@ html, body{
   transform: rotateX(65deg) rotateZ(35deg);
   transform-origin: calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size)) calc(1.5 * var(--cube-size));
   transform-style: preserve-3d;
+  transition: transform 100ms ease;
 }
 
 .cubes{

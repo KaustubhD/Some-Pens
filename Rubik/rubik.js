@@ -1,7 +1,7 @@
 const COLOR_CODE = {
   R: '#CC0066',
   B: '#0066CC',
-  W: '#FFFFFF',
+  W: '#EEEEEE',
   Y: '#F8D545',
   G: '#66CC00',
   O: '#F87C45'
@@ -234,16 +234,40 @@ let cubeMapping = {
 }
 const CUBE = document.querySelector('.container')
 let stickers = Array.from(document.querySelectorAll('.cubes')).map(cube => cube.querySelectorAll('.sticker'))
+let trns = [65, 35]
 // document.addEventListener('click', moveDown)
-document.addEventListener('mousemove', (ev) => {
-  // console.log(ev)
-  CUBE.style.transform = `rotateX(${ev.screenX / 5}deg) rotateY(${ev.screenY / 5}deg) rotateZ(${ev.screenX / 8}deg)`
+// document.addEventListener('mousemove', (ev) => {
+//   // console.log(ev)
+//   CUBE.style.transform = `rotateX(${ev.screenX / 5}deg) rotateY(${ev.screenY / 5}deg) rotateZ(${ev.screenX / 8}deg)`
+// })
+
+document.addEventListener('keydown', function(ev){
+  console.log(ev.keyCode)
+  //37 left
+  //38 up
+  //39 right
+  //40 down
+  switch(ev.keyCode){
+    case 37:
+      trns[1] += 4
+      break
+    case 38:
+      trns[0] += 4
+      break
+    case 39:
+      trns[1] -= 4
+      break
+    case 40:
+      trns[0] -= 4
+  }
+  requestAnimationFrame(rotateCube)
 })
 
+function rotateCube(){
+  CUBE.style.transform = `rotateX(${trns[0]}deg) rotateZ(${trns[1]}deg)`
+}
 
 function moveDown(){
-
-
   updateStickers()
 }
 
