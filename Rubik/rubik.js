@@ -248,6 +248,9 @@ document.addEventListener('keydown', function(ev){
   //39 right
   //40 down
   switch(ev.keyCode){
+    case 70:
+      F()
+      break
     case 37:
       trns[1] += 4
       break
@@ -267,15 +270,19 @@ function rotateCube(){
   CUBE.style.transform = `rotateX(${trns[0]}deg) rotateZ(${trns[1]}deg)`
 }
 
-function moveDown(){
-  updateStickers()
+function F(){
+  
 }
 
-let temp
+// function moveDown(){
+//   updateStickers()
+// }
+
+// let temp
 function updateStickers(){
   for(let i = 0; i < 27; i++){
     for(let j = 0; j < 6; j++){
-      temp = cubeMapping[i][j]
+      let temp = cubeMapping[i][j]
       if(temp){
         // console.log(`%cGot this  ${COLOR_CODE[startState[temp[0]][temp[1]]]}  `, `background-color:${COLOR_CODE[startState[temp[0]][temp[1]]]}`)
         stickers[i][j].style.backgroundColor = COLOR_CODE[startState[temp[0]][temp[1]]]

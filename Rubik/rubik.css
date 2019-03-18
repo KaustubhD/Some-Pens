@@ -37,6 +37,7 @@ html, body{
   height: var(--cube-size);
   width: var(--cube-size);
   transform-style: preserve-3d;
+  transition: transform 100ms ease;
 }
 .sticker{
   position: relative;
