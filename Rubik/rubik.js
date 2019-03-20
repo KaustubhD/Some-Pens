@@ -284,7 +284,6 @@ function updateStickers(){
     for(let j = 0; j < 6; j++){
       let temp = cubeMapping[i][j]
       if(temp){
-        // console.log(`%cGot this  ${COLOR_CODE[startState[temp[0]][temp[1]]]}  `, `background-color:${COLOR_CODE[startState[temp[0]][temp[1]]]}`)
         stickers[i][j].style.backgroundColor = COLOR_CODE[startState[temp[0]][temp[1]]]
       }
     }
