@@ -1,3 +1,5 @@
+//Can't make it yet with vanilla
+//Too much hard coding
 const COLOR_CODE = {
   R: '#CC0066',
   B: '#0066CC',
