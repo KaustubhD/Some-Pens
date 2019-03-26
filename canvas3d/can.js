@@ -59,7 +59,7 @@ let loadShader = (ctx, type, code) => {
     console.error('Error occured with registering shader')
     console.log(ctx.getShaderInfoLog(SHADER))
     ctx.deleteShader(SHADER)
-    return
+    return null
   }
   return SHADER
 }
@@ -72,7 +72,7 @@ const SHADER_PROGRAM = initShaderProgram(ctx, vsSource, fsSource);
 
 const PROGRAM_INFO = {
   program: SHADER_PROGRAM,
-  attribLocation: {
+  attribLocations: {
     vertexPosition: ctx.getAttribLocation(SHADER_PROGRAM, 'aVertexPosition')
   },
   uniformLocations: {
@@ -81,15 +81,19 @@ const PROGRAM_INFO = {
   },
 }
 
+const BUFFERS = initBuffer(ctx)
+
+drawScene(ctx, PROGRAM_INFO, BUFFERS)
+
 
 function initBuffer(ctx){
   const PositionBuffer = ctx.createBuffer()
   ctx.bindBuffer(ctx.ARRAY_BUFFER, PositionBuffer)
   const points = [
-    -1.0,  1.0,
      1.0,  1.0,
-    -1.0, -1.0,
+    -1.0,  1.0,
      1.0, -1.0,
+    -1.0, -1.0,
   ]
   ctx.bufferData(ctx.ARRAY_BUFFER, new Float32Array(points), ctx.STATIC_DRAW)
   return {position: PositionBuffer}
@@ -101,7 +105,7 @@ function initBuffer(ctx){
 
 
 
-function drawScene(){
+function drawScene(ctx, programInfo, buffers){
   ctx.clearColor(0.0, 0.0, 0.0, 0.0)
   ctx.clearDepth(1.0)
   ctx.enable(ctx.DEPTH_TEST)
@@ -110,7 +114,7 @@ function drawScene(){
   ctx.clear(ctx.COLOR_BUFFER_BIT | ctx.DEPTH_BUFFER_BIT)
 
   const FIELD_OF_VIEW = 45 * (Math.PI / 180) //45deg to rad
-  const ASPECT_RATIO = CANVAS.width / CANVAS.HEIGHT
+  const ASPECT_RATIO = CANVAS.width / CANVAS.height
   const NEAR_Z = 0.1
   const FAR_Z = 100.0
   const PROJ_MATRIX = mat4.create()
@@ -150,14 +154,15 @@ function drawScene(){
   ctx.uniformMatrix4fv(
       programInfo.uniformLocations.projectionMatrix,
       false,
-      projectionMatrix);
+      PROJ_MATRIX);
   ctx.uniformMatrix4fv(
       programInfo.uniformLocations.modelViewMatrix,
       false,
       modelViewMatrix);
 
   {
-    const offset = 0;
+    console.log('In here')
+    offset = 0;
     const vertexCount = 4;
     ctx.drawArrays(ctx.TRIANGLE_STRIP, offset, vertexCount);
   }
