@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2d canvas again</title>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="600"></canvas>
+</body>
+<script>
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+
+ctx.fillStyle = '#000'
+ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+ctx.fillStyle = '#f52'
+ctx.fillRect(100, 100, 200, 200)
+
+ctx.rotate(30 * Math.PI / 180)
+ctx.fillStyle = '#25F'
+ctx.fillRect(150, 150, 50, 50)
+</script>
+</html>
