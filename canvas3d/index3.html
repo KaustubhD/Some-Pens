@@ -22,21 +22,48 @@ ctx.fillStyle = '#000'
 ctx.fillRect(0, 0, canvas.width, canvas.height)
 
 let points = []
-initGeometry = (step) => {
-  for(let i = -1; i <= 1; i += step){
-    for(let j = -1; j <= 1; j += step){
-      for(let k = -1; k <= 1; k += step){
-        points.push([i, j, k])
-      }
-    }
-  }
-}
+// initGeometry = (step) => {
+//   for(let i = -1; i <= 1; i += step){
+//     for(let j = -1; j <= 1; j += step){
+//       for(let k = -1; k <= 1; k += step){
+//         points.push([i, j, k])
+//       }
+//     }
+//   }
+// }
+points = [
+  
+  [
+    [-1, 1, 1], [-1, -1, 1], [-1, -1, -1], [-1, 1, -1]
+  ], // left face
+  [
+    [1, -1, 1], [1, -1, -1], [-1, -1, -1], [-1, -1, 1]
+  ], // bottom face
+  [
+    [1, 1, -1], [1, 1, 1], [-1, 1, 1], [-1, 1, -1]
+    // [-1, 1, -1], [1, 1, -1], [1, 1, 1], [-1, 1, 1]
+  ], // top face
+  [
+    [1, 1, 1], [-1, 1, 1], [-1, -1, 1], [1, -1, 1]
+    // [1, 1, 1], [1, -1, 1], [-1, -1, 1], [-1, 1, 1]
+  ], // front face
+  [
+    [1, 1, -1], [1, 1, 1], [1, -1, 1], [1, -1, -1]
+    // [1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1]
+  ], // right face
+  [
+    [1, 1, -1], [-1, 1, -1], [-1, -1, -1], [1, -1, -1]
+    // [1, 1, -1], [1, -1, -1], [-1, -1, -1], [-1, 1, -1]
+  ], // back face
+  
+]
+colors = ['yellow', 'pink', '#f52', '#fff', 'blue', 'green']
 
 projectTo3D = ([a, b, c]) => {
   
   return projectForWindow([
-    a / (c + 2.5),
-    b / (c + 2.5)
+    a / (c + 3.5),
+    b / (c + 3.5)
   ])
 }
 
@@ -47,17 +74,21 @@ projectForWindow = ([a, b]) => {
   ]
 }
 
-drawPoint = ([a, b]) => {
-  ctx.moveTo(a, b)
-  ctx.fillRect(a - 1, b - 1, 2, 2)
-}
+drawFace = (face) => {
+  // console.log(i)
+  ctx.beginPath()
+  ctx.fillStyle = colors[i]
+  // ctx.globalAlpha = 0.5
 
-rotateY = (pt, angle) => {
-  return[
-    Math.cos(angle) * pt[0] - Math.sin(angle) * pt[2],
-    pt[1],
-    Math.sin(angle) * pt[0] + Math.cos(angle) * pt[2]
-  ]
+  ctx.moveTo(face[0][0], face[0][1])
+  
+  ctx.lineTo(face[1][0], face[1][1])
+  ctx.lineTo(face[2][0], face[2][1])
+  ctx.lineTo(face[3][0], face[3][1])
+  ctx.lineTo(face[0][0], face[0][1])
+  
+  ctx.fill()
+  i = (i + 1) % 6
 }
 
 rotateY = (pt, angle) => {
@@ -76,26 +107,55 @@ rotateX = (pt, angle) => {
   ]
 }
 
-let x, y, z, ang = 0, angStep = 0.02
+let x, y, z, angX = 0, angY = 0, angStep = 0.1, i = 0
 render = () => {
   ctx.fillStyle = '#000'
   ctx.fillRect(0, 0, W, H)
-  ctx.fillStyle = '#f52'
-  ang += angStep
+  ctx.fillStyle = 'rgba(100,55,30,1)'
+  // ang += angStep
 
-  for(let point of points){
-    point = rotateY(point, ang)
-    point = rotateX(point, ang)
-    point = projectTo3D(point)
-    drawPoint(point)
+  // i = 0
+  for(let face of points){
+    face = face.map(point => {
+      point = rotateY(point, angY)
+      point = rotateX(point, angX)
+      // point = rotateY(point, -0.9)
+      // point = rotateX(point, -0.5)
+      return projectTo3D(point)
+    })
+    // point = rotateY(point, ang)
+    // point = rotateX(point, ang)
+    // point = projectTo3D(point)
+    drawFace(face)
+    // i++
   }
 
   xxx = requestAnimationFrame(render)
 }
 
+window.addEventListener('keydown', (ev) => {
+  console.log(ev.keyCode)
+  switch(ev.keyCode){
+    case 37: //left
+      angY -= angStep
+      break
+    case 38: //up
+      angX += angStep
+      break
+    case 39: //right
+      angY += angStep
+      break
+    case 40: //bottom
+      angX -= angStep
+      break
+    default:
+      return
+  }
+})
+
 let xxx = requestAnimationFrame(render)
 
-initGeometry(0.5)
+// initGeometry(0.5)
 
 
 
