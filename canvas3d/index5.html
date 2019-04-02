@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cube with three</title>
+</head>
+<body>
+
+</body>
+<script src="utils/three.min.js"></script>
+<script>
+
+const W = 600, H = 400
+
+let angX = 0, angY = 0, angZ = 0, angStep = 0.1
+let trnX = 0, trnY = 0, trnZ = 0, trnStep = 10
+
+
+var scene = new THREE.Scene()
+var camera = new THREE.PerspectiveCamera(45, W / H, 1, 10000)
+
+var renderer = new THREE.WebGLRenderer({antialias: true})
+renderer.setSize(W, H)
+document.body.appendChild(renderer.domElement)
+
+
+
+var geometry
+// new THREE.BoxGeometry(50, 200, 50, 10, 10, 10)
+var material
+// new THREE.MeshLambertMaterial({color: 0xfffff})
+var cube
+//new THREE.Mesh(geometry, material)
+var cubes = new THREE.Object3D()
+scene.add(cubes)
+scene.add(new THREE.AmbientLight(0x212223));
+
+
+const NUM = 2
+var posX = -480, posY = 260, posZ = -170
+for(let i = 0; i < NUM; i++){
+  geometry = new THREE.BoxGeometry(50, 200, 50, 10, 10, 10)
+  material = new THREE.MeshLambertMaterial({color: 0xfffff})
+  cube = new THREE.Mesh(geometry, material)
+  cube.position.set(posX, posY, posZ)
+  cubes.add(cube)
+  posX -= 50
+  posY -= 140
+  posZ += 50
+}
+
+
+var dirLight = new THREE.DirectionalLight(0xffffff, 1)
+dirLight.position.set(-10, 0 ,100)
+scene.add(dirLight)
+
+
+
+camera.position.z = 1000
+scene.add(camera)
+
+rend = () => {
+  // cube.translateX = trnX
+  // cube.translateY = trnY
+  // cube.translateZ = trnZ
+  // cube.position.set(trnX, trnY, trnZ)
+  cube.rotation.x = angX
+  cube.rotation.y = angY
+  cube.rotation.z = angZ
+  renderer.render(scene, camera)
+}
+var x = requestAnimationFrame(rend)
+
+
+
+
+
+
+
+
+window.addEventListener('keydown', (ev) => {
+  console.log(ev.keyCode)
+  switch(ev.keyCode){
+    case 37: //left
+      angY -= angStep
+      break
+    case 38: //up
+      angX += angStep
+      break
+    case 39: //right
+      angY += angStep
+      break
+    case 40: //bottom
+      angX -= angStep
+      break
+    case 222: //Z up
+      angZ -= angStep
+      break
+    case 191: //Z up
+      angZ += angStep
+      break
+    case 87: //W
+      trnY += trnStep
+      break
+    case 83: //S
+      trnY -= trnStep
+      break
+    case 65: //A
+      trnX -= trnStep
+      break
+    case 68: //D
+      trnX += trnStep
+      break
+    case 82: //R
+      trnZ += trnStep
+      break
+    case 70: //F
+      trnZ -= trnStep
+      break
+    default:
+      return
+  }
+  console.log(`${angX}  ${angY}  ${angZ} ||| ${trnX} ${trnY} ${trnZ}`)
+  requestAnimationFrame(rend)
+})
+
+
+</script>
+</html>

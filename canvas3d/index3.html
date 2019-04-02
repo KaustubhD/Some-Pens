@@ -40,13 +40,13 @@ points = [
     [1, -1, 1], [1, -1, -1], [-1, -1, -1], [-1, -1, 1]
   ], // bottom face
   [
-    [1, 1, -1], [1, 1, 1], [-1, 1, 1], [-1, 1, -1]
-    // [-1, 1, -1], [1, 1, -1], [1, 1, 1], [-1, 1, 1]
-  ], // top face
-  [
     [1, 1, 1], [-1, 1, 1], [-1, -1, 1], [1, -1, 1]
     // [1, 1, 1], [1, -1, 1], [-1, -1, 1], [-1, 1, 1]
   ], // front face
+  [
+    [1, 1, -1], [1, 1, 1], [-1, 1, 1], [-1, 1, -1]
+    // [-1, 1, -1], [1, 1, -1], [1, 1, 1], [-1, 1, 1]
+  ], // top face
   [
     [1, 1, -1], [1, 1, 1], [1, -1, 1], [1, -1, -1]
     // [1, 1, -1], [1, -1, -1], [1, -1, 1], [1, 1, 1]
@@ -57,13 +57,13 @@ points = [
   ], // back face
   
 ]
-colors = ['yellow', 'pink', '#f52', '#fff', 'blue', 'green']
+colors = ['yellow', 'pink', '#f52', '#000', 'blue', 'green']
 
 projectTo3D = ([a, b, c]) => {
   
   return projectForWindow([
-    a / (c + 3.5),
-    b / (c + 3.5)
+    a / (c + 6),
+    b / (c + 6)
   ])
 }
 
@@ -109,7 +109,7 @@ rotateX = (pt, angle) => {
 
 let x, y, z, angX = 0, angY = 0, angStep = 0.1, i = 0
 render = () => {
-  ctx.fillStyle = '#000'
+  ctx.fillStyle = '#fff'
   ctx.fillRect(0, 0, W, H)
   ctx.fillStyle = 'rgba(100,55,30,1)'
   // ang += angStep

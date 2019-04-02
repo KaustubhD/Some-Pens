@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2d canvas again</title>
+</head>
+<body>
+  <svg xmlns="http://w3.org/2000/svg" id="svgg" width="600" height="600" fill="#000" transform="matrix(1, 0, 0, 1, 0, 0)" style="background-color: #333;"></svg>
+</body>
+<script>
+
+
+const svg = document.getElementById('svgg')
+
+const W = 600, H = 600, D = 600
+const MIN_X = -2, MAX_X = 2, MIN_Y = -2, MAX_Y = 2
+let bWidth = 50, bHeight = 100
+
+
+let points = [
+  [
+    [1, 1, 0], [1, 1, 1], [0, 1, 1], [0, 1, 0]
+  ], // top face
+  [
+    [1, 1, 0], [1, 1, 1], [1, -1, 1], [1, -1, 0]
+  ], // right face
+  [
+    [1, 1, 0], [0, 1, 0], [0, -1, 0], [1, -1, 0]
+  ], // back face 
+]
+
+projectTo3D = ([a, b, c]) => {
+  
+  return projectForWindow([
+    a / (c + 4),
+    b / (c + 4)
+  ])
+}
+
+projectForWindow = ([a, b]) => {
+  return [
+    (W * (a - MIN_X) / (MAX_X - MIN_X)),
+    (H * (1 - (b - MIN_Y) / (MAX_Y - MIN_Y)))
+  ]
+}
+
+let path, pathString
+drawFace = (face) => {
+  path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  pathString = `M${face[0][0]} ${face[0][1]}`
+  for(let i = 1; i < 4; i++){
+    pathString += ` L${face[i][0]} ${face[i][1]}`
+  }
+  pathString += ' Z'
+  // console.log(pathString)
+  path.setAttribute('d', pathString)
+  path.setAttribute('style', 'fill: #000; stroke: #f00;')
+  
+  return path
+}
+
+rotateY = (pt, angle) => {
+  return[
+    Math.cos(angle) * pt[0] - Math.sin(angle) * pt[2],
+    pt[1],
+    Math.sin(angle) * pt[0] + Math.cos(angle) * pt[2]
+  ]
+}
+
+rotateX = (pt, angle) => {
+  return[
+    pt[0],
+    Math.cos(angle) * pt[1] - Math.sin(angle) * pt[2],
+    Math.sin(angle) * pt[1] + Math.cos(angle) * pt[2]
+  ]
+}
+rotateZ = (pt, angle) => {
+  return[
+    Math.cos(angle) * pt[0] - Math.sin(angle) * pt[1],
+    Math.sin(angle) * pt[0] + Math.cos(angle) * pt[1],
+    pt[2]
+  ]
+}
+translate = (pt, tx, ty, tz) => {
+    pt[0] += tx,
+    pt[1] += ty,
+    pt[2] += tz
+  return pt
+}
+scale = (pt, sx, sy, sz) => {
+    pt[0] *= sx,
+    pt[1] *= sy,
+    pt[2] *= sz
+  return pt
+}
+
+let x, y, z, angX = 0, angY = 0, angZ = 0, angStep = 0.1
+let grp
+render = () => {
+  svg.innerHTML = ''
+  grp = document.createElementNS('http://www.w3.org/2000/svg', 'g')
+
+  for(let i = 0; i < 10; i++){
+    for(let face of points){
+      face = face.map(point => {
+        // point[0] /= 100
+        // point[1] /= 100
+        // point = scale(point, 1.5, 1.5, 1.5)
+        point = rotateY(point, -0.3)
+        point = rotateX(point, -0.3)
+        point = rotateZ(point, -0.3)
+        // point = rotateY(point, angY)
+        // point = rotateX(point, angX)
+        // point = rotateZ(point, angZ)
+        point = translate(point, 0, 0, 0)
+        return projectTo3D(point)
+      })
+      grp.appendChild(drawFace(face))
+    }
+    svg.appendChild(grp)
+  }
+
+  // xxx = requestAnimationFrame(render)
+}
+
+window.addEventListener('keydown', (ev) => {
+  // console.log(ev.keyCode)
+  switch(ev.keyCode){
+    case 37: //left
+      angY -= angStep
+      break
+    case 38: //up
+      angX += angStep
+      break
+    case 39: //right
+      angY += angStep
+      break
+    case 40: //bottom
+      angX -= angStep
+      break
+    case 222: //Z up
+      angZ -= angStep
+      break
+    case 191: //Z up
+      angZ += angStep
+      break
+    default:
+      return
+  }
+  console.log(`${angX}  ${angY}  ${angZ}`)
+  render()
+})
+
+// let xxx = requestAnimationFrame(render)
+
+render()
+
+// #25f
+</script>
+</html>
