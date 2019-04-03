@@ -12,10 +12,129 @@
 <script src="utils/three.min.js"></script>
 <script>
 
-const W = 600, H = 400
+/*
 
-let angX = 0, angY = 0, angZ = 0, angStep = 0.1
-let trnX = 0, trnY = 0, trnZ = 0, trnStep = 10
+x = document.querySelectorAll('.js-calendar-graph>svg>g g>rect')
+
+x.forEach(rec => {
+	arr.push([
+		rec.parentElement.getAttribute('transform'),
+		parseInt(rec.getAttribute('y')),
+		parseInt(rec.getAttribute('data-count')),
+		rec.getAttribute('fill'),
+	])
+})
+
+
+arr2.reduce((acc, el, ind) => {
+	if(arr2[ind - 1] && arr2[ind - 1][0] != el[0])acc += '\n'
+	acc += `[${el}],`
+	return acc
+}, '')
+
+
+arr2 = arr.map(comb => {
+	ind = comb[0].indexOf(', ')
+	return[
+		parseInt(comb[0].substring(10, ind)),
+		comb[1],
+		comb[2],
+		comb[3],
+	]
+})
+
+
+
+arr2.reduce((acc, el, ind) => {
+	if(arr2[ind - 1] && arr2[ind - 1][0] != el[0])acc += '\n'
+	acc += `[${el}],`
+	return acc
+}, '')
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+var data = [
+[0,0,0,"#ebedf0"],[0,10,0,"#ebedf0"],[0,20,0,"#ebedf0"],[0,30,0,"#ebedf0"],[0,40,0,"#ebedf0"],[0,50,0,"#ebedf0"],[0,60,0,"#ebedf0"],
+[11,0,0,"#ebedf0"],[11,10,0,"#ebedf0"],[11,20,0,"#ebedf0"],[11,30,0,"#ebedf0"],[11,40,0,"#ebedf0"],[11,50,0,"#ebedf0"],[11,60,0,"#ebedf0"],
+[22,0,0,"#ebedf0"],[22,10,0,"#ebedf0"],[22,20,0,"#ebedf0"],[22,30,0,"#ebedf0"],[22,40,0,"#ebedf0"],[22,50,0,"#ebedf0"],[22,60,0,"#ebedf0"],
+[33,0,0,"#ebedf0"],[33,10,0,"#ebedf0"],[33,20,0,"#ebedf0"],[33,30,0,"#ebedf0"],[33,40,0,"#ebedf0"],[33,50,0,"#ebedf0"],[33,60,0,"#ebedf0"],
+[44,0,0,"#ebedf0"],[44,10,0,"#ebedf0"],[44,20,0,"#ebedf0"],[44,30,0,"#ebedf0"],[44,40,0,"#ebedf0"],[44,50,0,"#ebedf0"],[44,60,0,"#ebedf0"],
+[55,0,0,"#ebedf0"],[55,10,0,"#ebedf0"],[55,20,0,"#ebedf0"],[55,30,0,"#ebedf0"],[55,40,0,"#ebedf0"],[55,50,0,"#ebedf0"],[55,60,0,"#ebedf0"],
+[66,0,0,"#ebedf0"],[66,10,0,"#ebedf0"],[66,20,0,"#ebedf0"],[66,30,0,"#ebedf0"],[66,40,0,"#ebedf0"],[66,50,0,"#ebedf0"],[66,60,0,"#ebedf0"],
+[77,0,0,"#ebedf0"],[77,10,0,"#ebedf0"],[77,20,0,"#ebedf0"],[77,30,0,"#ebedf0"],[77,40,0,"#ebedf0"],[77,50,0,"#ebedf0"],[77,60,0,"#ebedf0"],
+[88,0,0,"#ebedf0"],[88,10,0,"#ebedf0"],[88,20,0,"#ebedf0"],[88,30,0,"#ebedf0"],[88,40,0,"#ebedf0"],[88,50,0,"#ebedf0"],[88,60,0,"#ebedf0"],
+[99,0,0,"#ebedf0"],[99,10,0,"#ebedf0"],[99,20,0,"#ebedf0"],[99,30,0,"#ebedf0"],[99,40,0,"#ebedf0"],[99,50,0,"#ebedf0"],[99,60,0,"#ebedf0"],
+[110,0,0,"#ebedf0"],[110,10,0,"#ebedf0"],[110,20,0,"#ebedf0"],[110,30,2,"#c6e48b"],[110,40,0,"#ebedf0"],[110,50,0,"#ebedf0"],[110,60,0,"#ebedf0"],
+[121,0,0,"#ebedf0"],[121,10,0,"#ebedf0"],[121,20,0,"#ebedf0"],[121,30,0,"#ebedf0"],[121,40,0,"#ebedf0"],[121,50,0,"#ebedf0"],[121,60,0,"#ebedf0"],
+[132,0,0,"#ebedf0"],[132,10,0,"#ebedf0"],[132,20,0,"#ebedf0"],[132,30,0,"#ebedf0"],[132,40,0,"#ebedf0"],[132,50,0,"#ebedf0"],[132,60,0,"#ebedf0"],
+[143,0,0,"#ebedf0"],[143,10,0,"#ebedf0"],[143,20,0,"#ebedf0"],[143,30,0,"#ebedf0"],[143,40,0,"#ebedf0"],[143,50,0,"#ebedf0"],[143,60,0,"#ebedf0"],
+[154,0,0,"#ebedf0"],[154,10,0,"#ebedf0"],[154,20,0,"#ebedf0"],[154,30,0,"#ebedf0"],[154,40,0,"#ebedf0"],[154,50,0,"#ebedf0"],[154,60,0,"#ebedf0"],
+[165,0,0,"#ebedf0"],[165,10,0,"#ebedf0"],[165,20,0,"#ebedf0"],[165,30,0,"#ebedf0"],[165,40,0,"#ebedf0"],[165,50,0,"#ebedf0"],[165,60,0,"#ebedf0"],
+[176,0,0,"#ebedf0"],[176,10,0,"#ebedf0"],[176,20,0,"#ebedf0"],[176,30,0,"#ebedf0"],[176,40,0,"#ebedf0"],[176,50,0,"#ebedf0"],[176,60,0,"#ebedf0"],
+[187,0,0,"#ebedf0"],[187,10,0,"#ebedf0"],[187,20,0,"#ebedf0"],[187,30,0,"#ebedf0"],[187,40,0,"#ebedf0"],[187,50,0,"#ebedf0"],[187,60,0,"#ebedf0"],
+[198,0,0,"#ebedf0"],[198,10,0,"#ebedf0"],[198,20,0,"#ebedf0"],[198,30,0,"#ebedf0"],[198,40,0,"#ebedf0"],[198,50,0,"#ebedf0"],[198,60,0,"#ebedf0"],
+[209,0,0,"#ebedf0"],[209,10,0,"#ebedf0"],[209,20,0,"#ebedf0"],[209,30,0,"#ebedf0"],[209,40,0,"#ebedf0"],[209,50,0,"#ebedf0"],[209,60,0,"#ebedf0"],
+[220,0,4,"#7bc96f"],[220,10,0,"#ebedf0"],[220,20,0,"#ebedf0"],[220,30,0,"#ebedf0"],[220,40,0,"#ebedf0"],[220,50,0,"#ebedf0"],[220,60,0,"#ebedf0"],
+[231,0,0,"#ebedf0"],[231,10,0,"#ebedf0"],[231,20,0,"#ebedf0"],[231,30,0,"#ebedf0"],[231,40,0,"#ebedf0"],[231,50,0,"#ebedf0"],[231,60,0,"#ebedf0"],
+[242,0,0,"#ebedf0"],[242,10,0,"#ebedf0"],[242,20,0,"#ebedf0"],[242,30,0,"#ebedf0"],[242,40,0,"#ebedf0"],[242,50,0,"#ebedf0"],[242,60,0,"#ebedf0"],
+[253,0,0,"#ebedf0"],[253,10,0,"#ebedf0"],[253,20,0,"#ebedf0"],[253,30,0,"#ebedf0"],[253,40,0,"#ebedf0"],[253,50,0,"#ebedf0"],[253,60,0,"#ebedf0"],
+[264,0,0,"#ebedf0"],[264,10,0,"#ebedf0"],[264,20,0,"#ebedf0"],[264,30,0,"#ebedf0"],[264,40,0,"#ebedf0"],[264,50,0,"#ebedf0"],[264,60,0,"#ebedf0"],
+[275,0,2,"#c6e48b"],[275,10,0,"#ebedf0"],[275,20,0,"#ebedf0"],[275,30,0,"#ebedf0"],[275,40,0,"#ebedf0"],[275,50,0,"#ebedf0"],[275,60,2,"#c6e48b"],
+[286,0,1,"#c6e48b"],[286,10,0,"#ebedf0"],[286,20,0,"#ebedf0"],[286,30,0,"#ebedf0"],[286,40,0,"#ebedf0"],[286,50,0,"#ebedf0"],[286,60,0,"#ebedf0"],
+[297,0,0,"#ebedf0"],[297,10,0,"#ebedf0"],[297,20,0,"#ebedf0"],[297,30,0,"#ebedf0"],[297,40,0,"#ebedf0"],[297,50,0,"#ebedf0"],[297,60,0,"#ebedf0"],
+[308,0,0,"#ebedf0"],[308,10,0,"#ebedf0"],[308,20,0,"#ebedf0"],[308,30,0,"#ebedf0"],[308,40,0,"#ebedf0"],[308,50,0,"#ebedf0"],[308,60,0,"#ebedf0"],
+[319,0,0,"#ebedf0"],[319,10,0,"#ebedf0"],[319,20,0,"#ebedf0"],[319,30,0,"#ebedf0"],[319,40,0,"#ebedf0"],[319,50,0,"#ebedf0"],[319,60,0,"#ebedf0"],
+[330,0,0,"#ebedf0"],[330,10,0,"#ebedf0"],[330,20,0,"#ebedf0"],[330,30,0,"#ebedf0"],[330,40,0,"#ebedf0"],[330,50,0,"#ebedf0"],[330,60,0,"#ebedf0"],
+[341,0,0,"#ebedf0"],[341,10,0,"#ebedf0"],[341,20,0,"#ebedf0"],[341,30,0,"#ebedf0"],[341,40,0,"#ebedf0"],[341,50,0,"#ebedf0"],[341,60,0,"#ebedf0"],
+[352,0,0,"#ebedf0"],[352,10,0,"#ebedf0"],[352,20,0,"#ebedf0"],[352,30,0,"#ebedf0"],[352,40,0,"#ebedf0"],[352,50,0,"#ebedf0"],[352,60,0,"#ebedf0"],
+[363,0,0,"#ebedf0"],[363,10,0,"#ebedf0"],[363,20,0,"#ebedf0"],[363,30,0,"#ebedf0"],[363,40,0,"#ebedf0"],[363,50,0,"#ebedf0"],[363,60,0,"#ebedf0"],
+[374,0,0,"#ebedf0"],[374,10,0,"#ebedf0"],[374,20,0,"#ebedf0"],[374,30,0,"#ebedf0"],[374,40,0,"#ebedf0"],[374,50,0,"#ebedf0"],[374,60,0,"#ebedf0"],
+[385,0,0,"#ebedf0"],[385,10,0,"#ebedf0"],[385,20,0,"#ebedf0"],[385,30,0,"#ebedf0"],[385,40,0,"#ebedf0"],[385,50,0,"#ebedf0"],[385,60,0,"#ebedf0"],
+[396,0,0,"#ebedf0"],[396,10,0,"#ebedf0"],[396,20,0,"#ebedf0"],[396,30,0,"#ebedf0"],[396,40,0,"#ebedf0"],[396,50,0,"#ebedf0"],[396,60,0,"#ebedf0"],
+[407,0,0,"#ebedf0"],[407,10,2,"#c6e48b"],[407,20,0,"#ebedf0"],[407,30,0,"#ebedf0"],[407,40,0,"#ebedf0"],[407,50,0,"#ebedf0"],[407,60,0,"#ebedf0"],
+[418,0,0,"#ebedf0"],[418,10,0,"#ebedf0"],[418,20,0,"#ebedf0"],[418,30,0,"#ebedf0"],[418,40,0,"#ebedf0"],[418,50,0,"#ebedf0"],[418,60,0,"#ebedf0"],
+[429,0,0,"#ebedf0"],[429,10,0,"#ebedf0"],[429,20,0,"#ebedf0"],[429,30,0,"#ebedf0"],[429,40,0,"#ebedf0"],[429,50,0,"#ebedf0"],[429,60,0,"#ebedf0"],
+[440,0,0,"#ebedf0"],[440,10,0,"#ebedf0"],[440,20,0,"#ebedf0"],[440,30,0,"#ebedf0"],[440,40,0,"#ebedf0"],[440,50,0,"#ebedf0"],[440,60,0,"#ebedf0"],
+[451,0,0,"#ebedf0"],[451,10,0,"#ebedf0"],[451,20,0,"#ebedf0"],[451,30,0,"#ebedf0"],[451,40,0,"#ebedf0"],[451,50,0,"#ebedf0"],[451,60,0,"#ebedf0"],
+[462,0,0,"#ebedf0"],[462,10,0,"#ebedf0"],[462,20,0,"#ebedf0"],[462,30,0,"#ebedf0"],[462,40,0,"#ebedf0"],[462,50,11,"#196127"],[462,60,8,"#239a3b"],
+[473,0,8,"#239a3b"],[473,10,3,"#c6e48b"],[473,20,5,"#7bc96f"],[473,30,4,"#7bc96f"],[473,40,2,"#c6e48b"],[473,50,6,"#7bc96f"],[473,60,4,"#7bc96f"],
+[484,0,3,"#c6e48b"],[484,10,0,"#ebedf0"],[484,20,4,"#7bc96f"],[484,30,0,"#ebedf0"],[484,40,2,"#c6e48b"],[484,50,1,"#c6e48b"],[484,60,6,"#7bc96f"],
+[495,0,2,"#c6e48b"],[495,10,5,"#7bc96f"],[495,20,4,"#7bc96f"],[495,30,2,"#c6e48b"],[495,40,1,"#c6e48b"],[495,50,1,"#c6e48b"],[495,60,3,"#c6e48b"],
+[506,0,4,"#7bc96f"],[506,10,2,"#c6e48b"],[506,20,3,"#c6e48b"],[506,30,1,"#c6e48b"],[506,40,2,"#c6e48b"],[506,50,3,"#c6e48b"],[506,60,3,"#c6e48b"],
+[517,0,1,"#c6e48b"],[517,10,3,"#c6e48b"],[517,20,4,"#7bc96f"],[517,30,1,"#c6e48b"],[517,40,3,"#c6e48b"],[517,50,3,"#c6e48b"],[517,60,3,"#c6e48b"],
+[528,0,3,"#c6e48b"],[528,10,2,"#c6e48b"],[528,20,2,"#c6e48b"],[528,30,3,"#c6e48b"],[528,40,1,"#c6e48b"],[528,50,2,"#c6e48b"],[528,60,1,"#c6e48b"],
+[539,0,1,"#c6e48b"],[539,10,1,"#c6e48b"],[539,20,1,"#c6e48b"],[539,30,3,"#c6e48b"],[539,40,1,"#c6e48b"],[539,50,2,"#c6e48b"],[539,60,2,"#c6e48b"],
+[550,0,1,"#c6e48b"],[550,10,3,"#c6e48b"],[550,20,7,"#239a3b"],[550,30,6,"#7bc96f"],[550,40,1,"#c6e48b"],[550,50,2,"#c6e48b"],[550,60,1,"#c6e48b"],
+[561,0,13,"#196127"],[561,10,1,"#c6e48b"],[561,20,1,"#c6e48b"],[561,30,1,"#c6e48b"],[561,40,2,"#c6e48b"],[561,50,1,"#c6e48b"],[561,60,1,"#c6e48b"],
+[572,0,0,"#ebedf0"],[572,10,1,"#c6e48b"],[572,20,1,"#c6e48b"],[572,30,2,"#c6e48b"],[572,40,0,"#ebedf0"],
+]
+var maxContri = 0
+data.forEach(arr => maxContri = maxContri < arr[2] ? arr[2] : maxContri)
+console.log(`Max Contri is ${maxContri}`)
+
+const W = 900, H = 600
+
+let angX = 0.5, angY = -0.89, angZ = 0, angStep = 0.1
+let trnX = -210, trnY = 60, trnZ = 20, trnStep = 10
 
 
 var scene = new THREE.Scene()
@@ -23,8 +142,12 @@ var camera = new THREE.PerspectiveCamera(45, W / H, 1, 10000)
 
 var renderer = new THREE.WebGLRenderer({antialias: true})
 renderer.setSize(W, H)
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement)
 
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
 
 
 var geometry
@@ -38,37 +161,47 @@ scene.add(cubes)
 scene.add(new THREE.AmbientLight(0x212223));
 
 
-const NUM = 2
-var posX = -480, posY = 260, posZ = -170
-for(let i = 0; i < NUM; i++){
-  geometry = new THREE.BoxGeometry(50, 200, 50, 10, 10, 10)
-  material = new THREE.MeshLambertMaterial({color: 0xfffff})
+const NUM = 10
+var posX = -200, posY = 0, posZ = -100
+var maxHeight = 30, minHeight = 5, cubeHeight = 0
+for(let i = 0; i < data.length; i++){
+  cubeHeight = minHeight
+  if(maxContri > 0)
+    cubeHeight += data[i][2] * (maxHeight / maxContri)
+  geometry = new THREE.BoxGeometry(9, cubeHeight, 9)
+  material = new THREE.MeshLambertMaterial({color: data[i][3]})
   cube = new THREE.Mesh(geometry, material)
-  cube.position.set(posX, posY, posZ)
+  cube.castShadow = true
+  cube.receiveShadow = true
+  // cube.position.set(posX, posY, posZ)
+  cube.position.set(posX + data[i][0], posY + (cubeHeight / 2), posZ + (data[i][1]))
+  // cube.rotation.y = -0.3
   cubes.add(cube)
-  posX -= 50
-  posY -= 140
-  posZ += 50
+  // console.log(cube)
+  // posX -= 50
+  // posY -= 140
+  // posZ += 50
 }
+console.log(cubes)
 
-
-var dirLight = new THREE.DirectionalLight(0xffffff, 1)
-dirLight.position.set(-10, 0 ,100)
+var dirLight = new THREE.DirectionalLight(0xffffff, 1.2)
+dirLight.position.set(-40, 12, -10)
+dirLight.castShadow = true
 scene.add(dirLight)
 
 
 
-camera.position.z = 1000
+camera.position.z = 500
 scene.add(camera)
 
 rend = () => {
-  // cube.translateX = trnX
-  // cube.translateY = trnY
-  // cube.translateZ = trnZ
-  // cube.position.set(trnX, trnY, trnZ)
-  cube.rotation.x = angX
-  cube.rotation.y = angY
-  cube.rotation.z = angZ
+  cubes.translateX = trnX
+  cubes.translateY = trnY
+  cubes.translateZ = trnZ
+  cubes.position.set(trnX, trnY, trnZ)
+  cubes.rotation.x = angX
+  cubes.rotation.y = angY
+  cubes.rotation.z = angZ
   renderer.render(scene, camera)
 }
 var x = requestAnimationFrame(rend)
