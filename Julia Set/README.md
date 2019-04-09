@@ -13,4 +13,4 @@ An implementation of the Julia set. Read its [wiki](https://en.wikipedia.org/wik
     You will find the calls to respective functions in the code, if you need to change it.
 
 
-Check out its live example and play around [here](https://codepen.io/KayD33/pen/aQOvdV)
+Check out its live example and play around [here](https://codepen.io/KaustubhD/pen/aQOvdV)

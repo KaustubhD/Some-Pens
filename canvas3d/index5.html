@@ -53,16 +53,6 @@ arr2.reduce((acc, el, ind) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
  */
 
 
@@ -177,14 +167,9 @@ for(let i = 0; i < data.length; i++){
   cube.receiveShadow = true
   // cube.position.set(posX, posY, posZ)
   cube.position.set(posX + data[i][0], posY + (cubeHeight / 2), posZ + (data[i][1]))
-  // cube.rotation.y = -0.3
   cubes.add(cube)
-  // console.log(cube)
-  // posX -= 50
-  // posY -= 140
-  // posZ += 50
 }
-console.log(cubes)
+// console.log(cubes)
 
 var dirLight = new THREE.DirectionalLight(0xeeeeee, 1.3)
 dirLight.position.set(-40, 12, -10)
